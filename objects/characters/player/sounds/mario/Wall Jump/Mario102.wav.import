@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mario102.wav-7cc0cda3827cbb5d8a4554a991ff60e4.sample"
+
+[deps]
+
+source_file="res://objects/characters/player/sounds/mario/Wall Jump/Mario102.wav"
+dest_files=[ "res://.import/Mario102.wav-7cc0cda3827cbb5d8a4554a991ff60e4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

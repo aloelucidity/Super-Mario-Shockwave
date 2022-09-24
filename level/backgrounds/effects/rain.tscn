@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://level/backgrounds/effects/401275__inspectorj__rain-moderate-c.wav" type="AudioStream" id=1]
+[ext_resource path="res://level/backgrounds/effects/rain.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.8, 0.973333, 1, 0.815686, 0.8, 0.876667, 1, 0.733333 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 256, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.61
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.0
+scale_random = 0.7
+color_ramp = SubResource( 2 )
+
+[node name="Rain" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 256, 0 )
+z_as_relative = false
+amount = 1024
+lifetime = 0.5
+preprocess = 1.0
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -13.0
+autoplay = true
+bus = "Sounds"

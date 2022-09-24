@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mario64.wav-67776df12c2e2f0ae622ddd3d6a41b1d.sample"
+
+[deps]
+
+source_file="res://objects/characters/player/sounds/mario/Backflip/Mario64.wav"
+dest_files=[ "res://.import/Mario64.wav-67776df12c2e2f0ae622ddd3d6a41b1d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

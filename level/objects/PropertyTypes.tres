@@ -1,0 +1,40 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "enum Types {
+	TYPE_NIL, 
+	TYPE_BOOL,
+	TYPE_INT, 
+	TYPE_REAL, 
+	TYPE_STRING, 
+	TYPE_VECTOR2, 
+	TYPE_RECT2,
+	TYPE_VECTOR3,
+	TYPE_TRANSFORM2D,
+	TYPE_PLANE,
+	TYPE_QUAT,
+	TYPE_AABB,
+	TYPE_BASIS,
+	TYPE_TRANSFORM,
+	TYPE_COLOR,
+	TYPE_NODE_PATH,
+	TYPE_RID,
+	TYPE_OBJECT,
+	TYPE_DICTIONARY,
+	TYPE_ARRAY,
+	TYPE_RAW_ARRAY,
+	TYPE_INT_ARRAY,
+	TYPE_REAL_ARRAY,
+	TYPE_STRING_ARRAY,
+	TYPE_VECTOR2_ARRAY,
+	TYPE_VECTOR3_ARRAY,
+	TYPE_COLOR_ARRAY,
+	TYPE_MAX
+}
+
+export(Array, Types) var ids
+"
+
+[resource]
+script = SubResource( 1 )
+ids = [ 2, 4, 5, 4, 4, 4, 4, 4, 4, 14, 2, 24, 2, 2, 2 ]

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://level/objects/Property.gd" type="Script" id=1]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+key = "width"
+default = [ 24 ]
+type = 2
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 1 )
+key = "texture"
+default = [ 0 ]
+type = 2
+
+[sub_resource type="GDScript" id=1]
+script/source = "export(Array, Resource) var properties
+"
+
+[resource]
+script = SubResource( 1 )
+properties = [ SubResource( 2 ), SubResource( 3 ) ]

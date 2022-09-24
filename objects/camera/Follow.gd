@@ -1,0 +1,39 @@
+extends Camera2D
+
+export var follow_path : NodePath
+onready var follow = get_node(follow_path)
+
+export var follow_speed : float
+export var zoom_speed : float
+
+export var shake_intensity : float
+export var shake_time : float
+
+func _ready():
+	if "camera" in follow:
+		follow.camera = self
+
+func _physics_process(delta):
+	position.x = lerp(position.x, follow.global_position.x, delta * follow_speed)
+	position.y = lerp(position.y, follow.global_position.y, delta * follow_speed)
+	
+	if Input.is_action_pressed("zoom_out"):
+		var zoom_amount = Input.get_action_strength("zoom_out")
+		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)
+		zoom += Vector2(zoom_amount, zoom_amount)
+	if Input.is_action_pressed("zoom_in"):
+		var zoom_amount = Input.get_action_strength("zoom_in")
+		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)
+		zoom -= Vector2(zoom_amount, zoom_amount)
+
+	if shake_time > 0:
+		shake_update(delta)
+
+func shake_update(delta):
+	var intensity = shake_intensity * shake_time
+	offset.x = rand_range(0, 1) * intensity
+	offset.y = rand_range(0, 1) * intensity
+	
+	shake_time -= delta
+	if shake_time <= 0:
+		offset = Vector2()

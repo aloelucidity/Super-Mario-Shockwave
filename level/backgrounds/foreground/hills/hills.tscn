@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayhill2.png" type="Texture" id=1]
+[ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayhill1.png" type="Texture" id=2]
+[ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayBCKTERR1.png" type="Texture" id=3]
+[ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayBCKHILLS1.png" type="Texture" id=4]
+[ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayBCKTERR2.png" type="Texture" id=5]
+[ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayBCKHILLS2.png" type="Texture" id=6]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -49
+offset = Vector2( 0, -192 )
+transform = Transform2D( 1, 0, 0, 1, 0, -192 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer6"]
+position = Vector2( 0, 12 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer5"]
+position = Vector2( 0, 12 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.007, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 0, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.019, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 0, 12 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.032, 0 )
+motion_mirroring = Vector2( 484, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.063, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 2 )
+centered = false

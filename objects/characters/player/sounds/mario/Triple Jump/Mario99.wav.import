@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mario99.wav-920bca9a0534c7dc7a412436386ea614.sample"
+
+[deps]
+
+source_file="res://objects/characters/player/sounds/mario/Triple Jump/Mario99.wav"
+dest_files=[ "res://.import/Mario99.wav-920bca9a0534c7dc7a412436386ea614.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
