@@ -7,6 +7,7 @@ var collision
 
 var editor_body
 var editor_collision
+var part_width : int
 
 func _init():
 	list_path = object_path + "/PropertyList.tres"
@@ -26,10 +27,22 @@ func load_object():
 	
 	# visuals
 	sprite = NinePatchRect.new()
-	sprite.texture = load(object_path + "/wood.png")
-	sprite.axis_stretch_horizontal = sprite.AXIS_STRETCH_MODE_TILE
-	sprite.patch_margin_left = 16
-	sprite.patch_margin_right = 16
+	match(properties.texture):
+		0:
+			sprite.texture = load(object_path + "/wood.png")
+			sprite.axis_stretch_horizontal = sprite.AXIS_STRETCH_MODE_TILE
+			sprite.patch_margin_left = 16
+			sprite.patch_margin_right = 16
+			sprite.rect_size.y = 13
+			part_width = 8
+		1:
+			sprite.texture = load(object_path + "/moving.png")
+			sprite.axis_stretch_horizontal = sprite.AXIS_STRETCH_MODE_TILE
+			sprite.patch_margin_left = 7
+			sprite.patch_margin_right = 7
+			sprite.rect_size.y = 16
+			part_width = 8
+	
 	add_child(sprite)
 	
 	# editor
@@ -59,8 +72,7 @@ func change_property(key : String, new_value):
 
 # other
 func width_changed():
-	sprite.rect_size.x = 40 + properties.width
-	sprite.rect_size.y = 13
+	sprite.rect_size.x = sprite.patch_margin_left + sprite.patch_margin_right + (properties.width * part_width)
 	sprite.rect_position = -sprite.rect_size / 2
 	collision.shape.extents = Vector2(sprite.rect_size.x / 2, 1)
 	if current_mode == 1:

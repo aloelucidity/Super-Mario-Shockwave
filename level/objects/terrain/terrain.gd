@@ -26,7 +26,7 @@ func create_terrain():
 	body = KinematicBody2D.new()
 	terrain.shape_material = load(object_path + "/textures/grass/tileset.tres")
 	terrain.z_index = 2
-	terrain.add_points(properties["points"])
+	terrain.add_points(properties.points)
 	body.add_child(terrain)
 	body.add_child(collision)
 	add_child(body)
