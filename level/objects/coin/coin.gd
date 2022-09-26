@@ -43,6 +43,8 @@ func load_object():
 	return self
 
 func collect(_body):
+	Globals.coinCount += 1 
+	Globals.healthCount += 1
 	get_tree().get_current_scene().get_node("Globals/Coin").play()
 	visible = false
 	collision.call_deferred("set_disabled", true)
