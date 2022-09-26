@@ -60,7 +60,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("object_left"):
 		if obj_id > 2:
 			obj_id -= 1
-		obj_id = wrapi(obj_id - 1, 0, 4)
+		obj_id = wrapi(obj_id - 1, 0, 5)
 		if obj_id > 2:
 			obj_id += 1
 		update_icon()
@@ -68,7 +68,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("object_right"):
 		if obj_id > 2:
 			obj_id -= 1
-		obj_id = wrapi(obj_id + 1, 0, 4)
+		obj_id = wrapi(obj_id + 1, 0, 5)
 		if obj_id > 2:
 			obj_id += 1
 		update_icon()

@@ -10,9 +10,6 @@ script = ExtResource( 2 )
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 margin_right = 512.0
 margin_bottom = 288.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 512, 288 )
@@ -29,6 +26,3 @@ layer = 128
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 512.0
 margin_bottom = 288.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
