@@ -4,7 +4,7 @@
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
 [ext_resource path="res://level/Level.gd" type="Script" id=3]
 [ext_resource path="res://level/editor/camera.gd" type="Script" id=4]
-[ext_resource path="res://level/placement/Terrain.gd" type="Script" id=5]
+[ext_resource path="res://level/placement/Platform.gd" type="Script" id=5]
 [ext_resource path="res://music/editor_metal.ogg" type="AudioStream" id=6]
 [ext_resource path="res://level/objects/terrain/icon.png" type="Texture" id=7]
 [ext_resource path="res://level/editor/checker.png" type="Texture" id=8]
@@ -321,10 +321,17 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 9 )
+<<<<<<< HEAD
 margin_left = -9.75
 margin_top = -9.75
 margin_right = 518.25
 margin_bottom = 294.25
+=======
+margin_left = -8.25
+margin_top = -8.25
+margin_right = 519.75
+margin_bottom = 295.75
+>>>>>>> fe0b71b1ae739b1a42b04e8f531a6a07d3b62420
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -338,10 +345,17 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 9 )
+<<<<<<< HEAD
 margin_left = -27.0
 margin_top = -5.0
 margin_right = 245.0
 margin_bottom = 155.0
+=======
+margin_left = -6.0
+margin_top = -26.0
+margin_right = 266.0
+margin_bottom = 134.0
+>>>>>>> fe0b71b1ae739b1a42b04e8f531a6a07d3b62420
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true
