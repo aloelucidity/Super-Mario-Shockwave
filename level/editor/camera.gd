@@ -1,7 +1,5 @@
 extends Camera2D
 
-onready var cursor = $Cursor
-
 export var move_speed : float
 export var fast_speed : float
 export var zoom_speed : float
@@ -17,7 +15,7 @@ func change_zoom(zoom_amount):
 	zoom += Vector2(zoom_amount, zoom_amount)
 	get_parent().zoom = zoom
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("zoom_out") && can_zoom():
 		var zoom_amount = Input.get_action_strength("zoom_out")
 		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)

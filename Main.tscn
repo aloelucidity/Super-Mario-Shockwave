@@ -22,7 +22,7 @@
 [ext_resource path="res://hud/outer.png" type="Texture" id=21]
 [ext_resource path="res://hud/inner.png" type="Texture" id=22]
 [ext_resource path="res://fonts/MarioAndLuigi-0v99.ttf" type="DynamicFontData" id=23]
-[ext_resource path="res://level/backgrounds/effects/rain.tscn" type="PackedScene" id=24]
+[ext_resource path="res://level/backgrounds/effects/rain/rain.tscn" type="PackedScene" id=24]
 
 [sub_resource type="Resource" id=333]
 script = ExtResource( 8 )

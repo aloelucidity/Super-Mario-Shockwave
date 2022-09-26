@@ -4,16 +4,25 @@ var viewport
 
 var bg_map
 var fg_map
+var effect_map
 export var bg_id = 0
 export var fg_id = 0
+export var effect_id = 0
 
 func load_background(camera : Node = null, level : Level = null):
 	bg_id = level.get_area(level.persistent_data.current_area).background_id
 	fg_id = level.get_area(level.persistent_data.current_area).foreground_id
+	effect_id = level.get_area(level.persistent_data.current_area).effect_id
 	
 	bg_map = preload("res://level/backgrounds/background/IDMap.tres")
 	fg_map = preload("res://level/backgrounds/foreground/IDMap.tres")
+	effect_map = preload("res://level/backgrounds/effects/IDMap.tres")
 	viewport = $ViewportContainer/Viewport
+	
+	var effect_key = effect_map.ids[effect_id]
+	if effect_key != "none":
+		var effect = load("res://level/backgrounds/effects/" + effect_key + "/" + effect_key + ".tscn").instance()
+		$CanvasLayer.add_child(effect)
 	
 	var bg_key = bg_map.ids[bg_id]
 	var bg = load("res://level/backgrounds/background/" + bg_key + "/" + bg_key + ".tscn").instance()
@@ -30,6 +39,7 @@ func load_background(camera : Node = null, level : Level = null):
 		$CanvasLayer/ColorRect.queue_free()
 	
 	viewport.add_child(fg)
+	
 	
 	if is_instance_valid(camera):
 		$ViewportContainer/Viewport/Camera2D.camera = camera

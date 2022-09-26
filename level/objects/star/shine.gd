@@ -5,6 +5,6 @@ export var step := 0
 
 onready var rot = rotation_degrees
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	rot += speed
 	rotation_degrees = stepify(rot, step)

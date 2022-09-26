@@ -1,5 +1,7 @@
 extends Node2D
 
+var platform_type = 0
+var obj_id = 5
 var points = []
 var origin : Vector2
 
@@ -10,7 +12,7 @@ func _ready():
 	done_button.connect("pressed", self, "add_platform")
 	done_button.visible = false
 
-func click(cursor, obj_id):
+func click(cursor):
 	var click_range = 16 * get_parent().zoom.x
 	if points.size() > 2:
 		var first_point = points[0]
@@ -41,8 +43,10 @@ func add_platform():
 	var move_type = 1
 	if points.size() < 2:
 		move_type = 0
-	if points[0] != points[points.size() - 1]:
+	if points[0] != points[points.size() - 1] && platform_type == 0:
 		move_type = 2
+	elif points[0] != points[points.size() - 1]:
+		move_type = 3
 		
 	var data = {
 		"type_id": 5,
@@ -51,7 +55,8 @@ func add_platform():
 		},
 		"properties": {
 			"points": PoolVector2Array(points),
-			"move_type": move_type
+			"move_type": move_type,
+			"platform_type": platform_type
 		}
 	}
 	area.add_object(data, true)
@@ -65,3 +70,11 @@ func _unhandled_input(event):
 	if event.is_action_pressed("cancel_action"):
 		points.clear()
 		done_button.visible = false
+
+	if event.is_action_pressed("object_left"):
+		platform_type = wrapi(platform_type - 1, 0, 2)
+		get_parent().update_icon(platform_type)
+		
+	if event.is_action_pressed("object_right"):
+		platform_type = wrapi(platform_type + 1, 0, 2)
+		get_parent().update_icon(platform_type)

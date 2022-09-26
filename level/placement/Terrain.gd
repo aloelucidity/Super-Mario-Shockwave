@@ -1,8 +1,9 @@
 extends Node2D
 
+var obj_id = 3
 var points = []
 
-func click(cursor, obj_id):
+func click(cursor):
 	var click_range = 16 * get_parent().zoom.x
 	if points.size() > 2:
 		var first_point = points[0]
@@ -31,7 +32,7 @@ func add_terrain():
 	area.add_object(data, true)
 	points.clear()
 
-func _process(delta):
+func _process(_delta):
 	update()
 
 func _unhandled_input(event):

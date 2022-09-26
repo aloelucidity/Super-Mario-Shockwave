@@ -11,6 +11,7 @@ var editor_hitbox
 
 var moving
 var ready := true
+var direction := 1
 
 func _init():
 	list_path = object_path + "/PropertyList.tres"
@@ -35,25 +36,35 @@ func load_object():
 	add_child(line)
 	
 	path_follow = PathFollow2D.new()
-	if properties.move_type == 2:
+	if properties.move_type != 1:
 		path_follow.loop = false
 	path.add_child(path_follow)
 	
 	platform = Node2D.new()
-	platform.set_script(load("res://level/objects/platform/platform.gd"))
-	platform.current_mode = 1
-	platform.load_properties({
-		"properties": {
-			"width": properties.width,
-			"texture": properties.texture,
-		},
-		"base_properties": {},
-		"type_id": 1
-	})
+	if properties.platform_type == 0:
+		platform.set_script(preload("res://level/objects/platform/platform.gd"))
+		platform.current_mode = 1
+		platform.load_properties({
+			"properties": {
+				"width": properties.width,
+				"texture": properties.texture,
+			},
+			"base_properties": {},
+			"type_id": 1
+		})
+	elif properties.platform_type == 1:
+		platform.set_script(preload("res://level/objects/block/block.gd"))
+		platform.current_mode = 1
+		platform.load_properties({
+			"properties": {},
+			"base_properties": {},
+			"type_id": 6
+		})
 	platform.load_object()
 	add_child(platform)
 	
-	platform.player_detector.connect("body_entered", self, "player_collided")
+	if properties.platform_type == 0:
+		platform.player_detector.connect("body_entered", self, "player_collided")
 	
 	if current_mode == 1:
 		editor_hitbox = platform.get_node("Editor")
@@ -70,22 +81,24 @@ func player_collided(body):
 
 func _physics_process(delta):
 	# match statement REFUSED to work for some reason
-	if properties.move_type == 1 :
-			path_follow.offset += properties.speed
+	if properties.move_type == 1:
+		path_follow.offset += properties.speed
 	elif properties.move_type == 2:
-			if moving:
-				path_follow.offset += properties.speed
-			path_follow.unit_offset = clamp(path_follow.unit_offset, 0, 1)
-			if path_follow.unit_offset == 1:
-				moving = false
-				platform.modulate.a = lerp(platform.modulate.a, 0, delta * 6)
-				if platform.modulate.a <= 0.05:
-					path_follow.unit_offset = 0
-					ready = true
-			if ready:
-				platform.modulate.a = lerp(platform.modulate.a, 1, delta * 6)
+		if moving:
+			path_follow.offset += properties.speed
+		if path_follow.unit_offset == 1:
+			moving = false
+			platform.modulate.a = lerp(platform.modulate.a, 0, delta * 6)
+			if platform.modulate.a <= 0.05:
+				path_follow.unit_offset = 0
+				ready = true
+		if ready || moving:
+			platform.modulate.a = lerp(platform.modulate.a, 1, delta * 6)
+	elif properties.move_type == 3:
+		path_follow.offset += properties.speed * direction
+		if (path_follow.unit_offset == 1 && direction == 1) || (path_follow.unit_offset == 0 && direction == -1):
+			direction = -direction
 			
 	platform.position = path_follow.position
-	platform.body.position = Vector2() # hacky bugfix
 	if current_mode == 1:
 		editor_hitbox.position = platform.position

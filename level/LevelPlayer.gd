@@ -29,9 +29,9 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("test_level"):
-		get_tree().change_scene_to(load("res://level/LevelEditor.tscn"))
+		var _a = get_tree().change_scene_to(load("res://level/LevelEditor.tscn"))
 
-func load_background(camera):
+func load_background(_camera):
 	background = preload("res://level/backgrounds/Background.tscn").instance()
 	background.load_background(camera, level)
 	add_child(background)

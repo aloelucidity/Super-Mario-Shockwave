@@ -306,10 +306,16 @@ func bake_collision():
 	_weld_quads(last_quad, first_quad, 1.0)
 	var points: PoolVector2Array = PoolVector2Array()
 	# PT A
-	for quad in collision_quads:
-		points.push_back(
-			polygon.get_global_transform().xform_inv(get_global_transform().xform(quad.pt_a))
-		)
+	if polygon.is_inside_tree():
+		for quad in collision_quads:
+			points.push_back(
+				polygon.get_global_transform().xform_inv(get_global_transform().xform(quad.pt_a))
+			)
+	else:
+		for quad in collision_quads:
+			points.push_back(
+				polygon.get_transform().xform_inv(get_transform().xform(quad.pt_a))
+			)
 
 	polygon.polygon = points
 

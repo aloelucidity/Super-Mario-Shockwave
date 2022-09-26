@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/401275__inspectorj__rain-moderate-c.wav-df21bef773d958aab6d087a5088a9379.sample"
+
+[deps]
+
+source_file="res://level/backgrounds/effects/rain/401275__inspectorj__rain-moderate-c.wav"
+dest_files=[ "res://.import/401275__inspectorj__rain-moderate-c.wav-df21bef773d958aab6d087a5088a9379.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -2,8 +2,6 @@ extends Node2D
 
 onready var level = $Level
 onready var camera = $Camera2D
-onready var cursor = $Camera2D/Cursor
-onready var cursor_area = $Camera2D/Cursor/Area2D
 onready var placement = $Placement
 var zoom = Vector2(1, 1)
 
@@ -12,7 +10,6 @@ var selected_object
 var is_ui
 
 # temp
-var obj_id = 0
 var placement_tool = "res://level/placement/Terrain.gd"
 onready var id_map = preload("res://level/objects/IDMap.tres")
 #
@@ -44,7 +41,7 @@ func test_level():
 
 func _input(event):
 	if event.is_action_pressed("click") && !is_instance_valid(selected_object) && !is_ui:
-		placement.click(get_global_mouse_position(), obj_id)
+		placement.click(get_global_mouse_position())
 	if event.is_action_pressed("r_click") && is_instance_valid(selected_object) && !is_ui:
 		level.get_area(level.persistent_data.current_area).delete_object(selected_object, true)
 
@@ -56,25 +53,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("test_level"):
 		test_level()
 
-	# temp
-	if event.is_action_pressed("object_left"):
-		if obj_id > 2:
-			obj_id -= 1
-		obj_id = wrapi(obj_id - 1, 0, 4)
-		if obj_id > 2:
-			obj_id += 1
-		update_icon()
-		
-	if event.is_action_pressed("object_right"):
-		if obj_id > 2:
-			obj_id -= 1
-		obj_id = wrapi(obj_id + 1, 0, 4)
-		if obj_id > 2:
-			obj_id += 1
-		update_icon()
-	#
-
-func deselect_object(object):
+func deselect_object(_object):
 	if !is_instance_valid(selected_object): return
 	selected_object.modulate.a = 1
 	selected_object = null
@@ -98,7 +77,7 @@ func change_placement():
 	new_placement.set_script(load(placement_tool))
 	add_child(new_placement)
 	placement = new_placement
-	update_icon()
+	update_icon(0)
 
 func safe_entered():
 	is_ui = false
@@ -106,11 +85,15 @@ func safe_entered():
 func safe_exited():
 	is_ui = true
 
-func update_icon():
+func update_icon(obj_id):
 	if placement_tool == "res://level/placement/Terrain.gd":
 		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/icon.png")
 	elif placement_tool == "res://level/placement/Platform.gd":
-		$CanvasLayer/Icon.texture = load("res://level/objects/moving_platform/icon.png")
+		match(obj_id):
+			0:
+				$CanvasLayer/Icon.texture = load("res://level/objects/moving_platform/icon.png")
+			1:
+				$CanvasLayer/Icon.texture = load("res://level/objects/block/icon.png")
 	else:
 		var name = id_map.ids[obj_id]
 		$CanvasLayer/Icon.texture = load("res://level/objects/" + name + "/icon.png")

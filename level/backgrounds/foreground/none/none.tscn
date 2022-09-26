@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -49
+offset = Vector2( 0, -192 )
+transform = Transform2D( 1, 0, 0, 1, 0, -192 )
+scroll_ignore_camera_zoom = true

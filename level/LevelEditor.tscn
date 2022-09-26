@@ -53,7 +53,7 @@ extends TextureRect
 
 export var speed : float
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	rect_position += Vector2(speed, speed)
 	if rect_position.x > 0:
 		rect_position = Vector2(-16, -16)
@@ -65,7 +65,7 @@ extends TextureRect
 
 export var speed : float
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	rect_position += Vector2(-speed, speed)
 	if rect_position.x < -32:
 		rect_position = Vector2(0, -32)
@@ -273,6 +273,108 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FG" type="Control" parent="CanvasLayer"]
+margin_top = -24.0
+margin_right = 40.0
+margin_bottom = 16.0
+mouse_filter = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+target_path = NodePath("../../Level")
+prefix = "FG: "
+value = "foreground_id"
+max_val = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/FG"]
+anchor_top = -0.00625
+anchor_bottom = -0.00625
+margin_left = 27.9681
+margin_top = 259.442
+margin_right = 67.9681
+margin_bottom = 278.442
+custom_fonts/font = ExtResource( 10 )
+text = "FG: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="minus" type="Button" parent="CanvasLayer/FG"]
+margin_left = 7.22364
+margin_top = 255.782
+margin_right = 24.2236
+margin_bottom = 275.782
+focus_mode = 0
+enabled_focus_mode = 0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plus" type="Button" parent="CanvasLayer/FG"]
+margin_left = 69.7184
+margin_top = 255.782
+margin_right = 89.7184
+margin_bottom = 275.782
+focus_mode = 0
+enabled_focus_mode = 0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Effect" type="Control" parent="CanvasLayer"]
+margin_top = -48.0
+margin_right = 40.0
+margin_bottom = -8.0
+mouse_filter = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+target_path = NodePath("../../Level")
+prefix = "FX: "
+value = "effect_id"
+max_val = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Effect"]
+anchor_top = -0.00625
+anchor_bottom = -0.00625
+margin_left = 27.9681
+margin_top = 259.442
+margin_right = 67.9681
+margin_bottom = 278.442
+custom_fonts/font = ExtResource( 10 )
+text = "FX: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="minus" type="Button" parent="CanvasLayer/Effect"]
+margin_left = 7.22364
+margin_top = 255.782
+margin_right = 24.2236
+margin_bottom = 275.782
+focus_mode = 0
+enabled_focus_mode = 0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plus" type="Button" parent="CanvasLayer/Effect"]
+margin_left = 69.7184
+margin_top = 255.782
+margin_right = 89.7184
+margin_bottom = 275.782
+focus_mode = 0
+enabled_focus_mode = 0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WindowDialog" type="WindowDialog" parent="CanvasLayer"]
 margin_left = 20.5946
 margin_top = 45.1353
@@ -346,10 +448,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 9 )
-margin_left = -15.75
-margin_top = -15.75
-margin_right = 512.25
-margin_bottom = 288.25
+margin_left = -6.25
+margin_top = -6.25
+margin_right = 521.75
+margin_bottom = 297.75
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -363,10 +465,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 9 )
-margin_left = -4.25
-margin_top = -27.75
-margin_right = 267.75
-margin_bottom = 132.25
+margin_left = -0.25
+margin_top = -31.75
+margin_right = 271.75
+margin_bottom = 128.25
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true
@@ -390,3 +492,7 @@ speed = 0.25
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Test" to="." method="test_level"]
 [connection signal="pressed" from="CanvasLayer/BG/minus" to="CanvasLayer/BG" method="decrease"]
 [connection signal="pressed" from="CanvasLayer/BG/plus" to="CanvasLayer/BG" method="increase"]
+[connection signal="pressed" from="CanvasLayer/FG/minus" to="CanvasLayer/FG" method="decrease"]
+[connection signal="pressed" from="CanvasLayer/FG/plus" to="CanvasLayer/FG" method="increase"]
+[connection signal="pressed" from="CanvasLayer/Effect/minus" to="CanvasLayer/Effect" method="decrease"]
+[connection signal="pressed" from="CanvasLayer/Effect/plus" to="CanvasLayer/Effect" method="increase"]

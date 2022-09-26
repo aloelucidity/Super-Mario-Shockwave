@@ -10,7 +10,7 @@ export var min_val : int
 export var max_val : int
 
 func _ready():
-	for i in range(5):
+	for _i in range(5):
 		yield(get_tree(), "idle_frame")
 	target = get_node(target_path).get_area(0)
 	update_label()

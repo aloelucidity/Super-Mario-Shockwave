@@ -19,7 +19,7 @@ func _init():
 func load_object():	
 	# collision
 	body = KinematicBody2D.new()
-	body.set_sync_to_physics(true)
+	#body.set_sync_to_physics(true)
 	add_child(body)
 	
 	collision = CollisionShape2D.new()

@@ -107,7 +107,9 @@ static func encode_object(data : Dictionary):
 		strings.append("")
 	
 	# section 3
-	var properties_list = load(data.list_path)
+	var properties_list
+	if data.list_path != "":
+		properties_list = load(data.list_path)
 	var custom_string = ""
 	var encode_custom = []
 	for property in data.properties:

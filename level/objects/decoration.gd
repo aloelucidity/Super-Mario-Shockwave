@@ -7,6 +7,9 @@ var frames = 1
 var editor_area
 var editor_collision
 
+var editor_extents := Vector2(8, 8)
+var editor_offset := Vector2()
+
 # functions
 func load_object():
 	z_index = -2
@@ -27,9 +30,9 @@ func load_object():
 		add_child(editor_area)
 		
 		editor_collision = CollisionShape2D.new()
-		editor_collision.shape = CircleShape2D.new()
-		editor_collision.shape.radius = 8
-		editor_collision.position.y = -1
+		editor_collision.shape = RectangleShape2D.new()
+		editor_collision.shape.extents = editor_extents
+		editor_collision.position = editor_offset
 		editor_area.add_child(editor_collision)
 	
 	loaded = true
