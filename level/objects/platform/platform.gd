@@ -5,6 +5,9 @@ var sprite
 var body
 var collision
 
+var player_detector
+var player_collision
+
 var editor_body
 var editor_collision
 var part_width : int
@@ -45,12 +48,24 @@ func load_object():
 	
 	add_child(sprite)
 	
+	player_detector = Area2D.new()
+	player_detector.set_collision_layer_bit(0, false)
+	player_detector.set_collision_mask_bit(1, true)
+	player_detector.set_collision_mask_bit(0, false)
+	add_child(player_detector)
+	player_collision = CollisionShape2D.new()
+	player_collision.shape = RectangleShape2D.new()
+	player_collision.shape.extents.y = 2
+	player_collision.position.y = -6
+	player_detector.add_child(player_collision)
+	
 	# editor
 	if current_mode == 1:
 		editor_body = Area2D.new()
-		editor_body.set_collision_layer_bit(1, false)
+		editor_body.name = "Editor"
+		editor_body.set_collision_layer_bit(0, false)
 		editor_body.set_collision_layer_bit(19, true)
-		editor_body.set_collision_mask_bit(1, false)
+		editor_body.set_collision_mask_bit(0, false)
 		add_child(editor_body)
 		
 		editor_collision = CollisionShape2D.new()
@@ -75,5 +90,6 @@ func width_changed():
 	sprite.rect_size.x = sprite.patch_margin_left + sprite.patch_margin_right + (properties.width * part_width)
 	sprite.rect_position = -sprite.rect_size / 2
 	collision.shape.extents = Vector2(sprite.rect_size.x / 2, 1)
+	player_collision.shape.extents.x = sprite.rect_size.x / 2
 	if current_mode == 1:
 		editor_collision.shape.extents = Vector2(sprite.rect_size.x / 2, 5)

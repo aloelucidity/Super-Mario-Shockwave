@@ -60,7 +60,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("object_left"):
 		if obj_id > 2:
 			obj_id -= 1
-		obj_id = wrapi(obj_id - 1, 0, 5)
+		obj_id = wrapi(obj_id - 1, 0, 4)
 		if obj_id > 2:
 			obj_id += 1
 		update_icon()
@@ -68,7 +68,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("object_right"):
 		if obj_id > 2:
 			obj_id -= 1
-		obj_id = wrapi(obj_id + 1, 0, 5)
+		obj_id = wrapi(obj_id + 1, 0, 4)
 		if obj_id > 2:
 			obj_id += 1
 		update_icon()
@@ -109,12 +109,18 @@ func safe_exited():
 func update_icon():
 	if placement_tool == "res://level/placement/Terrain.gd":
 		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/icon.png")
+	elif placement_tool == "res://level/placement/Platform.gd":
+		$CanvasLayer/Icon.texture = load("res://level/objects/moving_platform/icon.png")
 	else:
 		var name = id_map.ids[obj_id]
 		$CanvasLayer/Icon.texture = load("res://level/objects/" + name + "/icon.png")
 
 func terrain_switch():
 	placement_tool = "res://level/placement/Terrain.gd"
+	change_placement()
+
+func platform_switch():
+	placement_tool = "res://level/placement/Platform.gd"
 	change_placement()
 
 func object_switch():

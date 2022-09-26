@@ -4,7 +4,7 @@
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
 [ext_resource path="res://level/Level.gd" type="Script" id=3]
 [ext_resource path="res://level/editor/camera.gd" type="Script" id=4]
-[ext_resource path="res://level/placement/Platform.gd" type="Script" id=5]
+[ext_resource path="res://level/placement/Terrain.gd" type="Script" id=5]
 [ext_resource path="res://music/editor_metal.ogg" type="AudioStream" id=6]
 [ext_resource path="res://level/objects/terrain/icon.png" type="Texture" id=7]
 [ext_resource path="res://level/editor/checker.png" type="Texture" id=8]
@@ -160,6 +160,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Platforms" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
+margin_left = 40.0
+margin_right = 119.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 32, 24 )
+focus_mode = 0
+custom_fonts/font = ExtResource( 10 )
+enabled_focus_mode = 0
+text = "Platforms"
+
 [node name="Terrain" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
 margin_left = 127.0
 margin_right = 188.0
@@ -306,6 +316,18 @@ __meta__ = {
 position = Vector2( 480, 260 )
 texture = ExtResource( 7 )
 
+[node name="LineDone" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 404.926
+margin_top = 255.782
+margin_right = 450.926
+margin_bottom = 277.782
+custom_fonts/font = ExtResource( 10 )
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = -99
 
@@ -324,10 +346,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 9 )
-margin_left = -8.25
-margin_top = -8.25
-margin_right = 519.75
-margin_bottom = 295.75
+margin_left = -15.75
+margin_top = -15.75
+margin_right = 512.25
+margin_bottom = 288.25
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -341,10 +363,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 9 )
-margin_left = -6.0
-margin_top = -26.0
-margin_right = 266.0
-margin_bottom = 134.0
+margin_left = -4.25
+margin_top = -27.75
+margin_right = 267.75
+margin_bottom = 132.25
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true
@@ -360,6 +382,7 @@ speed = 0.25
 [connection signal="area_exited" from="MouseArea" to="." method="cursor_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/MousePermitted" to="." method="safe_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MousePermitted" to="." method="safe_exited"]
+[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Platforms" to="." method="platform_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Terrain" to="." method="terrain_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Object" to="." method="object_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Copy" to="." method="save_level"]

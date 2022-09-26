@@ -28,9 +28,9 @@ func load_object():
 	# editor
 	if current_mode == 1:
 		editor_area = Area2D.new()
-		editor_area.set_collision_layer_bit(1, false)
+		editor_area.set_collision_layer_bit(0, false)
 		editor_area.set_collision_layer_bit(19, true)
-		editor_area.set_collision_mask_bit(1, false)
+		editor_area.set_collision_mask_bit(0, false)
 		add_child(editor_area)
 		
 		editor_collision = CollisionShape2D.new()
