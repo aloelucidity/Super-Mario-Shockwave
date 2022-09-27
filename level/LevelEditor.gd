@@ -87,7 +87,9 @@ func safe_exited():
 
 func update_icon(obj_id):
 	if placement_tool == "res://level/placement/Terrain.gd":
-		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/icon.png")
+		var texture_map = preload("res://level/objects/terrain/textures/IDMap.tres")
+		var texture_key = texture_map.ids[placement.texture_id]
+		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/textures/" + texture_key + "/icon.png")
 	elif placement_tool == "res://level/placement/Platform.gd":
 		match(obj_id):
 			0:

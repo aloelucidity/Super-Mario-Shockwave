@@ -1,5 +1,6 @@
 extends Node2D
 
+var texture_id = 0
 var obj_id = 3
 var points = []
 
@@ -26,7 +27,8 @@ func add_terrain():
 	var data = {
 		"type_id": 3,
 		"properties": {
-			"points": PoolVector2Array(points)
+			"points": PoolVector2Array(points),
+			"texture_id": texture_id
 		}
 	}
 	area.add_object(data, true)
@@ -38,3 +40,11 @@ func _process(_delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("cancel_action"):
 		points.clear()
+
+	if event.is_action_pressed("object_left"):
+		texture_id = wrapi(texture_id - 1, 0, 3)
+		get_parent().update_icon(texture_id)
+		
+	if event.is_action_pressed("object_right"):
+		texture_id = wrapi(texture_id + 1, 0, 3)
+		get_parent().update_icon(texture_id)

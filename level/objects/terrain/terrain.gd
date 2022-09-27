@@ -24,7 +24,11 @@ func create_terrain():
 	terrain = SS2D_Shape_Closed.new()
 	collision = CollisionPolygon2D.new()
 	body = KinematicBody2D.new()
-	terrain.shape_material = load(object_path + "/textures/grass/tileset.tres")
+	
+	var texture_map = preload("res://level/objects/terrain/textures/IDMap.tres")
+	var texture_key = texture_map.ids[properties.texture_id]
+	
+	terrain.shape_material = load(object_path + "/textures/" + texture_key + "/tileset.tres")
 	terrain.z_index = 2
 	terrain.add_points(properties.points)
 	body.add_child(terrain)

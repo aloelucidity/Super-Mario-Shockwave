@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-4800a2ab255e5d5ddeb310ada40dfc68.stex"
+path="res://.import/icon.png-09d7203b301beecf2f849246a2730e1b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/objects/terrain/icon.png"
-dest_files=[ "res://.import/icon.png-4800a2ab255e5d5ddeb310ada40dfc68.stex" ]
+source_file="res://level/objects/terrain/textures/moon/icon.png"
+dest_files=[ "res://.import/icon.png-09d7203b301beecf2f849246a2730e1b.stex" ]
 
 [params]
 
