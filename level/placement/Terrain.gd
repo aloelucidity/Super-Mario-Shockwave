@@ -1,5 +1,6 @@
 extends Node2D
 
+var is_bg = false
 var texture_id = 0
 var obj_id = 3
 var points = []
@@ -29,8 +30,13 @@ func add_terrain():
 		"properties": {
 			"points": PoolVector2Array(points),
 			"texture_id": texture_id
-		}
+		},
+		"base_properties": {}
 	}
+	if is_bg:
+		data.properties.solid = false
+		data.base_properties.z_index = -10
+		data.base_properties.tint = Color.darkgray
 	area.add_object(data, true)
 	points.clear()
 
@@ -47,4 +53,8 @@ func _unhandled_input(event):
 		
 	if event.is_action_pressed("object_right"):
 		texture_id = wrapi(texture_id + 1, 0, 3)
+		get_parent().update_icon(texture_id)
+
+	if event.is_action_pressed("object_mode"):
+		is_bg = !is_bg
 		get_parent().update_icon(texture_id)

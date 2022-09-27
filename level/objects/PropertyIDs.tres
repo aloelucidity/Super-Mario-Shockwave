@@ -6,4 +6,4 @@ script/source = "export(Array, String) var ids
 
 [resource]
 script = SubResource( 1 )
-ids = [ "type_id", "tag", "position", "music_url", "game_version", "level_name", "level_author", "level_description", "thumbnail_url", "tint", "z_index", "points", "background_id", "foreground_id", "effect_id", "move_type", "speed", "platform_type", "rotation_interval", "texture_id" ]
+ids = [ "type_id", "tag", "position", "music_url", "game_version", "level_name", "level_author", "level_description", "thumbnail_url", "tint", "z_index", "points", "background_id", "foreground_id", "effect_id", "move_type", "speed", "platform_type", "rotation_interval", "texture_id", "solid" ]

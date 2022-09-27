@@ -714,6 +714,7 @@ func _draw_flatten_meshes_array(meshes: Array) -> Array:
 
 func _draw():
 	var flat_meshes = _draw_flatten_meshes_array(_meshes)
+	flat_meshes.invert()
 	_create_rendering_nodes(flat_meshes.size())
 	var render_parent = _get_rendering_nodes_parent()
 	var render_nodes = render_parent.get_children()

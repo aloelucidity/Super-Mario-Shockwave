@@ -44,6 +44,6 @@ script = ExtResource( 1 )
 _edge_meta_materials = [ SubResource( 3 ) ]
 fill_textures = [ ExtResource( 6 ) ]
 fill_texture_normals = [  ]
-fill_texture_z_index = -1
+fill_texture_z_index = 0
 fill_mesh_offset = 0.0
 render_offset = 0.0

@@ -48,3 +48,6 @@ func create_editor():
 	editor_collision = CollisionPolygon2D.new()
 	editor_collision.polygon = collision.polygon
 	editor_area.add_child(editor_collision)
+	
+	if !properties.solid:
+		collision.call_deferred("queue_free")

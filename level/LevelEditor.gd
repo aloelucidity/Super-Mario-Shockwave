@@ -59,6 +59,7 @@ func deselect_object(_object):
 	selected_object = null
 
 func select_object(object):
+	if !$CanvasLayer/VBoxContainer/Select.pressed: return
 	selected_object = object
 	selected_object.modulate.a = 0.5
 
@@ -74,6 +75,7 @@ func change_placement():
 	placement.queue_free()
 	var new_placement = Node2D.new()
 	new_placement.name = "Placement"
+	new_placement.z_index = 100
 	new_placement.set_script(load(placement_tool))
 	add_child(new_placement)
 	placement = new_placement
@@ -90,6 +92,10 @@ func update_icon(obj_id):
 		var texture_map = preload("res://level/objects/terrain/textures/IDMap.tres")
 		var texture_key = texture_map.ids[placement.texture_id]
 		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/textures/" + texture_key + "/icon.png")
+		if placement.is_bg:
+			$CanvasLayer/Icon.modulate = Color.darkgray
+		else:
+			$CanvasLayer/Icon.modulate = Color.white
 	elif placement_tool == "res://level/placement/Platform.gd":
 		match(obj_id):
 			0:
