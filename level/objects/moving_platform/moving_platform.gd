@@ -1,6 +1,5 @@
 extends LevelObject
 
-var object_path = "res://level/objects/moving_platform"
 var path
 var path_follow
 var curve
@@ -14,6 +13,7 @@ var ready := true
 var direction := 1
 
 func _init():
+	object_path = "res://level/objects/moving_platform"
 	list_path = object_path + "/PropertyList.tres"
 
 # functions
@@ -36,8 +36,7 @@ func load_object():
 	add_child(line)
 	
 	path_follow = PathFollow2D.new()
-	if properties.move_type != 1:
-		path_follow.loop = false
+	path_follow.loop = (properties.move_type == 1)
 	path.add_child(path_follow)
 	
 	platform = Node2D.new()
@@ -63,8 +62,7 @@ func load_object():
 	platform.load_object()
 	add_child(platform)
 	
-	if properties.platform_type == 0:
-		platform.player_detector.connect("body_entered", self, "player_collided")
+	platform.player_detector.connect("body_entered", self, "player_collided")
 	
 	if current_mode == 1:
 		editor_hitbox = platform.get_node("Editor")
@@ -78,6 +76,14 @@ func player_collided(body):
 	if !body.grounded || !ready: return
 	moving = true
 	ready = false
+
+func change_property(key : String, new_value):
+	properties[key] = new_value
+	if key == "move_type":
+		path_follow.offset = 0
+		path_follow.loop = (properties.move_type == 1)
+		platform.modulate.a = 1
+		direction = 1
 
 func _physics_process(delta):
 	# match statement REFUSED to work for some reason

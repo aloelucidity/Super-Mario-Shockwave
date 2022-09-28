@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://level/editor/properties/IntProperty.gd" type="Script" id=2]
+
+[node name="IntProperty" type="Control"]
+margin_right = 156.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 156.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Property"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 20.0
+margin_right = 156.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 48 )
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 0
+follow_focus = true
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+margin_bottom = 60.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+custom_constants/separation = 0

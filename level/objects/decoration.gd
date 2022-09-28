@@ -1,7 +1,6 @@
 extends LevelObject
 class_name Decoration
 
-var object_path = "res://level/objects/coin"
 var frames = 1
 
 var editor_area

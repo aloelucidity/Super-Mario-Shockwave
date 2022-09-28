@@ -9,6 +9,7 @@ var base_properties_list
 
 export var properties : Dictionary
 export var list_path : String
+export var object_path : String
 var properties_list
 
 # not saved

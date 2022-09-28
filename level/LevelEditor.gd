@@ -3,6 +3,8 @@ extends Node2D
 onready var level = $Level
 onready var camera = $Camera2D
 onready var placement = $Placement
+onready var properties = $CanvasLayer/Properties
+onready var property_logic = $CanvasLayer/Properties/PropertyLogic
 var zoom = Vector2(1, 1)
 
 export var code = ""
@@ -42,6 +44,10 @@ func test_level():
 func _input(event):
 	if event.is_action_pressed("click") && !is_instance_valid(selected_object) && !is_ui:
 		placement.click(get_global_mouse_position())
+	elif event.is_action_pressed("click") && is_instance_valid(selected_object) && !is_ui:
+		properties.open()
+		property_logic.load_object(selected_object)
+		
 	if event.is_action_pressed("r_click") && is_instance_valid(selected_object) && !is_ui:
 		level.get_area(level.persistent_data.current_area).delete_object(selected_object, true)
 
@@ -93,10 +99,11 @@ func update_icon(obj_id):
 		var texture_key = texture_map.ids[placement.texture_id]
 		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/textures/" + texture_key + "/icon.png")
 		if placement.is_bg:
-			$CanvasLayer/Icon.modulate = Color.darkgray
+			$CanvasLayer/Icon.self_modulate = Color.darkgray
 		else:
-			$CanvasLayer/Icon.modulate = Color.white
+			$CanvasLayer/Icon.self_modulate = Color.white
 	elif placement_tool == "res://level/placement/Platform.gd":
+		$CanvasLayer/Icon.self_modulate = Color.white
 		match(obj_id):
 			0:
 				$CanvasLayer/Icon.texture = load("res://level/objects/moving_platform/icon.png")
@@ -105,6 +112,7 @@ func update_icon(obj_id):
 	else:
 		var name = id_map.ids[obj_id]
 		$CanvasLayer/Icon.texture = load("res://level/objects/" + name + "/icon.png")
+		$CanvasLayer/Icon.self_modulate = Color.white
 
 func terrain_switch():
 	placement_tool = "res://level/placement/Terrain.gd"

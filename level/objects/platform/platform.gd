@@ -1,6 +1,5 @@
 extends LevelObject
 
-var object_path = "res://level/objects/platform"
 var sprite
 var body
 var collision
@@ -13,6 +12,7 @@ var editor_collision
 var part_width : int
 
 func _init():
+	object_path = "res://level/objects/platform"
 	list_path = object_path + "/PropertyList.tres"
 
 # functions

@@ -1,9 +1,11 @@
 extends LevelObject
 
-var object_path = "res://level/objects/block"
 var sprite
 var body
 var collision
+
+var player_detector
+var player_collision
 
 var editor_body
 var editor_collision
@@ -13,13 +15,14 @@ var rotating : bool
 var current_step := 0
 
 func _init():
+	object_path = "res://level/objects/block"
 	list_path = object_path + "/PropertyList.tres"
 
 func _physics_process(delta):
 	if !rotating:
 		rotation_countdown -= delta
 		if rotation_countdown <= 0.5:
-			rotation_degrees = current_step + rand_range(-3, 3)
+			rotation_degrees = current_step + rand_range(-2, 2)
 		if rotation_countdown <= 0:
 			rotating = true
 			rotation_degrees = stepify(rotation_degrees, 90)
@@ -48,6 +51,16 @@ func load_object():
 	sprite = Sprite.new()
 	sprite.texture = load(object_path + "/moving.png")
 	add_child(sprite)
+	
+	player_detector = Area2D.new()
+	player_detector.set_collision_layer_bit(0, false)
+	player_detector.set_collision_mask_bit(1, true)
+	player_detector.set_collision_mask_bit(0, false)
+	add_child(player_detector)
+	player_collision = CollisionShape2D.new()
+	player_collision.shape = RectangleShape2D.new()
+	player_collision.shape.extents = Vector2(34, 34)
+	player_detector.add_child(player_collision)
 	
 	# editor
 	if current_mode == 1:

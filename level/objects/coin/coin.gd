@@ -1,11 +1,13 @@
 extends LevelObject
 
-var object_path = "res://level/objects/coin"
 var area
 var collision
 
 var editor_area
 var editor_collision
+
+func _init():
+	object_path = "res://level/objects/coin"
 
 # functions
 func load_object():

@@ -1,6 +1,5 @@
 extends LevelObject
 
-var object_path = "res://level/objects/terrain"
 var terrain 
 var collision
 var body
@@ -9,6 +8,7 @@ var editor_area
 var editor_collision
 
 func _init():
+	object_path = "res://level/objects/terrain"
 	list_path = object_path + "/PropertyList.tres"
 
 # functions
