@@ -6,4 +6,4 @@ script/source = "export(Array, Array) var properties
 
 [resource]
 script = SubResource( 1 )
-properties = [ [ "IntProperty", "move_type", "Movement Pattern", 4 ] ]
+properties = [ [ "IntProperty", "move_type", "Movement Pattern", [ 4 ] ], [ "FloatProperty", "speed", "Movement Speed", [ 0.0, 15.0, 0.5 ] ] ]

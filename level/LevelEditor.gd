@@ -56,26 +56,26 @@ func _unhandled_input(event):
 		save_level()
 	if event.is_action_pressed("load_level"):
 		load_level()
-	if event.is_action_pressed("test_level"):
+	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen"):
 		test_level()
 
-func deselect_object(_object):
+func deselect_object():
 	if !is_instance_valid(selected_object): return
 	selected_object.modulate.a = 1
 	selected_object = null
 
 func select_object(object):
-	if !$CanvasLayer/VBoxContainer/Select.pressed: return
+	if !$CanvasLayer/TopPanel/VBoxContainer/Select.pressed || is_ui: return
 	selected_object = object
 	selected_object.modulate.a = 0.5
 
 func cursor_entered(area):
-	deselect_object(area.get_parent())
+	deselect_object()
 	select_object(area.get_parent())
 
 func cursor_exited(area):
 	if selected_object == area.get_parent():
-		deselect_object(area.get_parent())
+		deselect_object()
 
 func change_placement():
 	placement.queue_free()
@@ -92,6 +92,7 @@ func safe_entered():
 
 func safe_exited():
 	is_ui = true
+	deselect_object()
 
 func update_icon(obj_id):
 	if placement_tool == "res://level/placement/Terrain.gd":

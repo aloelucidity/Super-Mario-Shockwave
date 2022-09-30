@@ -28,7 +28,7 @@ func _ready():
 	#
 
 func _unhandled_input(event):
-	if event.is_action_pressed("test_level"):
+	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen"):
 		var _a = get_tree().change_scene_to(load("res://level/LevelEditor.tscn"))
 
 func load_background(_camera):

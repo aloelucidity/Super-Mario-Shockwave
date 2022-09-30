@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://level/backgrounds/camera.gd" type="Script" id=1]
 [ext_resource path="res://level/backgrounds/Background.gd" type="Script" id=2]
+[ext_resource path="res://temp/Coins.tscn" type="PackedScene" id=3]
+[ext_resource path="res://temp/HP.tscn" type="PackedScene" id=4]
 
 [node name="Background" type="CanvasLayer"]
 layer = -50
@@ -32,3 +34,26 @@ margin_bottom = 288.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_right = 64.0
+margin_bottom = 288.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_left = 448.0
+margin_right = 512.0
+margin_bottom = 288.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="HP" parent="CanvasLayer" instance=ExtResource( 4 )]

@@ -15,6 +15,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 24, 24 )
+
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
 margin_right = 48.0

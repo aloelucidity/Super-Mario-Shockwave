@@ -79,6 +79,9 @@ func load_properties(data : Dictionary):
 	
 	setup_base_properties()
 
+func properties_ui_path():
+	return object_path + "/PropertyUI.tres"
+
 static func find_first_with_key(key : String, array : Array):
 	for property in array:
 		if property.key == key:
