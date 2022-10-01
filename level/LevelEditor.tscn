@@ -490,7 +490,6 @@ margin_right = 156.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_constants/separation = 80
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = -99
@@ -510,10 +509,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 6 )
-margin_left = -15.5
-margin_top = -15.5
-margin_right = 512.5
-margin_bottom = 288.5
+margin_left = -8.25
+margin_top = -8.25
+margin_right = 519.75
+margin_bottom = 295.75
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -527,10 +526,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 6 )
-margin_left = -29.75
-margin_top = -2.25
-margin_right = 242.25
-margin_bottom = 157.75
+margin_left = -30.75
+margin_top = -1.25
+margin_right = 241.25
+margin_bottom = 158.75
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true

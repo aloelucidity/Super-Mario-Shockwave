@@ -16,18 +16,18 @@ func change_zoom(zoom_amount):
 	get_parent().zoom = zoom
 
 func _physics_process(_delta):
-	if Input.is_action_pressed("zoom_out") && can_zoom():
+	if Input.is_action_pressed("zoom_out") && can_zoom() && Globals.control.get_focus_owner() == null:
 		var zoom_amount = Input.get_action_strength("zoom_out")
 		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)
 		change_zoom(zoom_amount)
 
-	if Input.is_action_pressed("zoom_in") && can_zoom():
+	if Input.is_action_pressed("zoom_in") && can_zoom() && Globals.control.get_focus_owner() == null:
 		var zoom_amount = Input.get_action_strength("zoom_in")
 		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)
 		change_zoom(-zoom_amount)
 	
 	var camera_movement = input_util.get_vector("editor_right", "editor_left", "editor_down", "editor_up")
-	if camera_movement.length() > 0.2:
+	if camera_movement.length() > 0.2 && Globals.control.get_focus_owner() == null:
 		var is_speed = Input.is_action_pressed("editor_speed")
 		var speed = (move_speed if !is_speed else fast_speed)
 		camera_movement.x = math_util.change_max(camera_movement.x, 1, speed)

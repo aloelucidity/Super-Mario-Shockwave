@@ -36,6 +36,7 @@ func load_object():
 	add_child(line)
 	
 	path_follow = PathFollow2D.new()
+	path_follow.unit_offset = properties.start_offset
 	path_follow.loop = (properties.move_type == 1)
 	path.add_child(path_follow)
 	
@@ -47,8 +48,11 @@ func load_object():
 			"properties": {
 				"width": properties.width,
 				"texture": properties.texture,
+				"rotation": properties.rotation
 			},
-			"base_properties": {},
+			"base_properties": {
+				"position": path_follow.position
+			},
 			"type_id": 1
 		})
 	elif properties.platform_type == 1:
@@ -56,7 +60,9 @@ func load_object():
 		platform.current_mode = 1
 		platform.load_properties({
 			"properties": {},
-			"base_properties": {},
+			"base_properties": {
+				"position": path_follow.position
+			},
 			"type_id": 6
 		})
 	platform.load_object()
@@ -68,7 +74,7 @@ func load_object():
 		editor_hitbox = platform.get_node("Editor")
 		platform.remove_child(editor_hitbox)
 		add_child(editor_hitbox)
-
+	
 	loaded = true
 	return self
 
@@ -80,10 +86,12 @@ func player_collided(body):
 func change_property(key : String, new_value):
 	properties[key] = new_value
 	if key == "move_type":
-		path_follow.offset = 0
+		path_follow.unit_offset = properties.start_offset
 		path_follow.loop = (properties.move_type == 1)
 		platform.modulate.a = 1
 		direction = 1
+	if key == "start_offset":
+		path_follow.unit_offset = new_value
 
 func _physics_process(delta):
 	# match statement REFUSED to work for some reason
@@ -92,11 +100,11 @@ func _physics_process(delta):
 	elif properties.move_type == 2:
 		if moving:
 			path_follow.offset += properties.speed
-		if path_follow.unit_offset == 1:
+		if path_follow.unit_offset == 1 && !ready:
 			moving = false
 			platform.modulate.a = lerp(platform.modulate.a, 0, delta * 6)
 			if platform.modulate.a <= 0.05:
-				path_follow.unit_offset = 0
+				path_follow.unit_offset = properties.start_offset
 				ready = true
 		if ready || moving:
 			platform.modulate.a = lerp(platform.modulate.a, 1, delta * 6)

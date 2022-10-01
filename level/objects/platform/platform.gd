@@ -74,6 +74,7 @@ func load_object():
 		editor_collision.position.y = -1
 		editor_body.add_child(editor_collision)
 	
+	rotation_degrees = properties.rotation
 	width_changed()
 	loaded = true
 	return self
