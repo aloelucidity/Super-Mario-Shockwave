@@ -4,6 +4,7 @@ export var code = ""
 onready var control = Control.new()
 
 var muted
+var level
 
 func _ready():
 	add_child(control)

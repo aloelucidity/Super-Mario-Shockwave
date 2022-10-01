@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outer.png-043f6cbcbb6d31c02a6be26affc71ba7.stex"
+path="res://.import/outer.png-a151e4ab678b617ad9012bfec08ed3a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hud/outer.png"
-dest_files=[ "res://.import/outer.png-043f6cbcbb6d31c02a6be26affc71ba7.stex" ]
+source_file="res://level/hud/outer.png"
+dest_files=[ "res://.import/outer.png-a151e4ab678b617ad9012bfec08ed3a7.stex" ]
 
 [params]
 

@@ -5,6 +5,8 @@ onready var camera = $Camera2D
 onready var placement = $Placement
 onready var properties = $CanvasLayer/Properties
 onready var property_logic = $CanvasLayer/Properties/PropertyLogic
+onready var code_window = $CanvasLayer/LevelCode
+onready var code_handler = $CanvasLayer/LevelCode/CodeHandler
 var zoom = Vector2(1, 1)
 
 export var code = ""
@@ -28,14 +30,11 @@ func _ready():
 	
 	var decode = LevelCode.decode_level(code)
 	level.load_level(decode)
+	Globals.level = level
 
-func load_level():
-	Globals.code = OS.clipboard
-	var _scene = get_tree().reload_current_scene()
-
-func save_level():
-	var encode = LevelCode.encode_level(level.save_level())
-	OS.clipboard = encode
+func open_code():
+	code_window.open()
+	code_handler.open(level)
 
 func test_level():
 	Globals.code = LevelCode.encode_level(level.save_level())
@@ -52,10 +51,6 @@ func _input(event):
 		level.get_area(level.persistent_data.current_area).delete_object(selected_object, true)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("save_level"):
-		save_level()
-	if event.is_action_pressed("load_level"):
-		load_level()
 	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen"):
 		test_level()
 

@@ -46,6 +46,7 @@ func load_object():
 
 func collect(_body):
 	get_tree().get_current_scene().get_node("Globals/Coin").play()
+	Globals.level.collect_coin()
 	visible = false
 	collision.call_deferred("set_disabled", true)
 	area.call_deferred("set_collision_mask_bit", 1, false)

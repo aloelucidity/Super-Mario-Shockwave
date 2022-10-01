@@ -1,7 +1,12 @@
 extends Control
 
+export var window_name : String
+
 var mouse_over : bool
 var rect_offset
+
+func _enter_tree():
+	$Label.text = window_name
 
 func open():
 	visible = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://level/hud/Coins.tscn" type="PackedScene" id=3]
+[ext_resource path="res://temp/HP.tscn" type="PackedScene" id=4]
+
+[node name="HUD" type="CanvasLayer"]
+layer = -50
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Coins" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="HP" parent="CanvasLayer" instance=ExtResource( 4 )]

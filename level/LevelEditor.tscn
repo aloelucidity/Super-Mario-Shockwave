@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://level/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
@@ -12,10 +12,13 @@
 [ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=10]
 [ext_resource path="res://level/editor/TopPanel.gd" type="Script" id=11]
 [ext_resource path="res://level/editor/boxoutline-1.png" type="Texture" id=12]
-[ext_resource path="res://level/PropertyLogic.gd" type="Script" id=13]
-[ext_resource path="res://level/editor/Window.tscn" type="PackedScene" id=14]
+[ext_resource path="res://level/editor/windows/PropertyLogic.gd" type="Script" id=13]
+[ext_resource path="res://level/editor/windows/Window.tscn" type="PackedScene" id=14]
 [ext_resource path="res://level/editor/tab.png" type="Texture" id=15]
 [ext_resource path="res://level/editor/tab2.png" type="Texture" id=16]
+[ext_resource path="res://fonts/arialbd.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://fonts/arialbi.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://level/editor/windows/CodeHandler.gd" type="Script" id=19]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -28,17 +31,25 @@ colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.727738, 0.306904, 1, 1, 0.74902
 gradient = SubResource( 2 )
 width = 513
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="DynamicFont" id=4]
+size = 6
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = ExtResource( 18 )
+
+[sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 0.188235, 0.105882, 0.419608, 1, 0.0901961, 0.0705882, 0.0941176, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 width = 512
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=8]
 blend_mode = 2
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=9]
 script/source = "tool
 extends TextureRect
 
@@ -50,7 +61,7 @@ func _physics_process(_delta):
 		rect_position = Vector2(-16, -16)
 "
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="GDScript" id=10]
 script/source = "tool
 extends TextureRect
 
@@ -191,8 +202,8 @@ __meta__ = {
 }
 
 [node name="Platforms" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 40.0
-margin_right = 119.0
+margin_left = 140.0
+margin_right = 219.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
@@ -201,8 +212,8 @@ enabled_focus_mode = 0
 text = "Platforms"
 
 [node name="Terrain" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 127.0
-margin_right = 188.0
+margin_left = 227.0
+margin_right = 288.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
@@ -211,8 +222,8 @@ enabled_focus_mode = 0
 text = "Terrain"
 
 [node name="Object" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 196.0
-margin_right = 258.0
+margin_left = 296.0
+margin_right = 358.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
@@ -220,25 +231,15 @@ custom_fonts/font = ExtResource( 10 )
 enabled_focus_mode = 0
 text = "Objects"
 
-[node name="Copy" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 266.0
-margin_right = 354.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Copy Level"
-
-[node name="Paste" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 362.0
+[node name="Code" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
+margin_left = 366.0
 margin_right = 455.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 10 )
 enabled_focus_mode = 0
-text = "Paste Level"
+text = "Level Code"
 
 [node name="Test" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
 margin_left = 463.0
@@ -469,6 +470,7 @@ __meta__ = {
 
 [node name="Properties" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false
+window_name = "Properties"
 
 [node name="PropertyLogic" type="ScrollContainer" parent="CanvasLayer/Properties"]
 anchor_left = -0.036
@@ -491,6 +493,87 @@ rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
+[node name="LevelCode" parent="CanvasLayer" instance=ExtResource( 14 )]
+visible = false
+window_name = "Level Code"
+
+[node name="CodeHandler" type="ScrollContainer" parent="CanvasLayer/LevelCode"]
+anchor_left = -0.036
+anchor_top = 0.01
+anchor_bottom = 0.01
+margin_left = 5.616
+margin_top = -1.91
+margin_right = 156.0
+margin_bottom = 189.09
+follow_focus = true
+scroll_horizontal_enabled = false
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="VBoxContainer" parent="CanvasLayer/LevelCode/CodeHandler"]
+margin_right = 156.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 156, 0 )
+rect_clip_content = true
+size_flags_vertical = 0
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/LevelCode/CodeHandler/Control"]
+margin_right = 156.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
+custom_fonts/font = SubResource( 4 )
+wrap_enabled = true
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/LevelCode/CodeHandler/Control"]
+margin_top = 124.0
+margin_right = 156.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 0, 22 )
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Copy" type="Button" parent="CanvasLayer/LevelCode/CodeHandler/Control/Buttons"]
+margin_right = 78.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 78, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 10 )
+enabled_focus_mode = 0
+text = "Copy All"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="CanvasLayer/LevelCode/CodeHandler/Control/Buttons"]
+margin_left = 78.0
+margin_right = 156.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 78, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 10 )
+enabled_focus_mode = 0
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelCode/CodeHandler/Control"]
+margin_top = 150.0
+margin_right = 156.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 0, 40 )
+rect_clip_content = true
+custom_fonts/font = SubResource( 5 )
+text = "Paste a code into the box and click \"Load\" to play someone else's level!
+Or, share your own code around! "
+align = 1
+autowrap = true
+clip_text = true
+
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = -99
 
@@ -499,7 +582,7 @@ margin_top = 288.0
 margin_right = 288.0
 margin_bottom = 800.0
 rect_rotation = -90.0
-texture = SubResource( 5 )
+texture = SubResource( 7 )
 expand = true
 __meta__ = {
 "_edit_lock_": true,
@@ -508,15 +591,15 @@ __meta__ = {
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
-material = SubResource( 6 )
-margin_left = -5.25
-margin_top = -5.25
-margin_right = 522.75
-margin_bottom = 298.75
+material = SubResource( 8 )
+margin_left = -1.75
+margin_top = -1.75
+margin_right = 526.25
+margin_bottom = 302.25
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
-script = SubResource( 7 )
+script = SubResource( 9 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -525,16 +608,16 @@ speed = 0.25
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
-material = SubResource( 6 )
-margin_left = -10.75
-margin_top = -21.25
-margin_right = 261.25
-margin_bottom = 138.75
+material = SubResource( 8 )
+margin_left = -4.0
+margin_top = -28.0
+margin_right = 268.0
+margin_bottom = 132.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
-script = SubResource( 8 )
+script = SubResource( 10 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -549,8 +632,7 @@ speed = 0.25
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Platforms" to="." method="platform_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Terrain" to="." method="terrain_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Object" to="." method="object_switch"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Copy" to="." method="save_level"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Paste" to="." method="load_level"]
+[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Code" to="." method="open_code"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Test" to="." method="test_level"]
 [connection signal="pressed" from="CanvasLayer/BG/minus" to="CanvasLayer/BG" method="decrease"]
 [connection signal="pressed" from="CanvasLayer/BG/plus" to="CanvasLayer/BG" method="increase"]
@@ -558,3 +640,6 @@ speed = 0.25
 [connection signal="pressed" from="CanvasLayer/FG/plus" to="CanvasLayer/FG" method="increase"]
 [connection signal="pressed" from="CanvasLayer/Effect/minus" to="CanvasLayer/Effect" method="decrease"]
 [connection signal="pressed" from="CanvasLayer/Effect/plus" to="CanvasLayer/Effect" method="increase"]
+[connection signal="text_changed" from="CanvasLayer/LevelCode/CodeHandler/Control/TextEdit" to="CanvasLayer/LevelCode/CodeHandler" method="update_copy"]
+[connection signal="pressed" from="CanvasLayer/LevelCode/CodeHandler/Control/Buttons/Copy" to="CanvasLayer/LevelCode/CodeHandler" method="copy_code"]
+[connection signal="pressed" from="CanvasLayer/LevelCode/CodeHandler/Control/Buttons/Load" to="CanvasLayer/LevelCode/CodeHandler" method="load_code"]

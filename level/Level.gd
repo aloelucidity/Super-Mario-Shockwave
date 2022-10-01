@@ -11,8 +11,15 @@ export(Array, Dictionary) var area_data
 var area_node
 
 var persistent_data : Dictionary = {
-	"current_area": 0
+	"current_area": 0,
+	"coins": 0
 }
+
+signal coin_collected
+
+func collect_coin(amount : int = 1):
+	persistent_data.coins += amount
+	emit_signal("coin_collected")
 
 func save_level():
 	var data = {

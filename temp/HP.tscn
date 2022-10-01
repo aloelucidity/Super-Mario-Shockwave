@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/MarioAndLuigi-0v99.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://hud/inner.png" type="Texture" id=2]
-[ext_resource path="res://hud/outer.png" type="Texture" id=3]
+[ext_resource path="res://level/hud/inner.png" type="Texture" id=2]
+[ext_resource path="res://level/hud/outer.png" type="Texture" id=3]
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 render_mode unshaded;
  
@@ -34,33 +34,33 @@ void fragment()
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/intensity = 4.0
 shader_param/r_vertical = 0.0
 shader_param/g_vertical = 0.25
 shader_param/b_vertical = 0.35
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 size = 112
 outline_size = 18
 extra_spacing_char = 8
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
 shader_param/intensity = 2.0
 shader_param/r_vertical = 6.0
 shader_param/g_vertical = 0.0
 shader_param/b_vertical = null
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 size = 112
 outline_color = Color( 0.156863, 0.133333, 0.321569, 1 )
 extra_spacing_char = 8
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=6]
 size = 192
 outline_size = 4
 font_data = ExtResource( 1 )
@@ -88,7 +88,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="Inner" type="Sprite" parent="."]
-material = SubResource( 5 )
+material = SubResource( 2 )
 position = Vector2( 0, 39 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
@@ -98,30 +98,57 @@ margin_left = -60.0
 margin_top = -8.0
 margin_right = -20.0
 margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="POWER"]
+margin_left = -141.529
+margin_top = -232.539
+margin_right = -125.529
+margin_bottom = -212.539
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="POWER"]
+margin_left = 237.201
+margin_top = -238.562
+margin_right = 253.201
+margin_bottom = -218.562
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="POWER"]
 margin_left = -168.0
 margin_top = -256.0
 margin_right = 248.0
 margin_bottom = -132.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "POWER"
 
 [node name="Label3" type="Label" parent="POWER"]
-material = SubResource( 7 )
+material = SubResource( 4 )
 margin_left = -168.0
 margin_top = -256.0
 margin_right = 288.0
 margin_bottom = -130.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.156863, 0.133333, 0.321569, 1 )
 text = "POWER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="."]
 margin_left = -59.0
 margin_top = -88.0
 margin_right = 60.0
 margin_bottom = 97.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}

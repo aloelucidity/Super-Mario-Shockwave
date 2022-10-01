@@ -6,6 +6,7 @@ export var code = ""
 var player
 var camera
 var background
+var hud
 
 func _init():
 	seed(0)
@@ -19,10 +20,12 @@ func _ready():
 	
 	var decode = LevelCode.decode_level(code)
 	level.load_level(decode)
+	Globals.level = level
 	
 	spawn_player()
 	spawn_camera()
 	load_background(camera)
+	load_hud()
 	# temp
 	add_child(preload("res://Globals.tscn").instance())
 	#
@@ -35,6 +38,10 @@ func load_background(_camera):
 	background = preload("res://level/backgrounds/Background.tscn").instance()
 	background.load_background(camera, level)
 	add_child(background)
+
+func load_hud():
+	hud = preload("res://level/hud/HUD.tscn").instance()
+	add_child(hud)
 
 func spawn_player():
 	player = preload("res://objects/characters/player/Player.tscn").instance()
