@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "export(Array, Array) var properties
+"
+
+[resource]
+script = SubResource( 1 )
+properties = [ [ "IntProperty", "move_type", "Movement Pattern", [ 4 ] ], [ "FloatProperty", "speed", "Movement Speed", [ 0.0, 15.0, 0.5 ] ], [ "SliderProperty", "start_offset", "Start at", [ 0.0, 1.0, 0.05 ] ], [ "IntProperty2", "width", "Platform Width", [ 1, 99, 1 ] ] ]

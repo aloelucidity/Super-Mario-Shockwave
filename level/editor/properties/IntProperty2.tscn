@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://level/editor/properties/IntProperty2.gd" type="Script" id=2]
+[ext_resource path="res://fonts/arialbd.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://misc/stupid_lineedit_workaround.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 3 )
+
+[node name="IntProperty" type="Control"]
+margin_right = 156.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 144.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Property"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 25.0
+margin_top = 20.0
+margin_right = 119.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "00000000"
+align = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minus" type="Button" parent="."]
+margin_top = 20.0
+margin_right = 25.0
+margin_bottom = 46.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Plus" type="Button" parent="."]
+margin_left = 119.0
+margin_top = 20.0
+margin_right = 144.0
+margin_bottom = 46.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_entered" from="LineEdit" to="." method="text_entered"]
+[connection signal="pressed" from="Minus" to="." method="increment_value" binds= [ -1 ]]
+[connection signal="pressed" from="Plus" to="." method="increment_value" binds= [ 1 ]]

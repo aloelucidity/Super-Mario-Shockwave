@@ -16,6 +16,10 @@ func _init():
 	object_path = "res://level/objects/moving_platform"
 	list_path = object_path + "/PropertyList.tres"
 
+func _enter_tree():
+	yield(get_tree(), "idle_frame")
+	path_follow.unit_offset = properties.start_offset
+
 # functions
 func load_object():	
 	path = Path2D.new()
@@ -92,6 +96,8 @@ func change_property(key : String, new_value):
 		direction = 1
 	if key == "start_offset":
 		path_follow.unit_offset = new_value
+	if key == "width":
+		platform.change_property(key, new_value)
 
 func _physics_process(delta):
 	# match statement REFUSED to work for some reason
@@ -112,7 +118,12 @@ func _physics_process(delta):
 		path_follow.offset += properties.speed * direction
 		if (path_follow.unit_offset == 1 && direction == 1) || (path_follow.unit_offset == 0 && direction == -1):
 			direction = -direction
-			
+	
 	platform.position = path_follow.position
 	if current_mode == 1:
 		editor_hitbox.position = platform.position
+
+func properties_ui_path():
+	if properties.platform_type == 0:
+		return object_path + "/PropertyUIPlatform.tres"
+	return object_path + "/PropertyUI.tres"

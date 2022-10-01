@@ -94,3 +94,6 @@ func width_changed():
 	player_collision.shape.extents.x = sprite.rect_size.x / 2
 	if current_mode == 1:
 		editor_collision.shape.extents = Vector2(sprite.rect_size.x / 2, 5)
+
+func properties_ui_path():
+	return object_path + "/PropertyUI.tres"
