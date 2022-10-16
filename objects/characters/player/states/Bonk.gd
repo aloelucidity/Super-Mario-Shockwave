@@ -17,7 +17,7 @@ func is_wall():
 	return character.test_move(character.get_transform(), Vector2(character.facing_direction * 2, 0))
 
 func _start_check(delta):
-	return character.state == dive_state && is_wall()
+	return character.state == dive_state && is_wall() && abs(character.velocity.x) > 15 && !character.grounded
 
 func _start(delta):
 	direction = character.facing_direction

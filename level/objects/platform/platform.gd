@@ -80,7 +80,7 @@ func load_object():
 	return self
 
 # properties
-func change_property(key : String, new_value):
+func set_property(key : String, new_value):
 	properties[key] = new_value
 	match(key):
 		"width":

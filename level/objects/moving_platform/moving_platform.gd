@@ -87,7 +87,7 @@ func player_collided(body):
 	moving = true
 	ready = false
 
-func change_property(key : String, new_value):
+func set_property(key : String, new_value):
 	properties[key] = new_value
 	if key == "move_type":
 		path_follow.unit_offset = properties.start_offset
@@ -97,7 +97,7 @@ func change_property(key : String, new_value):
 	if key == "start_offset":
 		path_follow.unit_offset = new_value
 	if key == "width":
-		platform.change_property(key, new_value)
+		platform.set_property(key, new_value)
 
 func _physics_process(delta):
 	# match statement REFUSED to work for some reason

@@ -8,7 +8,6 @@
 [ext_resource path="res://music/editor_metal.ogg" type="AudioStream" id=6]
 [ext_resource path="res://level/objects/terrain/textures/grass/icon.png" type="Texture" id=7]
 [ext_resource path="res://level/editor/checker.png" type="Texture" id=8]
-[ext_resource path="res://temp/editvalue.gd" type="Script" id=9]
 [ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=10]
 [ext_resource path="res://level/editor/TopPanel.gd" type="Script" id=11]
 [ext_resource path="res://level/editor/boxoutline-1.png" type="Texture" id=12]
@@ -19,6 +18,7 @@
 [ext_resource path="res://fonts/arialbd.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://fonts/arialbi.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://level/editor/windows/CodeHandler.gd" type="Script" id=19]
+[ext_resource path="res://level/editor/windows/LevelSettings.gd" type="Script" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -202,8 +202,8 @@ __meta__ = {
 }
 
 [node name="Platforms" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 140.0
-margin_right = 219.0
+margin_left = 66.0
+margin_right = 145.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
@@ -212,8 +212,8 @@ enabled_focus_mode = 0
 text = "Platforms"
 
 [node name="Terrain" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 227.0
-margin_right = 288.0
+margin_left = 153.0
+margin_right = 214.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
@@ -222,8 +222,8 @@ enabled_focus_mode = 0
 text = "Terrain"
 
 [node name="Object" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 296.0
-margin_right = 358.0
+margin_left = 222.0
+margin_right = 284.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
@@ -232,14 +232,24 @@ enabled_focus_mode = 0
 text = "Objects"
 
 [node name="Code" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 366.0
-margin_right = 455.0
+margin_left = 292.0
+margin_right = 381.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 32, 24 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 10 )
 enabled_focus_mode = 0
 text = "Level Code"
+
+[node name="Settings" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
+margin_left = 389.0
+margin_right = 455.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 32, 24 )
+focus_mode = 0
+custom_fonts/font = ExtResource( 10 )
+enabled_focus_mode = 0
+text = "Settings"
 
 [node name="Test" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
 margin_left = 463.0
@@ -273,167 +283,6 @@ toggle_mode = true
 pressed = true
 enabled_focus_mode = 0
 text = "SEL"
-
-[node name="BG" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-mouse_filter = 2
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-target_path = NodePath("../../Level")
-prefix = "BG: "
-value = "background_id"
-max_val = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/BG"]
-anchor_top = -0.00625
-anchor_bottom = -0.00625
-margin_left = 27.9681
-margin_top = 259.442
-margin_right = 67.9681
-margin_bottom = 278.442
-custom_fonts/font = ExtResource( 10 )
-text = "BG: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="minus" type="Button" parent="CanvasLayer/BG"]
-margin_left = 7.22364
-margin_top = 255.31
-margin_right = 24.2236
-margin_bottom = 275.31
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="plus" type="Button" parent="CanvasLayer/BG"]
-margin_left = 69.7184
-margin_top = 255.31
-margin_right = 89.7184
-margin_bottom = 275.31
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FG" type="Control" parent="CanvasLayer"]
-margin_top = -24.0
-margin_right = 40.0
-margin_bottom = 16.0
-mouse_filter = 2
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-target_path = NodePath("../../Level")
-prefix = "FG: "
-value = "foreground_id"
-max_val = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/FG"]
-anchor_top = -0.00625
-anchor_bottom = -0.00625
-margin_left = 27.9681
-margin_top = 259.442
-margin_right = 67.9681
-margin_bottom = 278.442
-custom_fonts/font = ExtResource( 10 )
-text = "FG: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="minus" type="Button" parent="CanvasLayer/FG"]
-margin_left = 7.22364
-margin_top = 255.31
-margin_right = 24.2236
-margin_bottom = 275.31
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="plus" type="Button" parent="CanvasLayer/FG"]
-margin_left = 69.7184
-margin_top = 255.31
-margin_right = 89.7184
-margin_bottom = 275.31
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Effect" type="Control" parent="CanvasLayer"]
-margin_top = -48.0
-margin_right = 40.0
-margin_bottom = -8.0
-mouse_filter = 2
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-target_path = NodePath("../../Level")
-prefix = "FX: "
-value = "effect_id"
-max_val = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/Effect"]
-anchor_top = -0.00625
-anchor_bottom = -0.00625
-margin_left = 27.9681
-margin_top = 259.442
-margin_right = 67.9681
-margin_bottom = 278.442
-custom_fonts/font = ExtResource( 10 )
-text = "FX: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="minus" type="Button" parent="CanvasLayer/Effect"]
-margin_left = 7.22364
-margin_top = 255.31
-margin_right = 24.2236
-margin_bottom = 275.31
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="plus" type="Button" parent="CanvasLayer/Effect"]
-margin_left = 69.7184
-margin_top = 255.31
-margin_right = 89.7184
-margin_bottom = 275.31
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "+"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Icon" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 480, 260 )
@@ -479,7 +328,7 @@ anchor_bottom = 0.01
 margin_left = 5.616
 margin_top = -1.91
 margin_right = 156.0
-margin_bottom = 191.09
+margin_bottom = 189.09
 follow_focus = true
 scroll_horizontal_enabled = false
 script = ExtResource( 13 )
@@ -574,6 +423,29 @@ align = 1
 autowrap = true
 clip_text = true
 
+[node name="LevelSettings" parent="CanvasLayer" instance=ExtResource( 14 )]
+visible = false
+window_name = "Level Settings"
+
+[node name="Backgrounds" type="ScrollContainer" parent="CanvasLayer/LevelSettings"]
+anchor_top = 0.01
+anchor_bottom = 0.01
+margin_top = -1.91
+margin_right = 156.0
+margin_bottom = 189.09
+follow_focus = true
+scroll_horizontal_enabled = false
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="VBoxContainer" parent="CanvasLayer/LevelSettings/Backgrounds"]
+margin_right = 156.0
+rect_min_size = Vector2( 156, 0 )
+rect_clip_content = true
+size_flags_vertical = 0
+
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = -99
 
@@ -592,10 +464,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 8 )
-margin_left = -3.75
-margin_top = -3.75
-margin_right = 524.25
-margin_bottom = 300.25
+margin_left = -11.75
+margin_top = -11.75
+margin_right = 516.25
+margin_bottom = 292.25
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -609,10 +481,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 8 )
-margin_left = -31.0
-margin_top = -1.0
-margin_right = 241.0
-margin_bottom = 159.0
+margin_left = -23.0
+margin_top = -9.0
+margin_right = 249.0
+margin_bottom = 151.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true
@@ -633,13 +505,8 @@ speed = 0.25
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Terrain" to="." method="terrain_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Object" to="." method="object_switch"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Code" to="." method="open_code"]
+[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Settings" to="." method="open_settings"]
 [connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Test" to="." method="test_level"]
-[connection signal="pressed" from="CanvasLayer/BG/minus" to="CanvasLayer/BG" method="decrease"]
-[connection signal="pressed" from="CanvasLayer/BG/plus" to="CanvasLayer/BG" method="increase"]
-[connection signal="pressed" from="CanvasLayer/FG/minus" to="CanvasLayer/FG" method="decrease"]
-[connection signal="pressed" from="CanvasLayer/FG/plus" to="CanvasLayer/FG" method="increase"]
-[connection signal="pressed" from="CanvasLayer/Effect/minus" to="CanvasLayer/Effect" method="decrease"]
-[connection signal="pressed" from="CanvasLayer/Effect/plus" to="CanvasLayer/Effect" method="increase"]
 [connection signal="text_changed" from="CanvasLayer/LevelCode/CodeHandler/Control/TextEdit" to="CanvasLayer/LevelCode/CodeHandler" method="update_copy"]
 [connection signal="pressed" from="CanvasLayer/LevelCode/CodeHandler/Control/Buttons/Copy" to="CanvasLayer/LevelCode/CodeHandler" method="copy_code"]
 [connection signal="pressed" from="CanvasLayer/LevelCode/CodeHandler/Control/Buttons/Load" to="CanvasLayer/LevelCode/CodeHandler" method="load_code"]

@@ -22,7 +22,8 @@ func _ready():
 	level.load_level(decode)
 	Globals.level = level
 	
-	spawn_player()
+	for i in range(Multi.player_ids.size() + 1):
+		var player = spawn_player()
 	spawn_camera()
 	load_background(camera)
 	load_hud()
@@ -46,6 +47,7 @@ func load_hud():
 func spawn_player():
 	player = preload("res://objects/characters/player/Player.tscn").instance()
 	add_child(player)
+	return player
 
 func spawn_camera():
 	camera = preload("res://objects/camera/camera.tscn").instance()

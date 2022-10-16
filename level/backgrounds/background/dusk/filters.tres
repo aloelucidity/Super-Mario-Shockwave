@@ -3,6 +3,7 @@
 [ext_resource path="res://level/backgrounds/background/dusk/material.tres" type="Material" id=1]
 [ext_resource path="res://level/backgrounds/background/filters.gd" type="Script" id=2]
 
+
 [resource]
 script = ExtResource( 2 )
 fg_tint = Color( 0.819608, 0.772549, 0.772549, 1 )

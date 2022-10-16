@@ -22,6 +22,7 @@ margin_left = 24.0
 margin_top = 78.0
 margin_right = 180.0
 margin_bottom = 269.0
+rect_scale = Vector2( 0.85, 0.85 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true,

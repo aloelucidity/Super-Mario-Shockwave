@@ -7,6 +7,8 @@ onready var properties = $CanvasLayer/Properties
 onready var property_logic = $CanvasLayer/Properties/PropertyLogic
 onready var code_window = $CanvasLayer/LevelCode
 onready var code_handler = $CanvasLayer/LevelCode/CodeHandler
+onready var settings_window = $CanvasLayer/LevelSettings
+onready var backgrounds = $CanvasLayer/LevelSettings/Backgrounds
 var zoom = Vector2(1, 1)
 
 export var code = ""
@@ -35,6 +37,10 @@ func _ready():
 func open_code():
 	code_window.open()
 	code_handler.open(level)
+
+func open_settings():
+	settings_window.open()
+	backgrounds.open(level)
 
 func test_level():
 	Globals.code = LevelCode.encode_level(level.save_level())

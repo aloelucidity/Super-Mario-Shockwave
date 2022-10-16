@@ -11,6 +11,7 @@ font_data = ExtResource( 3 )
 
 [node name="FloatProperty" type="Control"]
 margin_right = 156.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

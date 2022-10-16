@@ -21,7 +21,7 @@ func load_object():
 	return self
 
 # properties
-func change_base_property(key : String, new_value):
+func set_base_property(key : String, new_value):
 	base_properties[key] = new_value
 	match(key):
 		"position":
@@ -36,8 +36,11 @@ func setup_base_properties():
 	z_index = base_properties.z_index
 	modulate = base_properties.tint
 
-func change_property(key : String, new_value):
+func set_property(key : String, new_value):
 	properties[key] = new_value
+
+func get_property(key : String):
+	return properties[key]
 
 # level data
 func save_properties() -> Dictionary:
@@ -52,7 +55,7 @@ func save_properties() -> Dictionary:
 			data.base_properties[key] = base_properties[key]
 	for key in properties:
 		if properties[key] != find_first_with_key(key, properties_list).default[0]:
-			data.properties[key] = properties[key]
+			data.properties[key] = get_property(key)
 	
 	return data
 
