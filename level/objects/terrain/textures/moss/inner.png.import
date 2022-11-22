@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outer.png-1e4481c34f9ee1721d0ea5eae13b1016.stex"
+path="res://.import/inner.png-657d6dcee4770003ea99038cd8798cbd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/objects/terrain/textures/spook/outer.png"
-dest_files=[ "res://.import/outer.png-1e4481c34f9ee1721d0ea5eae13b1016.stex" ]
+source_file="res://level/objects/terrain/textures/moss/inner.png"
+dest_files=[ "res://.import/inner.png-657d6dcee4770003ea99038cd8798cbd.stex" ]
 
 [params]
 

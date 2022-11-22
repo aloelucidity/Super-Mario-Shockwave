@@ -1,5 +1,7 @@
 extends Control
 
+onready var editor = get_tree().get_current_scene()
+
 var current_list
 var open : bool
 var items = []
@@ -22,11 +24,14 @@ func open_tab(tab : String):
 		button.name = item.name
 		$ScrollContainer/GridContainer.add_child(button)
 		button.connect("mouse_entered", self, "update_info", [index])
+		button.connect("pressed", self, "item_clicked", [item])
 		index += 1
 
 func update_info(id):
 	$Label.text = items[id].name
 	$Icon.texture = items[id].icon
 
-func item_clicked():
-	pass
+func item_clicked(item):
+	var quick_select = get_node("%QuickSelect")
+	quick_select.add_item(item)
+	quick_select.pick_item(0, item)

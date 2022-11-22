@@ -1,8 +1,8 @@
 extends Node2D
 
+onready var editor = get_tree().get_current_scene()
+
 var is_bg = false
-var texture_id = 0
-var obj_id = 3
 var points = []
 
 func click(cursor):
@@ -29,7 +29,7 @@ func add_terrain():
 		"type_id": 3,
 		"properties": {
 			"points": PoolVector2Array(points),
-			"texture_id": texture_id
+			"texture_id": editor.cur_item.custom_properties["texture_id"]
 		},
 		"base_properties": {}
 	}
@@ -47,14 +47,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("cancel_action"):
 		points.clear()
 
-	if event.is_action_pressed("object_left"):
-		texture_id = wrapi(texture_id - 1, 0, 7)
-		get_parent().update_icon(texture_id)
-		
-	if event.is_action_pressed("object_right"):
-		texture_id = wrapi(texture_id + 1, 0, 7)
-		get_parent().update_icon(texture_id)
-
+	# placeholder
 	if event.is_action_pressed("object_mode"):
 		is_bg = !is_bg
-		get_parent().update_icon(texture_id)
+		get_parent().update_icon()

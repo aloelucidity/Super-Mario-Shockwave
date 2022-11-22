@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://level/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://level/editor/List.gd" type="Script" id=36]
 [ext_resource path="res://level/editor/music.gd" type="Script" id=37]
 [ext_resource path="res://music/370954_Startide.mp3" type="AudioStream" id=38]
+[ext_resource path="res://level/editor/quickselect.gd" type="Script" id=39]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -361,18 +362,17 @@ margin_bottom = 18.0
 texture = ExtResource( 12 )
 expand = true
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Icon"]
+[node name="QuickSelect" type="GridContainer" parent="CanvasLayer/Icon"]
+unique_name_in_owner = true
 margin_left = -18.0
 margin_top = -80.0
 margin_right = 18.0
 margin_bottom = -24.0
 columns = 2
+script = ExtResource( 39 )
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Icon/QuickSelect"]
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
@@ -387,7 +387,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Icon/QuickSelect"]
 margin_left = 20.0
 margin_right = 36.0
 margin_bottom = 16.0
@@ -400,7 +400,7 @@ texture_normal = ExtResource( 20 )
 expand = true
 script = ExtResource( 35 )
 
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Icon/QuickSelect"]
 margin_top = 20.0
 margin_right = 16.0
 margin_bottom = 36.0
@@ -413,7 +413,7 @@ texture_normal = ExtResource( 24 )
 expand = true
 script = ExtResource( 35 )
 
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Icon/QuickSelect"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 36.0
@@ -427,7 +427,7 @@ texture_normal = ExtResource( 22 )
 expand = true
 script = ExtResource( 35 )
 
-[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Icon/QuickSelect"]
 margin_top = 40.0
 margin_right = 16.0
 margin_bottom = 56.0
@@ -440,7 +440,7 @@ texture_normal = ExtResource( 23 )
 expand = true
 script = ExtResource( 35 )
 
-[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Icon/QuickSelect"]
 margin_left = 20.0
 margin_top = 40.0
 margin_right = 36.0
@@ -743,10 +743,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 15 )
-margin_left = -6.0
-margin_top = -6.0
-margin_right = 522.0
-margin_bottom = 298.0
+margin_left = -9.5
+margin_top = -9.5
+margin_right = 518.5
+margin_bottom = 294.5
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -760,10 +760,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 15 )
-margin_left = -29.25
-margin_top = -2.75
-margin_right = 242.75
-margin_bottom = 157.25
+margin_left = -19.75
+margin_top = -12.25
+margin_right = 252.25
+margin_bottom = 147.75
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true

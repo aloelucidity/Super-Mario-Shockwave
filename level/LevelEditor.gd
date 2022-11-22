@@ -9,10 +9,12 @@ onready var code_window = $CanvasLayer/LevelCode
 onready var code_handler = $CanvasLayer/LevelCode/CodeHandler
 onready var settings_window = $CanvasLayer/LevelSettings
 onready var backgrounds = $CanvasLayer/LevelSettings/Backgrounds
+onready var icon = $CanvasLayer/Icon
 var zoom = Vector2(1, 1)
 
 export var code = ""
 var selected_object
+var cur_item
 var is_ui
 
 # temp
@@ -22,6 +24,10 @@ onready var id_map = preload("res://level/objects/IDMap.tres")
 
 func _init():
 	seed(0)
+
+func pick_item(item):
+	cur_item = item
+	icon.texture = item.icon
 
 func _ready():
 	code = Globals.code
@@ -96,7 +102,7 @@ func change_placement():
 	new_placement.set_script(load(placement_tool))
 	add_child(new_placement)
 	placement = new_placement
-	update_icon(0)
+	update_icon()
 
 func safe_entered():
 	is_ui = false
@@ -105,26 +111,13 @@ func safe_exited():
 	is_ui = true
 	deselect_object()
 
-func update_icon(obj_id):
+# placeholder
+func update_icon():
 	if placement_tool == "res://level/placement/Terrain.gd":
-		var texture_map = preload("res://level/objects/terrain/textures/IDMap.tres")
-		var texture_key = texture_map.ids[placement.texture_id]
-		$CanvasLayer/Icon.texture = load("res://level/objects/terrain/textures/" + texture_key + "/icon.png")
 		if placement.is_bg:
 			$CanvasLayer/Icon.self_modulate = Color.darkgray
 		else:
 			$CanvasLayer/Icon.self_modulate = Color.white
-	elif placement_tool == "res://level/placement/Platform.gd":
-		$CanvasLayer/Icon.self_modulate = Color.white
-		match(obj_id):
-			0:
-				$CanvasLayer/Icon.texture = load("res://level/objects/moving_platform/icon.png")
-			1:
-				$CanvasLayer/Icon.texture = load("res://level/objects/block/icon.png")
-	else:
-		var name = id_map.ids[obj_id]
-		$CanvasLayer/Icon.texture = load("res://level/objects/" + name + "/icon.png")
-		$CanvasLayer/Icon.self_modulate = Color.white
 
 func terrain_switch():
 	placement_tool = "res://level/placement/Terrain.gd"

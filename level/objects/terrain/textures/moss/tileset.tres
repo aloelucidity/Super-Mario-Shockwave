@@ -4,8 +4,8 @@
 [ext_resource path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" type="Script" id=2]
 [ext_resource path="res://addons/rmsmartshape/normal_range.gd" type="Script" id=3]
 [ext_resource path="res://addons/rmsmartshape/materials/edge_material.gd" type="Script" id=4]
-[ext_resource path="res://level/objects/terrain/textures/spook/outer.png" type="Texture" id=5]
-[ext_resource path="res://level/objects/terrain/textures/spook/inner.png" type="Texture" id=6]
+[ext_resource path="res://level/objects/terrain/textures/moss/outer.png" type="Texture" id=5]
+[ext_resource path="res://level/objects/terrain/textures/moss/inner.png" type="Texture" id=6]
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 4 )
