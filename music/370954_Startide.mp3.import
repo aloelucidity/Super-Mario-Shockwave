@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/370954_Startide.mp3-0d6762675c46d157d9fe96f8dafca739.mp3str"
+
+[deps]
+
+source_file="res://music/370954_Startide.mp3"
+dest_files=[ "res://.import/370954_Startide.mp3-0d6762675c46d157d9fe96f8dafca739.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

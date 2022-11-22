@@ -56,7 +56,7 @@ shader_param/b_vertical = null
 
 [sub_resource type="DynamicFont" id=5]
 size = 112
-outline_color = Color( 0.156863, 0.133333, 0.321569, 1 )
+outline_size = 2
 extra_spacing_char = 8
 font_data = ExtResource( 1 )
 
@@ -73,9 +73,6 @@ margin_bottom = 48.0
 rect_rotation = 11.5
 rect_scale = Vector2( 0.115, 0.115 )
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Outer" type="Sprite" parent="."]
 position = Vector2( 0, 39 )
@@ -125,8 +122,8 @@ margin_left = -168.0
 margin_top = -256.0
 margin_right = 248.0
 margin_bottom = -132.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "POWER"
 
 [node name="Label3" type="Label" parent="POWER"]
@@ -136,7 +133,6 @@ margin_top = -256.0
 margin_right = 288.0
 margin_bottom = -130.0
 custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.156863, 0.133333, 0.321569, 1 )
 text = "POWER"
 __meta__ = {
 "_edit_use_anchors_": false

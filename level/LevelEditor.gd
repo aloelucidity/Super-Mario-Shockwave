@@ -35,16 +35,25 @@ func _ready():
 	Globals.level = level
 
 func open_code():
-	code_window.open()
-	code_handler.open(level)
+	if !code_window.visible:
+		code_window.open()
+		code_handler.open(level)
+	else:
+		code_window.close()
 
 func open_settings():
-	settings_window.open()
-	backgrounds.open(level)
+	if !settings_window.visible:
+		settings_window.open()
+		backgrounds.open(level)
+	else:
+		settings_window.close()
 
 func test_level():
 	Globals.code = LevelCode.encode_level(level.save_level())
 	var _scene = get_tree().change_scene_to(preload("res://level/LevelPlayer.tscn"))
+
+func quit():
+	get_tree().quit()
 
 func _input(event):
 	if event.is_action_pressed("click") && !is_instance_valid(selected_object) && !is_ui:
@@ -66,7 +75,8 @@ func deselect_object():
 	selected_object = null
 
 func select_object(object):
-	if !$CanvasLayer/TopPanel/VBoxContainer/Select.pressed || is_ui: return
+	if is_ui: return
+	#if !$CanvasLayer/TopPanel/VBoxContainer/Select.pressed || is_ui: return
 	selected_object = object
 	selected_object.modulate.a = 0.5
 

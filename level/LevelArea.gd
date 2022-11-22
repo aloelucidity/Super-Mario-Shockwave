@@ -5,7 +5,7 @@ onready var id_map = preload("res://level/objects/IDMap.tres")
 
 export var id : int = 0
 export(Array, Dictionary) var object_data
-export var music_url : String = "https://files.catbox.moe/m48458.ogg"
+export var music_id : int = 444085
 export var background_id : int
 export var foreground_id : int
 export var effect_id : int
@@ -14,7 +14,7 @@ var objects_node
 
 func save_area():
 	var data = {
-		"music_url": music_url,
+		"music_id": music_id,
 		"background_id": background_id,
 		"foreground_id": foreground_id,
 		"effect_id": effect_id,
@@ -28,7 +28,7 @@ func save_area():
 func load_area(data : Dictionary = {}):
 	if data.size() > 0:
 		object_data = data.objects
-		music_url = data.music_url
+		#music_id = data.music_id
 	if data.size() > 2:
 		background_id = data.background_id
 		foreground_id = data.foreground_id

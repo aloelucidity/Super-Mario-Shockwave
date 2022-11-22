@@ -10,7 +10,7 @@ func _enter_tree():
 
 func open():
 	visible = true
-	rect_position = Vector2(24, 78)
+	rect_position = Vector2(80, 78)
 
 func close():
 	visible = false

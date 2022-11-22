@@ -29,11 +29,15 @@ func _ready():
 	load_hud()
 	# temp
 	add_child(preload("res://Globals.tscn").instance())
+	load_music(level)
 	#
 
 func _unhandled_input(event):
 	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen"):
 		var _a = get_tree().change_scene_to(load("res://level/LevelEditor.tscn"))
+
+func load_music(level):
+	get_node("Globals").load_song(level.get_area(0).music_id)
 
 func load_background(_camera):
 	background = preload("res://level/backgrounds/Background.tscn").instance()

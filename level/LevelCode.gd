@@ -42,7 +42,7 @@ static func encode_level(data : Dictionary):
 static func encode_area(data : Dictionary):
 	var strings = []
 	var properties = [
-		"music_url",
+		"music_id",
 		"background_id",
 		"foreground_id",
 		"effect_id"

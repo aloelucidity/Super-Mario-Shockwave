@@ -21,6 +21,7 @@ func _start(delta):
 
 func _stop(delta):
 	character.set_state_by_name("Fall", delta)
+	character.get_state_node("Fall").animation = "jump"
 
 func _stop_check(_delta):
 	return character.velocity.y >= 0

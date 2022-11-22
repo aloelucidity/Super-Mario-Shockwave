@@ -10,7 +10,7 @@ const _headers: Array = [
 	"Accept: */*",
 ]
 
-func download(url: String, file_path: String = "user://music.ogg") -> void:
+func download(url: String, file_path: String = "user://music.mp3") -> void:
 	# RegEx for parsing the URL
 	var url_regex = RegEx.new()
 	url_regex.compile("^https?:\\/\\/(?<host>[^\\/]+\\.[a-z]{2,})(?<path>(?>\\/.*)*)$")

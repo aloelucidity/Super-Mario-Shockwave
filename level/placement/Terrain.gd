@@ -48,11 +48,11 @@ func _unhandled_input(event):
 		points.clear()
 
 	if event.is_action_pressed("object_left"):
-		texture_id = wrapi(texture_id - 1, 0, 6)
+		texture_id = wrapi(texture_id - 1, 0, 7)
 		get_parent().update_icon(texture_id)
 		
 	if event.is_action_pressed("object_right"):
-		texture_id = wrapi(texture_id + 1, 0, 6)
+		texture_id = wrapi(texture_id + 1, 0, 7)
 		get_parent().update_icon(texture_id)
 
 	if event.is_action_pressed("object_mode"):

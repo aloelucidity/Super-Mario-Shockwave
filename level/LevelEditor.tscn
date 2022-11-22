@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://level/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
@@ -8,48 +8,96 @@
 [ext_resource path="res://music/editor_metal.ogg" type="AudioStream" id=6]
 [ext_resource path="res://level/objects/terrain/textures/grass/icon.png" type="Texture" id=7]
 [ext_resource path="res://level/editor/checker.png" type="Texture" id=8]
+[ext_resource path="res://level/objects/terrain/textures/brick/icon.png" type="Texture" id=9]
 [ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=10]
 [ext_resource path="res://level/editor/TopPanel.gd" type="Script" id=11]
 [ext_resource path="res://level/editor/boxoutline-1.png" type="Texture" id=12]
 [ext_resource path="res://level/editor/windows/PropertyLogic.gd" type="Script" id=13]
 [ext_resource path="res://level/editor/windows/Window.tscn" type="PackedScene" id=14]
-[ext_resource path="res://level/editor/tab.png" type="Texture" id=15]
-[ext_resource path="res://level/editor/tab2.png" type="Texture" id=16]
+[ext_resource path="res://music/541891_i-dont-know-durn.mp3" type="AudioStream" id=15]
+[ext_resource path="res://fonts/MarioAndLuigi-0v99.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://fonts/arialbd.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://fonts/arialbi.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://level/editor/windows/CodeHandler.gd" type="Script" id=19]
+[ext_resource path="res://level/objects/terrain/textures/moon/icon.png" type="Texture" id=20]
 [ext_resource path="res://level/editor/windows/LevelSettings.gd" type="Script" id=21]
+[ext_resource path="res://level/objects/terrain/textures/snowbrick/icon.png" type="Texture" id=22]
+[ext_resource path="res://level/objects/terrain/textures/wood/icon.png" type="Texture" id=23]
+[ext_resource path="res://level/objects/terrain/textures/snow/icon.png" type="Texture" id=24]
+[ext_resource path="res://level/editor/toolbar/file.png" type="Texture" id=25]
+[ext_resource path="res://level/editor/toolbar/platforms.png" type="Texture" id=26]
+[ext_resource path="res://level/editor/toolbar/objects.png" type="Texture" id=27]
+[ext_resource path="res://level/editor/toolbar/terrain.png" type="Texture" id=28]
+[ext_resource path="res://level/editor/File.gd" type="Script" id=29]
+[ext_resource path="res://level/editor/toolbar/file_pressed.png" type="Texture" id=30]
+[ext_resource path="res://level/editor/toolbar/terrain_pressed.png" type="Texture" id=31]
+[ext_resource path="res://level/editor/toolbar/objects_pressed.png" type="Texture" id=32]
+[ext_resource path="res://level/editor/toolbar/platforms_pressed.png" type="Texture" id=33]
+[ext_resource path="res://level/editor/toolbar/ToolbarButtons.gd" type="Script" id=34]
+[ext_resource path="res://level/editor/toolbar/funbutton.gd" type="Script" id=35]
+[ext_resource path="res://level/editor/List.gd" type="Script" id=36]
+[ext_resource path="res://level/editor/music.gd" type="Script" id=37]
+[ext_resource path="res://music/370954_Startide.mp3" type="AudioStream" id=38]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
 
+[sub_resource type="DynamicFont" id=6]
+size = 7
+extra_spacing_top = -2
+extra_spacing_bottom = -2
+font_data = ExtResource( 17 )
+
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.628931, 0.965409 )
-colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.727738, 0.306904, 1, 1, 0.74902, 0.321569, 1 )
+colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.713726, 0.294118, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+content_margin_left = 2.0
+texture = SubResource( 3 )
+region_rect = Rect2( 0, 0, 2048, 1 )
+modulate_color = Color( 0.815686, 0.631373, 0.631373, 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+content_margin_left = 2.0
+texture = SubResource( 3 )
+region_rect = Rect2( 0, 0, 2048, 1 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.628931, 0.965409 )
+colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.727738, 0.306904, 1, 1, 0.74902, 0.321569, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 width = 513
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="ButtonGroup" id=9]
+
+[sub_resource type="DynamicFont" id=10]
 size = 6
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=11]
 size = 8
 font_data = ExtResource( 18 )
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="DynamicFont" id=12]
+size = 8
+font_data = ExtResource( 16 )
+
+[sub_resource type="Gradient" id=13]
 colors = PoolColorArray( 0.188235, 0.105882, 0.419608, 1, 0.0901961, 0.0705882, 0.0941176, 1 )
 
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
 width = 512
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=15]
 blend_mode = 2
 
-[sub_resource type="GDScript" id=9]
+[sub_resource type="GDScript" id=16]
 script/source = "tool
 extends TextureRect
 
@@ -61,7 +109,7 @@ func _physics_process(_delta):
 		rect_position = Vector2(-16, -16)
 "
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=17]
 script/source = "tool
 extends TextureRect
 
@@ -77,10 +125,10 @@ func _physics_process(_delta):
 script = ExtResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -2.0
-autoplay = true
 bus = "Music"
+script = ExtResource( 37 )
+songs = [ ExtResource( 6 ), ExtResource( 15 ), ExtResource( 38 ) ]
+volume_levels = [ -2.0, -9.0, -9.0 ]
 
 [node name="MouseArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -118,7 +166,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopPanel" type="Control" parent="CanvasLayer"]
+[node name="Toolbar" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 mouse_filter = 2
@@ -129,163 +177,177 @@ __meta__ = {
 }
 speed = 8.0
 
-[node name="Panel" type="Panel" parent="CanvasLayer/TopPanel"]
-modulate = Color( 0.905882, 0.898039, 1, 1 )
-margin_top = -3.39685
-margin_right = 513.0
-margin_bottom = 34.6031
+[node name="File" type="VBoxContainer" parent="CanvasLayer/Toolbar"]
+margin_top = 29.0
+margin_right = 57.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 64, 0 )
+rect_scale = Vector2( 1, 1e-05 )
+custom_constants/separation = 0
+script = ExtResource( 29 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TopPanel"]
-margin_top = 35.0
-margin_right = 513.0
-margin_bottom = 39.0
-mouse_filter = 2
-texture = SubResource( 3 )
-expand = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/TopPanel"]
-margin_top = 35.0
-margin_right = 32.0
-margin_bottom = 55.0
+[node name="Settings" type="Button" parent="CanvasLayer/Toolbar/File"]
+margin_right = 64.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
 focus_mode = 0
-toggle_mode = true
-pressed = true
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+action_mode = 0
 enabled_focus_mode = 0
-texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 16 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Level Settings"
+align = 0
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TopPanel/TextureButton"]
-show_behind_parent = true
-margin_right = 32.0
+[node name="Code" type="Button" parent="CanvasLayer/Toolbar/File"]
+margin_top = 10.0
+margin_right = 64.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 0, 10 )
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Save/Load Level"
+align = 0
+
+[node name="Test" type="Button" parent="CanvasLayer/Toolbar/File"]
+margin_top = 20.0
+margin_right = 64.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 10 )
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Test Level"
+align = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Toolbar/File"]
+margin_top = 30.0
+margin_right = 64.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 10 )
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Quit"
+align = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Toolbar"]
+margin_right = 105.0
+margin_bottom = 29.0
 mouse_filter = 2
-texture = SubResource( 3 )
+texture = SubResource( 8 )
 expand = true
-stretch_mode = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
-[node name="Buttons" type="Control" parent="CanvasLayer/TopPanel"]
-margin_top = 4.0
-margin_right = 512.0
-margin_bottom = 44.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TopPanel/Buttons"]
-margin_right = 504.0
+[node name="Panel" type="Panel" parent="CanvasLayer/Toolbar"]
+modulate = Color( 0.905882, 0.898039, 1, 1 )
+margin_right = 101.0
 margin_bottom = 25.0
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 8
-alignment = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Platforms" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 66.0
-margin_right = 145.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Platforms"
-
-[node name="Terrain" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 153.0
-margin_right = 214.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Terrain"
-
-[node name="Object" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 222.0
-margin_right = 284.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Objects"
-
-[node name="Code" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 292.0
-margin_right = 381.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Level Code"
-
-[node name="Settings" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 389.0
-margin_right = 455.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Settings"
-
-[node name="Test" type="Button" parent="CanvasLayer/TopPanel/Buttons/HBoxContainer"]
-margin_left = 463.0
-margin_right = 504.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 32, 24 )
-focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
-enabled_focus_mode = 0
-text = "Test"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TopPanel"]
-margin_left = 455.0
-margin_top = 51.0
-margin_right = 496.0
-margin_bottom = 144.0
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Select" type="Button" parent="CanvasLayer/TopPanel/VBoxContainer"]
-margin_right = 41.0
+[node name="ToolbarButtons" type="HBoxContainer" parent="CanvasLayer/Toolbar"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 129.0
 margin_bottom = 22.0
+script = ExtResource( 34 )
+list_path = NodePath("../../List")
+
+[node name="File" type="TextureButton" parent="CanvasLayer/Toolbar/ToolbarButtons"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+rect_pivot_offset = Vector2( 10, 10 )
 focus_mode = 0
-custom_fonts/font = ExtResource( 10 )
 toggle_mode = true
-pressed = true
+action_mode = 0
 enabled_focus_mode = 0
-text = "SEL"
+group = SubResource( 9 )
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 30 )
+expand = true
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terrain" type="TextureButton" parent="CanvasLayer/Toolbar/ToolbarButtons"]
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+rect_pivot_offset = Vector2( 10, 10 )
+focus_mode = 0
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 0
+group = SubResource( 9 )
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 31 )
+expand = true
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Objects" type="TextureButton" parent="CanvasLayer/Toolbar/ToolbarButtons"]
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+rect_pivot_offset = Vector2( 10, 10 )
+focus_mode = 0
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 0
+group = SubResource( 9 )
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 32 )
+expand = true
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Platforms" type="TextureButton" parent="CanvasLayer/Toolbar/ToolbarButtons"]
+margin_left = 72.0
+margin_right = 92.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+rect_pivot_offset = Vector2( 10, 10 )
+focus_mode = 0
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 0
+group = SubResource( 9 )
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 33 )
+expand = true
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icon" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 480, 260 )
+position = Vector2( 26, 262 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -303,12 +365,101 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Icon"]
+margin_left = -18.0
+margin_top = -80.0
+margin_right = 18.0
+margin_bottom = -24.0
+columns = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 9 )
+expand = true
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 20 )
+expand = true
+script = ExtResource( 35 )
+
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 24 )
+expand = true
+script = ExtResource( 35 )
+
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 22 )
+expand = true
+script = ExtResource( 35 )
+
+[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 23 )
+expand = true
+script = ExtResource( 35 )
+
+[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Icon/GridContainer"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 7 )
+expand = true
+script = ExtResource( 35 )
+
 [node name="LineDone" type="Button" parent="CanvasLayer"]
 visible = false
-margin_left = 404.926
-margin_top = 255.782
-margin_right = 450.926
-margin_bottom = 277.782
+margin_left = 52.0
+margin_top = 257.645
+margin_right = 98.0
+margin_bottom = 279.646
 focus_mode = 0
 custom_fonts/font = ExtResource( 10 )
 enabled_focus_mode = 0
@@ -319,6 +470,8 @@ __meta__ = {
 
 [node name="Properties" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false
+margin_left = 80.0
+margin_right = 236.0
 window_name = "Properties"
 
 [node name="PropertyLogic" type="ScrollContainer" parent="CanvasLayer/Properties"]
@@ -344,6 +497,8 @@ size_flags_vertical = 0
 
 [node name="LevelCode" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false
+margin_left = 80.0
+margin_right = 236.0
 window_name = "Level Code"
 
 [node name="CodeHandler" type="ScrollContainer" parent="CanvasLayer/LevelCode"]
@@ -372,7 +527,7 @@ size_flags_vertical = 0
 margin_right = 156.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 120 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 10 )
 wrap_enabled = true
 
 [node name="Buttons" type="HBoxContainer" parent="CanvasLayer/LevelCode/CodeHandler/Control"]
@@ -390,6 +545,7 @@ rect_min_size = Vector2( 78, 0 )
 focus_mode = 0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 10 )
+action_mode = 0
 enabled_focus_mode = 0
 text = "Copy All"
 __meta__ = {
@@ -404,6 +560,7 @@ rect_min_size = Vector2( 78, 0 )
 focus_mode = 0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 10 )
+action_mode = 0
 enabled_focus_mode = 0
 text = "Load"
 __meta__ = {
@@ -416,7 +573,7 @@ margin_right = 156.0
 margin_bottom = 190.0
 rect_min_size = Vector2( 0, 40 )
 rect_clip_content = true
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 11 )
 text = "Paste a code into the box and click \"Load\" to play someone else's level!
 Or, share your own code around! "
 align = 1
@@ -425,6 +582,8 @@ clip_text = true
 
 [node name="LevelSettings" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false
+margin_left = 80.0
+margin_right = 236.0
 window_name = "Level Settings"
 
 [node name="Backgrounds" type="ScrollContainer" parent="CanvasLayer/LevelSettings"]
@@ -441,10 +600,130 @@ __meta__ = {
 }
 
 [node name="Control" type="VBoxContainer" parent="CanvasLayer/LevelSettings/Backgrounds"]
-margin_right = 156.0
-rect_min_size = Vector2( 156, 0 )
+margin_right = 143.0
+rect_min_size = Vector2( 143, 0 )
 rect_clip_content = true
 size_flags_vertical = 0
+
+[node name="List" type="Control" parent="CanvasLayer"]
+margin_left = 516.0
+margin_right = 608.0
+margin_bottom = 288.0
+script = ExtResource( 36 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/List"]
+margin_left = -4.0
+margin_top = 288.0
+margin_right = 284.0
+margin_bottom = 292.0
+rect_rotation = -90.0
+mouse_filter = 2
+texture = SubResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/List"]
+modulate = Color( 0.905882, 0.898039, 1, 1 )
+margin_right = 92.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/List"]
+anchor_left = 0.00181381
+anchor_top = -0.000583355
+anchor_right = 0.00181381
+anchor_bottom = -0.000583355
+margin_left = -0.16687
+margin_top = 242.167
+margin_right = 91.8331
+margin_bottom = 246.167
+mouse_filter = 2
+texture = SubResource( 8 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/List"]
+anchor_left = 0.00181381
+anchor_top = -0.000583355
+anchor_right = 0.00181381
+anchor_bottom = -0.000583355
+margin_left = -0.16687
+margin_top = 48.1668
+margin_right = 91.8331
+margin_bottom = 52.1668
+mouse_filter = 2
+texture = SubResource( 8 )
+expand = true
+flip_h = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/List"]
+margin_top = 52.0
+margin_right = 92.0
+margin_bottom = 242.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/List/ScrollContainer"]
+margin_right = 92.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 2
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/List"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 72, 266 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="CanvasLayer/List"]
+margin_left = 3.0
+margin_top = 252.0
+margin_right = 55.0
+margin_bottom = 282.0
+custom_fonts/font = SubResource( 12 )
+text = "Grass"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/List"]
+margin_right = 92.0
+margin_bottom = 48.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/List/HBoxContainer"]
+margin_right = 30.0
+margin_bottom = 48.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+enabled_focus_mode = 0
+
+[node name="Button2" type="Button" parent="CanvasLayer/List/HBoxContainer"]
+margin_left = 30.0
+margin_right = 61.0
+margin_bottom = 48.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+enabled_focus_mode = 0
+
+[node name="Button3" type="Button" parent="CanvasLayer/List/HBoxContainer"]
+margin_left = 61.0
+margin_right = 92.0
+margin_bottom = 48.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+enabled_focus_mode = 0
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = -99
@@ -454,7 +733,7 @@ margin_top = 288.0
 margin_right = 288.0
 margin_bottom = 800.0
 rect_rotation = -90.0
-texture = SubResource( 7 )
+texture = SubResource( 14 )
 expand = true
 __meta__ = {
 "_edit_lock_": true,
@@ -463,15 +742,15 @@ __meta__ = {
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
-material = SubResource( 8 )
-margin_left = -11.75
-margin_top = -11.75
-margin_right = 516.25
-margin_bottom = 292.25
+material = SubResource( 15 )
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 522.0
+margin_bottom = 298.0
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
-script = SubResource( 9 )
+script = SubResource( 16 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -480,16 +759,16 @@ speed = 0.25
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
-material = SubResource( 8 )
-margin_left = -23.0
-margin_top = -9.0
-margin_right = 249.0
-margin_bottom = 151.0
+material = SubResource( 15 )
+margin_left = -29.25
+margin_top = -2.75
+margin_right = 242.75
+margin_bottom = 157.25
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
-script = SubResource( 10 )
+script = SubResource( 17 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -500,13 +779,11 @@ speed = 0.25
 [connection signal="area_exited" from="MouseArea" to="." method="cursor_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/MousePermitted" to="." method="safe_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MousePermitted" to="." method="safe_exited"]
-[connection signal="toggled" from="CanvasLayer/TopPanel/TextureButton" to="CanvasLayer/TopPanel" method="toggle_visibility"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Platforms" to="." method="platform_switch"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Terrain" to="." method="terrain_switch"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Object" to="." method="object_switch"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Code" to="." method="open_code"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Settings" to="." method="open_settings"]
-[connection signal="pressed" from="CanvasLayer/TopPanel/Buttons/HBoxContainer/Test" to="." method="test_level"]
+[connection signal="pressed" from="CanvasLayer/Toolbar/File/Settings" to="." method="open_settings"]
+[connection signal="pressed" from="CanvasLayer/Toolbar/File/Code" to="." method="open_code"]
+[connection signal="pressed" from="CanvasLayer/Toolbar/File/Test" to="." method="test_level"]
+[connection signal="pressed" from="CanvasLayer/Toolbar/File/Quit" to="." method="quit"]
+[connection signal="toggled" from="CanvasLayer/Toolbar/ToolbarButtons/File" to="CanvasLayer/Toolbar/File" method="toggle"]
 [connection signal="text_changed" from="CanvasLayer/LevelCode/CodeHandler/Control/TextEdit" to="CanvasLayer/LevelCode/CodeHandler" method="update_copy"]
 [connection signal="pressed" from="CanvasLayer/LevelCode/CodeHandler/Control/Buttons/Copy" to="CanvasLayer/LevelCode/CodeHandler" method="copy_code"]
 [connection signal="pressed" from="CanvasLayer/LevelCode/CodeHandler/Control/Buttons/Load" to="CanvasLayer/LevelCode/CodeHandler" method="load_code"]

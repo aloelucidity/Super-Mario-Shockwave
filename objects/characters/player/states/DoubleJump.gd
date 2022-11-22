@@ -23,8 +23,8 @@ func _update(_delta):
 		character.velocity.y *= release_multiplier
 
 func _stop(delta):
-	character.get_state_node("Fall").animation = "doublefall"
 	character.set_state_by_name("Fall", delta)
+	character.get_state_node("Fall").animation = "doublejump"
 
 func _stop_check(_delta):
 	return character.velocity.y > 0 || character.grounded

@@ -78,10 +78,13 @@ func _start(delta):
 				character.velocity.x = max_speed * direction
 		character.velocity.y += dive_power.y
 		sound.play_random()
-	
+
+	if abs(character.velocity.x) > 25:
+		sprite.scale.y = 1.2 if abs(character.velocity.x) > (dive_power.x + 120) else 1.1
 	sprite.flip_h = (character.facing_direction == -1)
 
 func _update(delta):
+	sprite.scale.y = lerp(sprite.scale.y, 1, delta * 2)
 	character.facing_direction = direction
 	
 	if !character.grounded:
@@ -93,6 +96,8 @@ func _update(delta):
 func _stop(delta):
 	reg_collision()
 	
+	sprite.scale.y = 1
+	sprite.offset.y = 0
 	character.position.y -= end_tele
 	character.grounded = false
 	if jump_timer > 0:
