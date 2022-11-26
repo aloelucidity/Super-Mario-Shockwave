@@ -7,9 +7,13 @@ var alpha : float
 
 var read_range
 var in_range : bool
+var active : bool
+
+var cooldown : float
 
 func _init():
 	object_path = "res://level/objects/sign"
+	list_path = object_path + "/PropertyList.tres"
 
 # functions
 func load_object():
@@ -37,8 +41,10 @@ func player_exited(body):
 	in_range = false
 
 func _physics_process(delta):
+	if cooldown > 0:
+		cooldown -= delta
 	if !loaded: return
-	var active = in_range
+	active = in_range
 	if active and !player.grounded:
 		active = false
 	
@@ -49,3 +55,14 @@ func _physics_process(delta):
 	color.a = alpha
 	
 	sprite.material.set_shader_param("outline_color", color)
+
+func _input(event):
+	if event.is_action_pressed("attack") and active and cooldown <= 0:
+		cooldown = 1
+		
+		var cur_scene = get_tree().get_current_scene()
+		cur_scene.hud.get_node("CanvasLayer/Sign").open(properties.text)
+		get_tree().paused = true
+
+func properties_ui_path():
+	return object_path + "/PropertyUI.tres"

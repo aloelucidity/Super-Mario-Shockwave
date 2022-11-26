@@ -10,7 +10,10 @@ const _headers: Array = [
 	"Accept: */*",
 ]
 
-func download(url: String, file_path: String = "user://music.mp3") -> void:
+func download(url: String, file_path: String = "user://music/music.mp3") -> void:
+	var path_split = file_path.split(".")
+	file_path = path_split[0] + ".temp"
+	
 	# RegEx for parsing the URL
 	var url_regex = RegEx.new()
 	url_regex.compile("^https?:\\/\\/(?<host>[^\\/]+\\.[a-z]{2,})(?<path>(?>\\/.*)*)$")
@@ -69,6 +72,8 @@ func download(url: String, file_path: String = "user://music.mp3") -> void:
 			emit_signal("download_failed")
 			return
 	
+	var directory = Directory.new()
+	directory.rename(file_path, path_split[0] + "." + path_split[1])
 	emit_signal("download_completed")
 
 

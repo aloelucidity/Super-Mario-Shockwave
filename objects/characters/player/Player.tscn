@@ -430,6 +430,14 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector"]
 shape = SubResource( 7 )
 
+[node name="InteractableDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableDetector"]
+shape = SubResource( 7 )
+
 [node name="--OTHER--" type="Node" parent="."]
 
 [node name="Sounds" type="Node" parent="."]
@@ -607,6 +615,7 @@ blacklisted_states = [ "Dive", "WallSlide" ]
 animation = "hammer"
 sound_path = NodePath("../../Sounds/Swing")
 sound_donk_path = NodePath("../../Sounds/Donk")
+detector_path = NodePath("../../InteractableDetector")
 swing_time = 0.5
 swing_land_time = 0.25
 boost_power = 225.0
@@ -712,6 +721,7 @@ slope_factor_down = 50.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 38 )
 animation = "idle"
+frame = 7
 playing = true
 script = ExtResource( 9 )
 rot_speed = 20.0

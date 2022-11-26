@@ -49,5 +49,5 @@ func create_editor():
 	editor_collision.polygon = collision.polygon
 	editor_area.add_child(editor_collision)
 	
-	if !properties.solid:
+	if !base_properties.tangible:
 		collision.call_deferred("queue_free")

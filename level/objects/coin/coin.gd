@@ -31,7 +31,7 @@ func load_object():
 	if current_mode == 1:
 		editor_area = Area2D.new()
 		editor_area.set_collision_layer_bit(0, false)
-		editor_area.set_collision_layer_bit(19, true)
+		editor_area.set_collision_layer_bit(20, true)
 		editor_area.set_collision_mask_bit(0, false)
 		add_child(editor_area)
 		

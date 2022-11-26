@@ -43,6 +43,7 @@ static func encode_area(data : Dictionary):
 	var strings = []
 	var properties = [
 		"music_id",
+		"music_volume",
 		"background_id",
 		"foreground_id",
 		"effect_id"

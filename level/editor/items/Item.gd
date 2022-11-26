@@ -6,3 +6,4 @@ export var custom_properties : Dictionary
 export var icon : StreamTexture
 
 export var placement_tool : String
+export var editor_layer : int = 20

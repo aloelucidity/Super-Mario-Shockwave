@@ -2,6 +2,7 @@ extends LevelObject
 class_name Decoration
 
 var frames = 1
+var can_flip = true
 
 var editor_area
 var editor_collision
@@ -17,14 +18,15 @@ func load_object():
 	sprite.texture = load(object_path + "/texture.png")
 	sprite.hframes = frames
 	sprite.frame = rand_range(0, frames) # replace this with a property later pls
-	sprite.flip_h = bool(randi() & 1) # this too
+	if can_flip:
+		sprite.flip_h = bool(randi() & 1) # this too
 	add_child(sprite)
 
 	# editor
 	if current_mode == 1:
 		editor_area = Area2D.new()
 		editor_area.set_collision_layer_bit(0, false)
-		editor_area.set_collision_layer_bit(19, true)
+		editor_area.set_collision_layer_bit(21, true)
 		editor_area.set_collision_mask_bit(0, false)
 		add_child(editor_area)
 		

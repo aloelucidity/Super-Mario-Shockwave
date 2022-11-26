@@ -611,6 +611,12 @@ margin_right = 608.0
 margin_bottom = 288.0
 script = ExtResource( 36 )
 
+[node name="Layering" type="Control" parent="CanvasLayer/List"]
+margin_left = -61.0
+margin_top = 180.0
+margin_right = -4.0
+margin_bottom = 288.0
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/List"]
 margin_left = -4.0
 margin_top = 288.0
@@ -743,10 +749,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 15 )
-margin_left = -9.5
-margin_top = -9.5
-margin_right = 518.5
-margin_bottom = 294.5
+margin_left = -7.75
+margin_top = -7.75
+margin_right = 520.25
+margin_bottom = 296.25
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -760,10 +766,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 15 )
-margin_left = -19.75
-margin_top = -12.25
-margin_right = 252.25
-margin_bottom = 147.75
+margin_left = -14.25
+margin_top = -17.75
+margin_right = 257.75
+margin_bottom = 142.25
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true

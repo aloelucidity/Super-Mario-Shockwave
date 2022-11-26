@@ -11,7 +11,7 @@ radius = 16.0
 
 [node name="Back3" type="Sprite" parent="."]
 modulate = Color( 0.698039, 0.682353, 1, 1 )
-rotation = 58.0496
+rotation = 85.5562
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -22,7 +22,7 @@ speed = 3.0
 
 [node name="Back2" type="Sprite" parent="."]
 modulate = Color( 0.831373, 0.823529, 1, 1 )
-rotation = 83.6533
+rotation = 113.411
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -32,7 +32,7 @@ start_rot = 22
 speed = 4.0
 
 [node name="Back1" type="Sprite" parent="."]
-rotation = 113.097
+rotation = 141.284
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -48,7 +48,7 @@ __meta__ = {
 
 [node name="EditorHitbox" type="Area2D" parent="."]
 visible = false
-collision_layer = 524288
+collision_layer = 1048576
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditorHitbox"]

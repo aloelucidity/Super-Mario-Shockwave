@@ -10,6 +10,7 @@ onready var code_handler = $CanvasLayer/LevelCode/CodeHandler
 onready var settings_window = $CanvasLayer/LevelSettings
 onready var backgrounds = $CanvasLayer/LevelSettings/Backgrounds
 onready var icon = $CanvasLayer/Icon
+onready var mouse_area = $MouseArea
 var zoom = Vector2(1, 1)
 
 export var code = ""
@@ -26,8 +27,13 @@ func _init():
 	seed(0)
 
 func pick_item(item):
+	if cur_item:
+		mouse_area.set_collision_mask_bit(cur_item.editor_layer, false)
 	cur_item = item
 	icon.texture = item.icon
+	placement_tool = item.placement_tool
+	mouse_area.set_collision_mask_bit(item.editor_layer, true)
+	change_placement()
 
 func _ready():
 	code = Globals.code
@@ -81,7 +87,7 @@ func deselect_object():
 	selected_object = null
 
 func select_object(object):
-	if is_ui: return
+	if is_ui or Input.is_action_pressed("editor_speed"): return
 	#if !$CanvasLayer/TopPanel/VBoxContainer/Select.pressed || is_ui: return
 	selected_object = object
 	selected_object.modulate.a = 0.5
@@ -102,7 +108,6 @@ func change_placement():
 	new_placement.set_script(load(placement_tool))
 	add_child(new_placement)
 	placement = new_placement
-	update_icon()
 
 func safe_entered():
 	is_ui = false
@@ -110,14 +115,6 @@ func safe_entered():
 func safe_exited():
 	is_ui = true
 	deselect_object()
-
-# placeholder
-func update_icon():
-	if placement_tool == "res://level/placement/Terrain.gd":
-		if placement.is_bg:
-			$CanvasLayer/Icon.self_modulate = Color.darkgray
-		else:
-			$CanvasLayer/Icon.self_modulate = Color.white
 
 func terrain_switch():
 	placement_tool = "res://level/placement/Terrain.gd"

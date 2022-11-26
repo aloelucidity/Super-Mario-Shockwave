@@ -12,3 +12,4 @@ custom_properties = {
 }
 icon = ExtResource( 1 )
 placement_tool = "res://level/placement/Terrain.gd"
+editor_layer = 19

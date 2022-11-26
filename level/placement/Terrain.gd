@@ -1,8 +1,6 @@
 extends Node2D
 
 onready var editor = get_tree().get_current_scene()
-
-var is_bg = false
 var points = []
 
 func click(cursor):
@@ -33,10 +31,10 @@ func add_terrain():
 		},
 		"base_properties": {}
 	}
-	if is_bg:
-		data.properties.solid = false
-		data.base_properties.z_index = -10
-		data.base_properties.tint = Color.darkgray
+#	if is_bg:
+#		data.properties.solid = false
+#		data.base_properties.z_index = -10
+#		data.base_properties.tint = Color.darkgray
 	area.add_object(data, true)
 	points.clear()
 
@@ -46,8 +44,3 @@ func _process(_delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("cancel_action"):
 		points.clear()
-
-	# placeholder
-	if event.is_action_pressed("object_mode"):
-		is_bg = !is_bg
-		get_parent().update_icon()

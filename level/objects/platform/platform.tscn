@@ -34,7 +34,7 @@ rotation = 0.00136421
 shape = SubResource( 1 )
 
 [node name="EditorHitbox" type="Area2D" parent="."]
-collision_layer = 524288
+collision_layer = 1048576
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditorHitbox"]

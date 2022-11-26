@@ -37,6 +37,7 @@ func _unhandled_input(event):
 		var _a = get_tree().change_scene_to(load("res://level/LevelEditor.tscn"))
 
 func load_music(level):
+	get_node("Globals").volume = level.get_area(0).music_volume
 	get_node("Globals").load_song(level.get_area(0).music_id)
 
 func load_background(_camera):

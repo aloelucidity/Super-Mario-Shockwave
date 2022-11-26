@@ -67,7 +67,7 @@ func load_object():
 		editor_body = Area2D.new()
 		editor_body.name = "Editor"
 		editor_body.set_collision_layer_bit(0, false)
-		editor_body.set_collision_layer_bit(19, true)
+		editor_body.set_collision_layer_bit(20, true)
 		editor_body.set_collision_mask_bit(0, false)
 		add_child(editor_body)
 		

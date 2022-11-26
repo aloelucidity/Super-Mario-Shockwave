@@ -6,6 +6,9 @@ onready var sound = get_node(sound_path)
 export var sound_donk_path : NodePath
 onready var sound_donk = get_node(sound_donk_path) 
 
+export var detector_path : NodePath
+onready var interactable_detector = get_node(detector_path)
+
 export var swing_time : float
 export var swing_land_time : float
 export var boost_power : float
@@ -75,7 +78,7 @@ func _general_update(delta):
 		if end_timer <= 0:
 			end_timer = 0
 			
-	if character.inputs.attack[1]:
+	if character.inputs.attack[1] && !(interactable_detector.get_overlapping_areas().size() > 0 && character.grounded):
 		attack_timer = 0.2
 	if attack_timer > 0:
 		attack_timer -= delta

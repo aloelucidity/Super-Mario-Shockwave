@@ -1,7 +1,7 @@
 extends Node2D
 
-var platform_type = 0
-var obj_id = 5
+onready var editor = get_tree().get_current_scene()
+
 var points = []
 var origin : Vector2
 
@@ -39,7 +39,8 @@ func add_platform():
 	
 	for i in range(points.size()):
 		points[i] -= origin
-		
+	
+	var platform_type = editor.cur_item.custom_properties["platform_type"]
 	var move_type = 1
 	if points.size() < 2:
 		move_type = 0
@@ -70,11 +71,3 @@ func _unhandled_input(event):
 	if event.is_action_pressed("cancel_action"):
 		points.clear()
 		done_button.visible = false
-
-	if event.is_action_pressed("object_left"):
-		platform_type = wrapi(platform_type - 1, 0, 2)
-		get_parent().update_icon(platform_type)
-		
-	if event.is_action_pressed("object_right"):
-		platform_type = wrapi(platform_type + 1, 0, 2)
-		get_parent().update_icon(platform_type)

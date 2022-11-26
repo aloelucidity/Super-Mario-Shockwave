@@ -36,7 +36,7 @@ void fragment()
 					}
 				} else {
 					pixel_color.a = outline_color.a;
-					return
+					break
 				}
 			}
 		}
@@ -57,14 +57,14 @@ z_index = -4
 z_as_relative = false
 
 [node name="EditorHitbox" type="Area2D" parent="."]
-collision_layer = 524288
+collision_layer = 1048576
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditorHitbox"]
 shape = SubResource( 1 )
 
 [node name="ReadRange" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReadRange"]
