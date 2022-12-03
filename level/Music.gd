@@ -4,6 +4,9 @@ const Downloader = preload("res://misc/downloader.gd")
 onready var downloader = Downloader.new()
 var volume = -4
 
+func _init():
+	pause_mode = PAUSE_MODE_PROCESS
+
 func load_song(id):
 	if id == -1: return
 	var directory = Directory.new()

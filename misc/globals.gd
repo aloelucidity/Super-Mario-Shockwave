@@ -6,6 +6,9 @@ onready var control = Control.new()
 var muted
 var level
 
+func _init():
+	pause_mode = PAUSE_MODE_PROCESS
+
 func _ready():
 	add_child(control)
 

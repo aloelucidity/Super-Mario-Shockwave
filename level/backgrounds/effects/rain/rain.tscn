@@ -24,6 +24,7 @@ scale_random = 0.7
 color_ramp = SubResource( 2 )
 
 [node name="Rain" type="Node2D"]
+pause_mode = 2
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 256, 0 )
