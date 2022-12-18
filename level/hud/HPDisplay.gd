@@ -16,12 +16,8 @@ func _init():
 	base_pos = rect_position
 
 func _ready():
-	var hp = 3
-	while true:
-		set_hp_value(hp)
-		hp -= 1
-		hp = wrapi(hp, 0, 4)
-		yield(get_tree().create_timer(2), "timeout")
+	set_hp_value(3)
+	Globals.level.connect("health_changed", self, "set_hp_value")
 
 func set_hp_value(hp : int):
 	if hp < (target_intensity - 1):

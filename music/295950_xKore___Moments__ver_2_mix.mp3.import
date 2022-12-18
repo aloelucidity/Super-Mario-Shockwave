@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/295950_xKore___Moments__ver_2_mix.mp3-ede2b4a0e6825af8f20dd9d57be4644f.mp3str"
+
+[deps]
+
+source_file="res://music/295950_xKore___Moments__ver_2_mix.mp3"
+dest_files=[ "res://.import/295950_xKore___Moments__ver_2_mix.mp3-ede2b4a0e6825af8f20dd9d57be4644f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

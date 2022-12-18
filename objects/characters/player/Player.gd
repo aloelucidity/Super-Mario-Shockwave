@@ -3,6 +3,7 @@ class_name Player
 
 var camera = null
 onready var animations = $Animations
+onready var health = $Health
 
 func _physics_process(delta):
 	process_inputs()

@@ -11,7 +11,7 @@ radius = 16.0
 
 [node name="Back3" type="Sprite" parent="."]
 modulate = Color( 0.698039, 0.682353, 1, 1 )
-rotation = 85.5562
+rotation = 43.354
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -22,7 +22,7 @@ speed = 3.0
 
 [node name="Back2" type="Sprite" parent="."]
 modulate = Color( 0.831373, 0.823529, 1, 1 )
-rotation = 113.411
+rotation = 57.1421
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -32,7 +32,7 @@ start_rot = 22
 speed = 4.0
 
 [node name="Back1" type="Sprite" parent="."]
-rotation = 141.284
+rotation = 70.9476
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {

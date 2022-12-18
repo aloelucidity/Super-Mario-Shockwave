@@ -6,4 +6,4 @@ script/source = "export(Array, String) var ids
 
 [resource]
 script = SubResource( 1 )
-ids = [ "MovingPlatform", "MovingBlock" ]
+ids = [ "MovingPlatform", "MovingBlock", "Trampoline" ]

@@ -78,7 +78,7 @@ func _input(event):
 		level.get_area(level.persistent_data.current_area).delete_object(selected_object, true)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen"):
+	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen") && !is_ui:
 		test_level()
 
 func deselect_object():
@@ -87,7 +87,7 @@ func deselect_object():
 	selected_object = null
 
 func select_object(object):
-	if is_ui or Input.is_action_pressed("editor_speed"): return
+	if is_ui or Input.is_action_pressed("unlock_grid"): return
 	#if !$CanvasLayer/TopPanel/VBoxContainer/Select.pressed || is_ui: return
 	selected_object = object
 	selected_object.modulate.a = 0.5

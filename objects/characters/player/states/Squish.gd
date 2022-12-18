@@ -22,6 +22,7 @@ func _start_check(_delta):
 
 func _start(delta):
 	character.velocity.x = 0
+	character.health.ouch()
 	
 	sprite = character.get_node("AnimatedSprite")
 	sprite.offset.y = 0

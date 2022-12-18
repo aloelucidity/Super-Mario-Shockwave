@@ -1,5 +1,10 @@
 extends State
 
+export var ground_cast_path : NodePath
+onready var ground_cast = get_node(ground_cast_path)
+export var squish_cast_path : NodePath
+onready var squish_cast = get_node(squish_cast_path)
+
 export var tele_amount : int
 export var rot_speed : float
 export var stomp_power : float
@@ -21,6 +26,9 @@ func _start_check(delta):
 	return input_timer > 0 && !character.grounded
 
 func _start(delta):
+	character.set_collision_mask_bit(5, false)
+	ground_cast.set_collision_mask_bit(5, false)
+	squish_cast.set_collision_mask_bit(5, false)
 	direction = character.facing_direction
 	input_timer = 0
 	getup_timer = getup_time
@@ -54,12 +62,19 @@ func _update(delta):
 		if character.grounded:
 			landed = true
 			disable_movement = true
+			sprite.offset.y = 22
+			sprite.scale.y = 0.25
 			character.shake_camera(shake_intensity, shake_time)
 	else:
 		if jump_timer > 0:
 			jump_timer = 0
 			character.grounded = false
 			character.set_state_by_name("GroundPoundJump", delta)
+
+func _stop(_delta):
+	character.set_collision_mask_bit(5, true)
+	ground_cast.set_collision_mask_bit(5, true)
+	squish_cast.set_collision_mask_bit(5, true)
 
 func _stop_check(_delta):
 	return getup_timer <= 0

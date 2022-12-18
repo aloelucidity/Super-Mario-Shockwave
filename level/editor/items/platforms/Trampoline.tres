@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://level/objects/moving_platform/icon.png" type="Texture" id=1]
+[ext_resource path="res://level/editor/items/Item.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+name = "Trampoline"
+obj_id = 10
+custom_properties = {
+}
+icon = ExtResource( 1 )
+placement_tool = "res://level/placement/Default.gd"
+editor_layer = 20

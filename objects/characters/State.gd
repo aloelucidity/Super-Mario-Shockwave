@@ -9,6 +9,7 @@ export(Array, String) var blacklisted_states = []
 export var animation : String
 export var autoflip : bool
 export var override_rotation : bool
+export var override_scale : bool
 export var disable_movement : bool
 export var disable_snap : bool
 export var speed_scale : float = 1

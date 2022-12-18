@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/525792_Eternal-Eclipse.mp3-1b2c02e19e5c83617edd9676aab1a6a6.mp3str"
+
+[deps]
+
+source_file="res://music/525792_Eternal-Eclipse.mp3"
+dest_files=[ "res://.import/525792_Eternal-Eclipse.mp3-1b2c02e19e5c83617edd9676aab1a6a6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

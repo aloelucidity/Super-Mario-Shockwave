@@ -17,6 +17,7 @@ var persistent_data : Dictionary = {
 
 signal coin_collected
 signal sign_opened
+signal health_changed
 
 func collect_coin(amount : int = 1):
 	persistent_data.coins += amount

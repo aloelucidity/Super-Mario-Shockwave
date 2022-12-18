@@ -17,12 +17,14 @@ func is_wall():
 	return character.test_move(character.get_transform(), Vector2(character.facing_direction * 2, 0))
 
 func _start_check(delta):
-	return character.state == dive_state && is_wall() && abs(character.velocity.x) > 15 && !character.grounded
+	return character.state == dive_state && is_wall() && !character.grounded
 
 func _start(delta):
 	direction = character.facing_direction
 	
 	sprite = character.get_node("AnimatedSprite")
+	sprite.scale.x = 0.65
+	sprite.offset.x = 10 * direction
 	sprite.rotation_degrees = 0
 	sound.play_random()
 	
