@@ -70,7 +70,7 @@ func _stop(_delta):
 	priority = 4
 
 func _stop_check(_delta):
-	return end_timer <= 0
+	return end_timer <= 0 or (!character.grounded && was_grounded)
 
 func _general_update(delta):
 	if end_timer > 0 && character.grounded:
@@ -78,7 +78,10 @@ func _general_update(delta):
 		if end_timer <= 0:
 			end_timer = 0
 			
-	if character.inputs.attack[1] && !(interactable_detector.get_overlapping_areas().size() > 0 && character.grounded):
+	if (character.inputs.attack[1] 
+	&& !(interactable_detector.get_overlapping_areas().size() > 0 && character.grounded)
+	&& (character.state == null || !character.state.name in blacklisted_states)
+	):
 		attack_timer = 0.2
 	if attack_timer > 0:
 		attack_timer -= delta

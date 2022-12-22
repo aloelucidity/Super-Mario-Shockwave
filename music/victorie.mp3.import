@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/victorie.mp3-27c9d64759478238c7d2571b0282d93a.mp3str"
+
+[deps]
+
+source_file="res://music/victorie.mp3"
+dest_files=[ "res://.import/victorie.mp3-27c9d64759478238c7d2571b0282d93a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

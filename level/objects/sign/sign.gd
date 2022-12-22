@@ -61,7 +61,7 @@ func _input(event):
 		cooldown = 1
 		
 		var cur_scene = get_tree().get_current_scene()
-		cur_scene.hud.get_node("CanvasLayer/Sign").open(properties.text)
+		cur_scene.hud.get_node("Sign").open(properties.text)
 		get_tree().paused = true
 
 func properties_ui_path():

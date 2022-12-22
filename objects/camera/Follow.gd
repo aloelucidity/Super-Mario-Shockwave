@@ -5,11 +5,15 @@ onready var follow = get_node(follow_path)
 
 export var follow_speed : float
 export var zoom_speed : float
+export var zoom_smoothing : float
 
 export var shake_intensity : float
 export var shake_time : float
 
+var current_zoom : Vector2
+
 func _ready():
+	current_zoom = Vector2.ONE
 	if "camera" in follow:
 		follow.camera = self
 
@@ -20,12 +24,14 @@ func _physics_process(delta):
 	if Input.is_action_pressed("zoom_out"):
 		var zoom_amount = Input.get_action_strength("zoom_out")
 		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)
-		zoom += Vector2(zoom_amount, zoom_amount)
+		current_zoom += Vector2(zoom_amount, zoom_amount)
 	if Input.is_action_pressed("zoom_in"):
 		var zoom_amount = Input.get_action_strength("zoom_in")
 		zoom_amount = math_util.change_max(zoom_amount, 1, zoom_speed)
-		zoom -= Vector2(zoom_amount, zoom_amount)
-
+		current_zoom -= Vector2(zoom_amount, zoom_amount)
+	
+	zoom.x = lerp(zoom.x, current_zoom.x, delta * zoom_smoothing)
+	zoom.y = lerp(zoom.y, current_zoom.y, delta * zoom_smoothing)
 	if shake_time > 0:
 		shake_update(delta)
 

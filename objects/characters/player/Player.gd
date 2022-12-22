@@ -2,10 +2,12 @@ extends Character
 class_name Player
 
 var camera = null
+var frozen := false
 onready var animations = $Animations
 onready var health = $Health
 
 func _physics_process(delta):
+	if frozen: return
 	process_inputs()
 	process_collisions(delta)
 	update_states(delta)

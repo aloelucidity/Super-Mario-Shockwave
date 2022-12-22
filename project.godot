@@ -289,6 +289,10 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+mp3={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 
@@ -547,6 +551,7 @@ unlock_grid={
 2d_physics/layer_4="interactable"
 2d_physics/layer_5="ouch"
 2d_physics/layer_6="ground_pound"
+2d_physics/layer_7="star"
 2d_physics/layer_20="editor_terrain"
 2d_physics/layer_21="editor_objects"
 2d_physics/layer_22="editor_decor"

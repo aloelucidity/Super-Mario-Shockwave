@@ -7,6 +7,9 @@ var volume = -4
 func _init():
 	pause_mode = PAUSE_MODE_PROCESS
 
+func stop_music():
+	$Music.stop()
+
 func load_song(id):
 	if id == -1: return
 	var directory = Directory.new()

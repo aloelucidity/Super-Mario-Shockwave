@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://level/objects/saw/rotate.gd" type="Script" id=1]
 [ext_resource path="res://level/objects/saw/front.png" type="Texture" id=2]
 [ext_resource path="res://level/objects/saw/back.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=25]
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id=24]
 radius = 16.0
@@ -11,7 +14,7 @@ radius = 16.0
 
 [node name="Back3" type="Sprite" parent="."]
 modulate = Color( 0.698039, 0.682353, 1, 1 )
-rotation = 43.354
+rotation = 273.008
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -22,7 +25,7 @@ speed = 3.0
 
 [node name="Back2" type="Sprite" parent="."]
 modulate = Color( 0.831373, 0.823529, 1, 1 )
-rotation = 57.1421
+rotation = 363.342
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -32,7 +35,7 @@ start_rot = 22
 speed = 4.0
 
 [node name="Back1" type="Sprite" parent="."]
-rotation = 70.9476
+rotation = 453.693
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -46,6 +49,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 25 )
+
 [node name="EditorHitbox" type="Area2D" parent="."]
 visible = false
 collision_layer = 1048576
@@ -53,3 +64,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditorHitbox"]
 shape = SubResource( 24 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -22, -22, 44, 44 )
+process_parent = true
+physics_process_parent = true

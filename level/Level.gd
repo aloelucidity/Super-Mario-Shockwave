@@ -23,6 +23,12 @@ func collect_coin(amount : int = 1):
 	persistent_data.coins += amount
 	emit_signal("coin_collected")
 
+func stop_music():
+	get_parent().get_node("Globals").stop_music()
+	
+func hide_hud():
+	get_parent().get_node("HUD").visible = false
+
 func save_level():
 	var data = {
 		"game_version": game_version,

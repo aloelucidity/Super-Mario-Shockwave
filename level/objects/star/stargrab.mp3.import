@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/stargrab.mp3-fcde7a2bb04288ffd9244441e5d34acd.mp3str"
+
+[deps]
+
+source_file="res://level/objects/star/stargrab.mp3"
+dest_files=[ "res://.import/stargrab.mp3-fcde7a2bb04288ffd9244441e5d34acd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

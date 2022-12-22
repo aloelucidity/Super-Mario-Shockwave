@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 follow_path = NodePath("../Player")
 follow_speed = 12.0
 zoom_speed = 0.02
+zoom_smoothing = 2.0
