@@ -25,6 +25,7 @@ onready var id_map = preload("res://level/objects/IDMap.tres")
 
 func _init():
 	seed(0)
+	Engine.time_scale = 1
 
 func pick_item(item):
 	if cur_item:

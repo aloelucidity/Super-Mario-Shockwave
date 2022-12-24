@@ -1,6 +1,6 @@
 [gd_scene load_steps=346 format=2]
 
-[ext_resource path="res://objects/characters/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level/characters/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/backgrounds/camera.gd" type="Script" id=2]
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=3]
 [ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=4]
@@ -10,7 +10,7 @@
 [ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=8]
 [ext_resource path="res://level/hud/Coins.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayBCKTERR1.png" type="Texture" id=10]
-[ext_resource path="res://objects/camera/camera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://level/camera/camera.tscn" type="PackedScene" id=11]
 [ext_resource path="res://level/backgrounds/background/dusk/dusk.tscn" type="PackedScene" id=12]
 [ext_resource path="res://placeholder.gd" type="Script" id=13]
 [ext_resource path="res://level/backgrounds/foreground/hills/bg_land_dayhill1.png" type="Texture" id=14]

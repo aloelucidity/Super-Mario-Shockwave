@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mario35.wav-77582d7d0eff198fd6e1602a85369311.sample"
+
+[deps]
+
+source_file="res://level/characters/player/sounds/mario/Dive/Mario35.wav"
+dest_files=[ "res://.import/Mario35.wav-77582d7d0eff198fd6e1602a85369311.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

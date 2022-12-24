@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
-"path": "res://objects/characters/Character.gd"
+"path": "res://level/characters/Character.gd"
 }, {
 "base": "LevelObject",
 "class": "Decoration",
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Character",
 "class": "Player",
 "language": "GDScript",
-"path": "res://objects/characters/player/Player.gd"
+"path": "res://level/characters/player/Player.gd"
 }, {
 "base": "Resource",
 "class": "Property",
@@ -182,7 +182,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://objects/characters/State.gd"
+"path": "res://level/characters/State.gd"
 }, {
 "base": "Reference",
 "class": "input_util",
@@ -552,6 +552,8 @@ unlock_grid={
 2d_physics/layer_5="ouch"
 2d_physics/layer_6="ground_pound"
 2d_physics/layer_7="star"
+2d_physics/layer_8="enemy_hitbox"
+2d_physics/layer_9="player_hurtbox"
 2d_physics/layer_20="editor_terrain"
 2d_physics/layer_21="editor_objects"
 2d_physics/layer_22="editor_decor"

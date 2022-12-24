@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hitweak.mp3-847cca725abc962dddc8b957c2039bd9.mp3str"
+
+[deps]
+
+source_file="res://level/characters/player/sounds/misc/hitweak.mp3"
+dest_files=[ "res://.import/hitweak.mp3-847cca725abc962dddc8b957c2039bd9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

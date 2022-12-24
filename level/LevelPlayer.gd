@@ -50,11 +50,11 @@ func load_hud():
 	add_child(hud)
 
 func spawn_player():
-	player = preload("res://objects/characters/player/Player.tscn").instance()
+	player = preload("res://level/characters/player/Player.tscn").instance()
 	add_child(player)
 	return player
 
 func spawn_camera():
-	camera = preload("res://objects/camera/camera.tscn").instance()
+	camera = preload("res://level/camera/camera.tscn").instance()
 	add_child(camera)
 	camera.follow_path = camera.get_path_to(player)

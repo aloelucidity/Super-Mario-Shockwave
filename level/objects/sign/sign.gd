@@ -57,7 +57,7 @@ func _physics_process(delta):
 	sprite.material.set_shader_param("outline_color", color)
 
 func _input(event):
-	if event.is_action_pressed("attack") and active and cooldown <= 0:
+	if event.is_action_pressed("attack") and active and cooldown <= 0 and player.movement.direction == 0:
 		cooldown = 1
 		
 		var cur_scene = get_tree().get_current_scene()
