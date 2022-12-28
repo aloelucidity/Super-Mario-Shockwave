@@ -1,0 +1,1265 @@
+[gd_scene load_steps=71 format=2]
+
+[ext_resource path="res://menu/coolbutton.gd" type="Script" id=1]
+[ext_resource path="res://fonts/MarioAndLuigi-0v99.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://music/aez.ogg" type="AudioStream" id=3]
+[ext_resource path="res://menu/assets/grid.png" type="Texture" id=4]
+[ext_resource path="res://level/backgrounds/background/dusk/coolskhy_pixel.png" type="Texture" id=5]
+[ext_resource path="res://level/backgrounds/background/night/sky_night_pixel.png" type="Texture" id=6]
+[ext_resource path="res://fonts/arialbd.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://fonts/ariali.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://level/objects/star/star.png" type="Texture" id=9]
+[ext_resource path="res://menu/hover.gd" type="Script" id=10]
+[ext_resource path="res://menu/PanelManager.gd" type="Script" id=11]
+[ext_resource path="res://menu/PanelManager2.gd" type="Script" id=12]
+
+[sub_resource type="Animation" id=70]
+resource_name = "close_Levels"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Levels:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Levels:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Levels:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 75 ) ]
+}
+
+[sub_resource type="Animation" id=71]
+resource_name = "close_Main"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main/Button:target_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=72]
+resource_name = "open_Levels"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Levels:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Levels:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Levels:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 75 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=73]
+resource_name = "open_Main"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 180 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=17]
+light_mode = 2
+
+[sub_resource type="Gradient" id=21]
+offsets = PoolRealArray( 0, 0.75 )
+colors = PoolColorArray( 0.827451, 0, 1, 1, 0.00784314, 1, 0, 1 )
+
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 21 )
+width = 513
+
+[sub_resource type="GDScript" id=18]
+script/source = "tool
+extends Light2D
+
+export var speed : float
+
+func _physics_process(_delta):
+	position += Vector2(speed, speed)
+	if position.x > 0:
+		position = Vector2(-32, -32)
+"
+
+[sub_resource type="Gradient" id=19]
+offsets = PoolRealArray( 0, 0.4, 1 )
+colors = PoolColorArray( 0.32549, 0.721569, 0.705882, 1, 0.44, 0.44, 0.44, 1, 0.099, 0.1452, 0.33, 1 )
+
+[sub_resource type="GradientTexture2D" id=20]
+gradient = SubResource( 19 )
+width = 32
+height = 32
+fill_from = Vector2( 0, 0.25 )
+fill_to = Vector2( 0.25, 1 )
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 1, 0, 0, 1, 0.36, 0, 0.151875, 1 )
+
+[sub_resource type="GradientTexture2D" id=12]
+gradient = SubResource( 11 )
+fill = 1
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = SubResource( 12 )
+region_rect = Rect2( 0, 0, 64, 64 )
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="DynamicFont" id=10]
+size = 22
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=14]
+colors = PoolColorArray( 0.11, 0.569833, 1, 1, 0.2247, 0.162, 0.36, 1 )
+
+[sub_resource type="GradientTexture2D" id=15]
+gradient = SubResource( 14 )
+fill = 1
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = SubResource( 15 )
+region_rect = Rect2( 0, 0, 64, 64 )
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Gradient" id=30]
+colors = PoolColorArray( 0.235294, 0.247059, 0.45098, 1, 0.2, 0.12, 0.193333, 1 )
+
+[sub_resource type="GradientTexture2D" id=31]
+gradient = SubResource( 30 )
+fill = 1
+fill_from = Vector2( 0.301, 0.055 )
+fill_to = Vector2( 0.205, 0.748 )
+
+[sub_resource type="StyleBoxTexture" id=29]
+texture = SubResource( 31 )
+region_rect = Rect2( 0, 0, 64, 64 )
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 24.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Animation" id=63]
+resource_name = "close_LevelInfo"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelInfo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LevelInfo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LevelInfo:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=64]
+resource_name = "close_Levels"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Levels:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Levels:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=65]
+resource_name = "open_LevelInfo"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelInfo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LevelInfo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LevelInfo:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=66]
+resource_name = "open_Levels"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Levels:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Levels:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=28]
+size = 15
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=55]
+size = 14
+font_data = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=67]
+offsets = PoolRealArray( 0, 0.642458 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.0901961, 0.0901961, 0.0901961, 0.831373 )
+
+[sub_resource type="GradientTexture2D" id=68]
+gradient = SubResource( 67 )
+fill_to = Vector2( 0, 1 )
+
+[sub_resource type="StyleBoxTexture" id=69]
+texture = SubResource( 68 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 9
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 12
+font_data = ExtResource( 8 )
+
+[sub_resource type="Gradient" id=52]
+colors = PoolColorArray( 0.198, 0.6523, 0.66, 1, 0.557552, 0.3149, 0.67, 1 )
+
+[sub_resource type="GradientTexture2D" id=53]
+gradient = SubResource( 52 )
+fill_to = Vector2( 1, 1 )
+
+[sub_resource type="StyleBoxTexture" id=54]
+texture = SubResource( 53 )
+region_rect = Rect2( 0, 0, 64, 64 )
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="Gradient" id=56]
+colors = PoolColorArray( 0.478187, 0.4032, 0.64, 1, 0.67, 0.67, 0.67, 1 )
+
+[sub_resource type="GradientTexture2D" id=57]
+gradient = SubResource( 56 )
+fill_to = Vector2( 1, 1 )
+
+[sub_resource type="StyleBoxTexture" id=58]
+texture = SubResource( 57 )
+region_rect = Rect2( 0, 0, 64, 64 )
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="Gradient" id=59]
+colors = PoolColorArray( 0.63, 0.1386, 0.1386, 1, 0.24, 0.0432, 0.195413, 1 )
+
+[sub_resource type="GradientTexture2D" id=60]
+gradient = SubResource( 59 )
+fill_to = Vector2( 1, 1 )
+
+[sub_resource type="StyleBoxTexture" id=61]
+texture = SubResource( 60 )
+region_rect = Rect2( 0, 0, 64, 64 )
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 0, 24, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 24, 24, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 48, 24, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 72, 24, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 0, 48, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 24, 48, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 48, 48, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 72, 48, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 0, 72, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 24, 72, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 48, 72, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 2
+atlas = ExtResource( 9 )
+region = Rect2( 72, 72, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=50]
+animations = [ {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": true,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="DynamicFont" id=33]
+size = 10
+font_data = ExtResource( 7 )
+
+[node name="LevelStudio" type="Node2D"]
+script = ExtResource( 12 )
+starting_path = NodePath("Main")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close_Levels = SubResource( 70 )
+anims/close_Main = SubResource( 71 )
+anims/open_Levels = SubResource( 72 )
+anims/open_Main = SubResource( 73 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "Music"
+
+[node name="BG" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="BG"]
+light_mask = 2
+material = SubResource( 17 )
+margin_right = 512.0
+margin_bottom = 288.0
+texture = SubResource( 22 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D2" type="Light2D" parent="BG"]
+position = Vector2( -8, -8 )
+texture = ExtResource( 4 )
+offset = Vector2( 272, 160 )
+mode = 3
+range_item_cull_mask = 2
+script = SubResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+speed = 0.5
+
+[node name="Light2D" type="Light2D" parent="BG"]
+position = Vector2( -28.8, -28.8 )
+texture = ExtResource( 4 )
+offset = Vector2( 272, 160 )
+mode = 3
+range_item_cull_mask = 2
+script = SubResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+speed = 0.8
+
+[node name="TextureRect3" type="TextureRect" parent="BG"]
+modulate = Color( 1, 1, 1, 0.619608 )
+margin_right = 512.0
+margin_bottom = 288.0
+texture = SubResource( 20 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+modulate = Color( 1, 1, 1, 0.619608 )
+margin_right = 512.0
+margin_bottom = 288.0
+texture = SubResource( 20 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Main" type="Control" parent="."]
+margin_right = 512.0
+margin_bottom = 288.002
+rect_pivot_offset = Vector2( 256, 144 )
+
+[node name="Button" type="Button" parent="Main"]
+margin_left = 33.0
+margin_top = 205.0
+margin_right = 183.0
+margin_bottom = 249.0
+rect_pivot_offset = Vector2( 75, 22 )
+focus_mode = 0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 13 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+float_amount = 5.0
+float_speed = 1.0
+rot_amount = 2.0
+rot_speed = 1.5
+target_scale = Vector2( 1, 1 )
+can_press = true
+
+[node name="ColorRect" type="ColorRect" parent="Main/Button"]
+margin_right = 150.0
+margin_bottom = 44.0
+rect_rotation = 2.0
+rect_pivot_offset = Vector2( 75, 22 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.1, 0.1, 0.1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Main/Button"]
+margin_right = 150.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 10 )
+text = "Saved Levels"
+align = 1
+valign = 1
+
+[node name="Button2" type="Button" parent="Main"]
+margin_left = 216.0
+margin_top = 154.0
+margin_right = 366.0
+margin_bottom = 198.0
+rect_pivot_offset = Vector2( 75, 22 )
+focus_mode = 0
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+float_amount = -5.0
+float_speed = -1.0
+rot_amount = -2.0
+rot_speed = -1.5
+time_offset = 0.716
+
+[node name="ColorRect" type="ColorRect" parent="Main/Button2"]
+margin_right = 150.0
+margin_bottom = 44.0
+rect_rotation = 2.0
+rect_pivot_offset = Vector2( 75, 22 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.1, 0.1, 0.1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Main/Button2"]
+margin_right = 150.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 10 )
+text = "Level Portal"
+align = 1
+valign = 1
+
+[node name="Button3" type="Button" parent="Main"]
+margin_left = 402.0
+margin_top = 116.0
+margin_right = 477.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 37, 22 )
+focus_mode = 0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 13 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+float_amount = 5.0
+float_speed = 1.0
+rot_amount = 2.0
+rot_speed = 1.5
+time_offset = 1.773
+
+[node name="ColorRect" type="ColorRect" parent="Main/Button3"]
+margin_right = 75.0
+margin_bottom = 44.0
+rect_rotation = 2.0
+rect_pivot_offset = Vector2( 75, 22 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.1, 0.1, 0.1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Main/Button3"]
+margin_right = 75.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 10 )
+text = "Back"
+align = 1
+valign = 1
+
+[node name="Levels" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 75.0
+margin_right = 512.0
+margin_bottom = 363.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 256, 144 )
+
+[node name="SavedLevels" type="Panel" parent="Levels"]
+margin_left = 25.0
+margin_top = 40.0
+margin_right = 485.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 29 )
+script = ExtResource( 11 )
+starting_path = NodePath("Levels")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/SavedLevels"]
+anims/close_LevelInfo = SubResource( 63 )
+anims/close_Levels = SubResource( 64 )
+anims/open_LevelInfo = SubResource( 65 )
+anims/open_Levels = SubResource( 66 )
+
+[node name="Title" type="Label" parent="Levels/SavedLevels"]
+margin_left = 4.0
+margin_top = -19.0
+margin_right = 373.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 28 )
+text = "Saved Levels"
+valign = 1
+
+[node name="Back" type="Button" parent="Levels/SavedLevels"]
+margin_left = 370.0
+margin_top = -16.0
+margin_right = 460.0
+focus_mode = 0
+custom_fonts/font = SubResource( 55 )
+custom_styles/hover = SubResource( 69 )
+custom_styles/pressed = SubResource( 69 )
+custom_styles/normal = SubResource( 69 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Back"
+script = ExtResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="Levels/SavedLevels"]
+margin_right = 460.0
+margin_bottom = 224.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.831373 )
+
+[node name="Levels" type="ScrollContainer" parent="Levels/SavedLevels"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 452.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( 222, 104 )
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Levels/SavedLevels/Levels"]
+margin_right = 444.0
+margin_bottom = 160.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 4
+columns = 4
+
+[node name="Level" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_right = 108.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Follow the Path"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Level3" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_left = 112.0
+margin_right = 220.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level3"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level3"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Follow the Path"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Level2" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_left = 224.0
+margin_right = 332.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level2"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level2"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Shattered Tower"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Level4" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_left = 336.0
+margin_right = 444.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level4"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level4"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Follow the Path"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Level5" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_top = 82.0
+margin_right = 108.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level5"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level5"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Shattered Tower"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Level6" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_left = 112.0
+margin_top = 82.0
+margin_right = 220.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level6"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level6"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Follow the Path"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Level7" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
+margin_left = 224.0
+margin_top = 82.0
+margin_right = 332.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 108, 78 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+
+[node name="Icon" type="ColorRect" parent="Levels/SavedLevels/Levels/GridContainer/Level7"]
+margin_right = 108.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 108, 61 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level7"]
+margin_top = 61.0
+margin_right = 108.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 24 )
+text = "Create New..."
+align = 1
+valign = 1
+clip_text = true
+
+[node name="LevelInfo" type="Control" parent="Levels/SavedLevels"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 460.0
+margin_bottom = 224.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 230, 112 )
+
+[node name="TextureRect" type="TextureRect" parent="Levels/SavedLevels/LevelInfo"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 158.0
+margin_bottom = 90.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Levels/SavedLevels/LevelInfo"]
+margin_left = 167.0
+margin_top = 12.0
+margin_right = 340.0
+margin_bottom = 64.0
+custom_constants/separation = 3
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
+margin_right = 173.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 28 )
+text = "Follow the Path"
+
+[node name="Label2" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
+margin_top = 21.0
+margin_right = 173.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 32 )
+text = "Author: Chri_ti_03"
+
+[node name="Label3" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
+margin_top = 38.0
+margin_right = 173.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 32 )
+text = "Completion: 50%"
+
+[node name="Buttons" type="VBoxContainer" parent="Levels/SavedLevels/LevelInfo"]
+margin_left = 362.0
+margin_top = 6.0
+margin_right = 452.0
+margin_bottom = 89.0
+custom_constants/separation = 1
+
+[node name="Button" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+margin_right = 90.0
+margin_bottom = 20.0
+focus_mode = 0
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 54 )
+custom_styles/normal = SubResource( 54 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button"]
+modulate = Color( 0, 0.0392157, 1, 0.196078 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 43, 8 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button"]
+margin_right = 90.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 55 )
+text = "Play"
+align = 1
+valign = 1
+
+[node name="Button2" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+margin_top = 21.0
+margin_right = 90.0
+margin_bottom = 41.0
+focus_mode = 0
+custom_styles/hover = SubResource( 58 )
+custom_styles/pressed = SubResource( 58 )
+custom_styles/normal = SubResource( 58 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button2"]
+modulate = Color( 0, 0.0392157, 1, 0.196078 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 43, 8 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button2"]
+margin_right = 90.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 55 )
+text = "Edit"
+align = 1
+valign = 1
+
+[node name="Button3" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+margin_top = 42.0
+margin_right = 90.0
+margin_bottom = 62.0
+focus_mode = 0
+custom_styles/hover = SubResource( 61 )
+custom_styles/pressed = SubResource( 61 )
+custom_styles/normal = SubResource( 61 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button3"]
+modulate = Color( 0, 0.0392157, 1, 0.196078 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 43, 8 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button3"]
+margin_right = 90.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 55 )
+text = "Reset save"
+align = 1
+valign = 1
+
+[node name="Button4" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+margin_top = 63.0
+margin_right = 90.0
+margin_bottom = 83.0
+focus_mode = 0
+custom_styles/hover = SubResource( 61 )
+custom_styles/pressed = SubResource( 61 )
+custom_styles/normal = SubResource( 61 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button4"]
+modulate = Color( 0, 0.0392157, 1, 0.196078 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 43, 8 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button4"]
+margin_right = 90.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 55 )
+text = "Delete"
+align = 1
+valign = 1
+
+[node name="Stars" type="AnimatedSprite" parent="Levels/SavedLevels/LevelInfo"]
+position = Vector2( 167, 64 )
+frames = SubResource( 50 )
+frame = 11
+playing = true
+centered = false
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Stars"]
+margin_left = 29.0
+margin_top = 6.0
+margin_right = 92.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 28 )
+text = "1/2"
+valign = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Levels/SavedLevels/LevelInfo"]
+margin_left = 8.0
+margin_top = 94.0
+margin_right = 452.0
+margin_bottom = 217.0
+custom_fonts/normal_font = SubResource( 33 )
+text = "Well this is my first level, this editor really got me again into level designing lol. Here's the code: https://pastebin.com/JSi5ej4v"
+
+[connection signal="pressed" from="Main/Button" to="." method="open_panel_by_path" binds= [ "Levels" ]]
+[connection signal="pressed" from="Levels/SavedLevels/Back" to="Levels/SavedLevels" method="go_back"]

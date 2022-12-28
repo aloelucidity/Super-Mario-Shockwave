@@ -243,7 +243,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://misc/globals.gd"
-Multi="*res://misc/multi.gd"
 
 [display]
 

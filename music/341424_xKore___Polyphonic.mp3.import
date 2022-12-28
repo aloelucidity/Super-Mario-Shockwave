@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/341424_xKore___Polyphonic.mp3-65878f6d9c88ef43c95e33ee1fec92d6.mp3str"
+
+[deps]
+
+source_file="res://music/341424_xKore___Polyphonic.mp3"
+dest_files=[ "res://.import/341424_xKore___Polyphonic.mp3-65878f6d9c88ef43c95e33ee1fec92d6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

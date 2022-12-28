@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://level/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
@@ -68,13 +68,12 @@ content_margin_left = 2.0
 texture = SubResource( 3 )
 region_rect = Rect2( 0, 0, 2048, 1 )
 
-[sub_resource type="Gradient" id=7]
-offsets = PoolRealArray( 0, 0.628931, 0.965409 )
-colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.727738, 0.306904, 1, 1, 0.74902, 0.321569, 1 )
+[sub_resource type="Gradient" id=18]
+offsets = PoolRealArray( 0, 0.541899 )
+colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.713726, 0.294118, 1 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
-width = 513
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
 
 [sub_resource type="ButtonGroup" id=9]
 
@@ -86,7 +85,15 @@ font_data = ExtResource( 17 )
 size = 8
 font_data = ExtResource( 18 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.628931, 0.965409 )
+colors = PoolColorArray( 1, 0.282353, 0, 1, 1, 0.727738, 0.306904, 1, 1, 0.74902, 0.321569, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 513
+
+[sub_resource type="DynamicFont" id=24]
 size = 8
 font_data = ExtResource( 16 )
 
@@ -255,16 +262,13 @@ align = 0
 margin_right = 105.0
 margin_bottom = 29.0
 mouse_filter = 2
-texture = SubResource( 8 )
+texture = SubResource( 19 )
 expand = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Toolbar"]
 modulate = Color( 0.905882, 0.898039, 1, 1 )
 margin_right = 101.0
 margin_bottom = 25.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ToolbarButtons" type="HBoxContainer" parent="CanvasLayer/Toolbar"]
 margin_left = 4.0
@@ -693,7 +697,7 @@ margin_left = 3.0
 margin_top = 252.0
 margin_right = 55.0
 margin_bottom = 282.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 24 )
 text = "Grass"
 align = 1
 valign = 1
@@ -751,10 +755,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 15 )
-margin_left = -13.5
-margin_top = -13.5
-margin_right = 514.5
-margin_bottom = 290.5
+margin_left = -8.75
+margin_top = -8.75
+margin_right = 519.25
+margin_bottom = 295.25
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -768,10 +772,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 15 )
-margin_left = -31.5
-margin_top = -0.5
-margin_right = 240.5
-margin_bottom = 159.5
+margin_left = -8.25
+margin_top = -23.75
+margin_right = 263.75
+margin_bottom = 136.25
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true

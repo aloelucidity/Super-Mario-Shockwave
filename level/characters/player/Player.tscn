@@ -1063,7 +1063,7 @@ accel = 12.0
 [node name="Jab" type="Node" parent="States"]
 script = ExtResource( 82 )
 priority = 4
-blacklisted_states = [ "HammerSpin", "Kick", "GroundPoundJump" ]
+blacklisted_states = [ "HammerSpin", "Kick", "GroundPoundJump", "Dive" ]
 animation = "jab1"
 override_scale = true
 disable_movement = true
@@ -1281,7 +1281,7 @@ raycast_path = NodePath("../RegRaycasts/Ground")
 visible = false
 scale = Vector2( 1.75, 1.75 )
 frames = SubResource( 89 )
-frame = 1
+frame = 5
 playing = true
 
 [connection signal="area_entered" from="PlayerCollider" to="PlayerCollider" method="area_entered"]

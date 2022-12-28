@@ -22,8 +22,7 @@ func _ready():
 	level.load_level(decode)
 	Globals.level = level
 	
-	for i in range(Multi.player_ids.size() + 1):
-		var player = spawn_player()
+	spawn_player()
 	spawn_camera()
 	load_background(camera)
 	load_hud()
