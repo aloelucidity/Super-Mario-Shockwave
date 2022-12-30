@@ -2,71 +2,38 @@ extends ScrollContainer
 
 var level
 var object_path = "res://level/backgrounds"
-onready var container = $Control
-onready var int_property = preload("res://level/editor/properties/IntProperty.tscn")
-onready var int_property_2 = preload("res://level/editor/properties/IntProperty2.tscn")
-onready var float_property = preload("res://level/editor/properties/FloatProperty.tscn")
-
-onready var background_map = preload("res://level/backgrounds/background/IDMap.tres")
-onready var foreground_map = preload("res://level/backgrounds/foreground/IDMap.tres")
-onready var effect_map = preload("res://level/backgrounds/effects/IDMap.tres")
+onready var container = $VBoxContainer
+onready var line_property = preload("res://level/editor/properties/LineProperty.tscn")
+onready var string_property = preload("res://level/editor/properties/StringProperty.tscn")
 
 func get_property(key : String):
-	return level.get_area(0)[key]
+	return level[key]
 
 func set_property(key : String, new_value):
-	level.get_area(0)[key] = new_value
+	level[key] = new_value
 
 func open(_level : Level):
 	for child in container.get_children():
 		child.queue_free()
 	level = _level
-	add_music_id()
-	add_music_volume()
-	add_backgrounds()
-	add_foregrounds()
-	add_effects()
+	add_level_name()
+	add_level_author()
+	add_level_description()
 
-func add_music_id():
-	var property = int_property_2.instance()
-	var params = [
-		-1, 
-		INF,
-		1
-	]
-	property.load_property(self, "music_id", "Audio ID (NG)", params)
+func add_level_name():
+	var property = line_property.instance()
+	var params = []
+	property.load_property(self, "level_name", "Level Name", params)
 	container.add_child(property)
 
-func add_music_volume():
-	var property = float_property.instance()
-	var params = [
-		-80, 
-		24,
-		0.5
-	]
-	property.load_property(self, "music_volume", "Audio Volume (dB)", params)
+func add_level_author():
+	var property = line_property.instance()
+	var params = []
+	property.load_property(self, "level_author", "Level Author", params)
 	container.add_child(property)
 
-func add_backgrounds():
-	var property = int_property.instance()
-	var params = [
-		background_map.ids.size()
-	]
-	property.load_property(self, "background_id", "Sky", params)
-	container.add_child(property)
-
-func add_foregrounds():
-	var property = int_property.instance()
-	var params = [
-		foreground_map.ids.size()
-	]
-	property.load_property(self, "foreground_id", "Backdrop", params)
-	container.add_child(property)
-
-func add_effects():
-	var property = int_property.instance()
-	var params = [
-		effect_map.ids.size()
-	]
-	property.load_property(self, "effect_id", "Effects", params)
+func add_level_description():
+	var property = string_property.instance()
+	var params = []
+	property.load_property(self, "level_description", "Level Description", params)
 	container.add_child(property)

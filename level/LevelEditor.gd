@@ -8,7 +8,8 @@ onready var property_logic = $CanvasLayer/Properties/PropertyLogic
 onready var code_window = $CanvasLayer/LevelCode
 onready var code_handler = $CanvasLayer/LevelCode/CodeHandler
 onready var settings_window = $CanvasLayer/LevelSettings
-onready var backgrounds = $CanvasLayer/LevelSettings/Backgrounds
+onready var area_settings = $CanvasLayer/LevelSettings/Area
+onready var level_settings = $CanvasLayer/LevelSettings/Level
 onready var icon = $CanvasLayer/Icon
 onready var mouse_area = $MouseArea
 var zoom = Vector2(1, 1)
@@ -44,6 +45,7 @@ func _ready():
 		code = file.get_as_text()
 	
 	var decode = LevelCode.decode_level(code)
+	level.current_mode = 1
 	level.load_level(decode)
 	Globals.level = level
 
@@ -57,16 +59,18 @@ func open_code():
 func open_settings():
 	if !settings_window.visible:
 		settings_window.open()
-		backgrounds.open(level)
+		area_settings.open(level)
+		level_settings.open(level)
 	else:
 		settings_window.close()
 
 func test_level():
 	Globals.code = LevelCode.encode_level(level.save_level())
+	Globals.exit_to = "res://level/LevelEditor.tscn"
 	var _scene = get_tree().change_scene_to(preload("res://level/LevelPlayer.tscn"))
 
 func quit():
-	get_tree().quit()
+	var _scene = get_tree().change_scene_to(load("res://menu/LevelStudio.tscn"))
 
 func _input(event):
 	if event.is_action_pressed("click") && !is_instance_valid(selected_object) && !is_ui:

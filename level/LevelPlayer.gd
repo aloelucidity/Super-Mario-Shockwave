@@ -33,7 +33,7 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("test_level") && !Input.is_action_pressed("fullscreen"):
-		var _a = get_tree().change_scene_to(load("res://level/LevelEditor.tscn"))
+		var _a = get_tree().change_scene_to(load(Globals.exit_to))
 
 func load_music(level):
 	get_node("Globals").volume = level.get_area(0).music_volume

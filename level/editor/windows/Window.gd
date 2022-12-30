@@ -11,6 +11,7 @@ func _enter_tree():
 func open():
 	visible = true
 	rect_position = Vector2(80, 78)
+	$Close.rect_position.x = (rect_size.x - $Close.rect_size.x) + 3
 
 func close():
 	visible = false

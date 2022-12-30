@@ -51,8 +51,11 @@ func load_object():
 	add_child(scene)
 	
 	var hitbox = scene.get_node("EditorHitbox")
-	scene.remove_child(hitbox)
-	add_child(hitbox)
+	if current_mode == 1:
+		scene.remove_child(hitbox)
+		add_child(hitbox)
+	else:
+		hitbox.queue_free()
 	
 	top = scene.get_node("Top")
 	top_start = scene.get_node("TopStart")

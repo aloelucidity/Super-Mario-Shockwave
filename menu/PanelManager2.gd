@@ -26,3 +26,12 @@ func open_panel(new_panel):
 		current_panel = new_panel
 		
 		transitioning = false
+
+		if new_panel.name == "Levels":
+			$Levels/SavedLevels.load_levels()
+
+func quit():
+	transitioning = true
+	animation_player.play("close_" + current_panel.name)
+	yield(animation_player, "animation_finished")
+	get_tree().quit()

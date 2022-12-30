@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://level/backgrounds/background/dusk/material.tres" type="Material" id=1]
 [ext_resource path="res://level/backgrounds/background/filters.gd" type="Script" id=2]
-
+[ext_resource path="res://level/backgrounds/background/dusk/coolskhy_pixel.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 2 )
 fg_tint = Color( 0.819608, 0.772549, 0.772549, 1 )
 shader_material = ExtResource( 1 )
+thumbnail_texture = ExtResource( 3 )

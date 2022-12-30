@@ -11,6 +11,7 @@ export var background_id : int
 export var foreground_id : int
 export var effect_id : int
 
+var current_mode : int = 1
 var objects_node
 
 func save_area():
@@ -50,6 +51,7 @@ func add_object(data : Dictionary, add_to_data : bool = false):
 	var obj_name = id_map.ids[data.type_id]
 	var obj_instance = Node2D.new()
 	obj_instance.set_script(load("res://level/objects/" + obj_name +  "/" + obj_name + ".gd"))
+	obj_instance.current_mode = current_mode
 	obj_instance.load_properties(data)
 	obj_instance.load_object()
 	objects_node.add_child(obj_instance)

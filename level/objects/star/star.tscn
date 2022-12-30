@@ -167,7 +167,7 @@ anim_speed = 1.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
-frame = 15
+frame = 9
 playing = true
 
 [node name="EditorHitbox" type="Area2D" parent="."]

@@ -72,9 +72,6 @@ focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
 text = "X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="mouse_entered" from="DragArea" to="." method="mouse_entered"]
 [connection signal="mouse_exited" from="DragArea" to="." method="mouse_exited"]

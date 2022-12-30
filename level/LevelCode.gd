@@ -169,6 +169,15 @@ static func encode_value(value) -> String:
 	return ""
 
 # DECODE
+static func get_lvl_info(data: String):
+	var level = {}
+	var level_array = data.split("@")
+	var properties_array = level_array[0].split(",")
+	for property in properties_array:
+		var decoded = decode_property(property)
+		level[decoded[0]] = decoded[1]
+	return level
+
 static func decode_level(data: String):
 	var level = {}
 	var level_array = data.split("@")

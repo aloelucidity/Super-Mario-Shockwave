@@ -1,17 +1,19 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://menu/coolbutton.gd" type="Script" id=1]
 [ext_resource path="res://fonts/MarioAndLuigi-0v99.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://music/aez.ogg" type="AudioStream" id=3]
 [ext_resource path="res://menu/assets/grid.png" type="Texture" id=4]
-[ext_resource path="res://level/backgrounds/background/dusk/coolskhy_pixel.png" type="Texture" id=5]
-[ext_resource path="res://level/backgrounds/background/night/sky_night_pixel.png" type="Texture" id=6]
+[ext_resource path="res://menu/assets/white.png" type="Texture" id=5]
+[ext_resource path="res://menu/LevelInfo.gd" type="Script" id=6]
 [ext_resource path="res://fonts/arialbd.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://fonts/ariali.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://level/objects/star/star.png" type="Texture" id=9]
 [ext_resource path="res://menu/hover.gd" type="Script" id=10]
 [ext_resource path="res://menu/PanelManager.gd" type="Script" id=11]
 [ext_resource path="res://menu/PanelManager2.gd" type="Script" id=12]
+[ext_resource path="res://menu/CreateLevel.gd" type="Script" id=13]
+[ext_resource path="res://menu/holdablehover.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=70]
 resource_name = "close_Levels"
@@ -271,6 +273,46 @@ expand_margin_right = 8.0
 expand_margin_top = 24.0
 expand_margin_bottom = 8.0
 
+[sub_resource type="Animation" id=75]
+resource_name = "close_CreateLevel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CreateLevel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CreateLevel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CreateLevel:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
 [sub_resource type="Animation" id=63]
 resource_name = "close_LevelInfo"
 length = 0.4
@@ -349,6 +391,58 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=76]
+resource_name = "open_CreateLevel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CreateLevel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CreateLevel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CreateLevel:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CreateLevel/TextEdit:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
 }
 
 [sub_resource type="Animation" id=65]
@@ -450,10 +544,6 @@ fill_to = Vector2( 0, 1 )
 [sub_resource type="StyleBoxTexture" id=69]
 texture = SubResource( 68 )
 region_rect = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="DynamicFont" id=24]
-size = 9
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=32]
 size = 12
@@ -590,6 +680,10 @@ animations = [ {
 size = 10
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=74]
+size = 7
+font_data = ExtResource( 7 )
+
 [node name="LevelStudio" type="Node2D"]
 script = ExtResource( 12 )
 starting_path = NodePath("Main")
@@ -602,6 +696,7 @@ anims/open_Main = SubResource( 73 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -4.0
 autoplay = true
 bus = "Music"
 
@@ -625,7 +720,7 @@ __meta__ = {
 }
 
 [node name="Light2D2" type="Light2D" parent="BG"]
-position = Vector2( -8, -8 )
+position = Vector2( -10.5, -10.5 )
 texture = ExtResource( 4 )
 offset = Vector2( 272, 160 )
 mode = 3
@@ -637,7 +732,7 @@ __meta__ = {
 speed = 0.5
 
 [node name="Light2D" type="Light2D" parent="BG"]
-position = Vector2( -28.8, -28.8 )
+position = Vector2( -16, -16 )
 texture = ExtResource( 4 )
 offset = Vector2( 272, 160 )
 mode = 3
@@ -787,6 +882,7 @@ float_speed = 1.0
 rot_amount = 2.0
 rot_speed = 1.5
 time_offset = 1.773
+can_press = true
 
 [node name="ColorRect" type="ColorRect" parent="Main/Button3"]
 margin_right = 75.0
@@ -830,8 +926,10 @@ script = ExtResource( 11 )
 starting_path = NodePath("Levels")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/SavedLevels"]
+anims/close_CreateLevel = SubResource( 75 )
 anims/close_LevelInfo = SubResource( 63 )
 anims/close_Levels = SubResource( 64 )
+anims/open_CreateLevel = SubResource( 76 )
 anims/open_LevelInfo = SubResource( 65 )
 anims/open_Levels = SubResource( 66 )
 
@@ -872,205 +970,9 @@ rect_pivot_offset = Vector2( 222, 104 )
 size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="Levels/SavedLevels/Levels"]
-margin_right = 444.0
-margin_bottom = 160.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 4
 columns = 4
-
-[node name="Level" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_right = 108.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Follow the Path"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Level3" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_left = 112.0
-margin_right = 220.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level3"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level3"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Follow the Path"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Level2" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_left = 224.0
-margin_right = 332.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level2"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level2"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Shattered Tower"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Level4" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_left = 336.0
-margin_right = 444.0
-margin_bottom = 78.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level4"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level4"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Follow the Path"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Level5" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_top = 82.0
-margin_right = 108.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level5"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level5"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Shattered Tower"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Level6" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_left = 112.0
-margin_top = 82.0
-margin_right = 220.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="TextureRect" parent="Levels/SavedLevels/Levels/GridContainer/Level6"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level6"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Follow the Path"
-align = 1
-valign = 1
-clip_text = true
-
-[node name="Level7" type="Button" parent="Levels/SavedLevels/Levels/GridContainer"]
-margin_left = 224.0
-margin_top = 82.0
-margin_right = 332.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 108, 78 )
-focus_mode = 0
-action_mode = 0
-enabled_focus_mode = 0
-
-[node name="Icon" type="ColorRect" parent="Levels/SavedLevels/Levels/GridContainer/Level7"]
-margin_right = 108.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 108, 61 )
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="Levels/SavedLevels/Levels/GridContainer/Level7"]
-margin_top = 61.0
-margin_right = 108.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 24 )
-text = "Create New..."
-align = 1
-valign = 1
-clip_text = true
 
 [node name="LevelInfo" type="Control" parent="Levels/SavedLevels"]
 visible = false
@@ -1079,8 +981,9 @@ margin_right = 460.0
 margin_bottom = 224.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 230, 112 )
+script = ExtResource( 6 )
 
-[node name="TextureRect" type="TextureRect" parent="Levels/SavedLevels/LevelInfo"]
+[node name="Thumbnail" type="TextureRect" parent="Levels/SavedLevels/LevelInfo"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 158.0
@@ -1093,27 +996,27 @@ margin_left = 167.0
 margin_top = 12.0
 margin_right = 340.0
 margin_bottom = 64.0
-custom_constants/separation = 3
+custom_constants/separation = 2
 
-[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
+[node name="LevelName" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
 margin_right = 173.0
 margin_bottom = 18.0
 custom_fonts/font = SubResource( 28 )
-text = "Follow the Path"
+text = "My Level"
 
-[node name="Label2" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
-margin_top = 21.0
+[node name="LevelAuthor" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
+margin_top = 20.0
 margin_right = 173.0
-margin_bottom = 35.0
+margin_bottom = 34.0
 custom_fonts/font = SubResource( 32 )
-text = "Author: Chri_ti_03"
+text = "Author: Unknown"
 
-[node name="Label3" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
-margin_top = 38.0
+[node name="Completion" type="Label" parent="Levels/SavedLevels/LevelInfo/VBoxContainer"]
+margin_top = 36.0
 margin_right = 173.0
-margin_bottom = 52.0
+margin_bottom = 50.0
 custom_fonts/font = SubResource( 32 )
-text = "Completion: 50%"
+text = "Completion: 0%"
 
 [node name="Buttons" type="VBoxContainer" parent="Levels/SavedLevels/LevelInfo"]
 margin_left = 362.0
@@ -1122,7 +1025,7 @@ margin_right = 452.0
 margin_bottom = 89.0
 custom_constants/separation = 1
 
-[node name="Button" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+[node name="Play" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
 margin_right = 90.0
 margin_bottom = 20.0
 focus_mode = 0
@@ -1133,7 +1036,7 @@ action_mode = 0
 enabled_focus_mode = 0
 script = ExtResource( 10 )
 
-[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button"]
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Play"]
 modulate = Color( 0, 0.0392157, 1, 0.196078 )
 margin_left = 2.0
 margin_top = 2.0
@@ -1142,7 +1045,7 @@ margin_bottom = 18.0
 rect_pivot_offset = Vector2( 43, 8 )
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button"]
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Play"]
 margin_right = 90.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 55 )
@@ -1150,7 +1053,7 @@ text = "Play"
 align = 1
 valign = 1
 
-[node name="Button2" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+[node name="Edit" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
 margin_top = 21.0
 margin_right = 90.0
 margin_bottom = 41.0
@@ -1162,7 +1065,7 @@ action_mode = 0
 enabled_focus_mode = 0
 script = ExtResource( 10 )
 
-[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button2"]
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Edit"]
 modulate = Color( 0, 0.0392157, 1, 0.196078 )
 margin_left = 2.0
 margin_top = 2.0
@@ -1171,7 +1074,7 @@ margin_bottom = 18.0
 rect_pivot_offset = Vector2( 43, 8 )
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button2"]
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Edit"]
 margin_right = 90.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 55 )
@@ -1179,19 +1082,19 @@ text = "Edit"
 align = 1
 valign = 1
 
-[node name="Button3" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+[node name="CopyCode" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
 margin_top = 42.0
 margin_right = 90.0
 margin_bottom = 62.0
 focus_mode = 0
-custom_styles/hover = SubResource( 61 )
-custom_styles/pressed = SubResource( 61 )
-custom_styles/normal = SubResource( 61 )
+custom_styles/hover = SubResource( 58 )
+custom_styles/pressed = SubResource( 58 )
+custom_styles/normal = SubResource( 58 )
 action_mode = 0
 enabled_focus_mode = 0
 script = ExtResource( 10 )
 
-[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button3"]
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/CopyCode"]
 modulate = Color( 0, 0.0392157, 1, 0.196078 )
 margin_left = 2.0
 margin_top = 2.0
@@ -1200,15 +1103,15 @@ margin_bottom = 18.0
 rect_pivot_offset = Vector2( 43, 8 )
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button3"]
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/CopyCode"]
 margin_right = 90.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 55 )
-text = "Reset save"
+text = "Copy code"
 align = 1
 valign = 1
 
-[node name="Button4" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
+[node name="Delete" type="Button" parent="Levels/SavedLevels/LevelInfo/Buttons"]
 margin_top = 63.0
 margin_right = 90.0
 margin_bottom = 83.0
@@ -1218,9 +1121,11 @@ custom_styles/pressed = SubResource( 61 )
 custom_styles/normal = SubResource( 61 )
 action_mode = 0
 enabled_focus_mode = 0
-script = ExtResource( 10 )
+script = ExtResource( 14 )
+label_text = "Delete"
+hold_time = 3.0
 
-[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Button4"]
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/LevelInfo/Buttons/Delete"]
 modulate = Color( 0, 0.0392157, 1, 0.196078 )
 margin_left = 2.0
 margin_top = 2.0
@@ -1229,7 +1134,7 @@ margin_bottom = 18.0
 rect_pivot_offset = Vector2( 43, 8 )
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Button4"]
+[node name="Label" type="Label" parent="Levels/SavedLevels/LevelInfo/Buttons/Delete"]
 margin_right = 90.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 55 )
@@ -1240,7 +1145,7 @@ valign = 1
 [node name="Stars" type="AnimatedSprite" parent="Levels/SavedLevels/LevelInfo"]
 position = Vector2( 167, 64 )
 frames = SubResource( 50 )
-frame = 11
+frame = 1
 playing = true
 centered = false
 
@@ -1250,16 +1155,109 @@ margin_top = 6.0
 margin_right = 92.0
 margin_bottom = 24.0
 custom_fonts/font = SubResource( 28 )
-text = "1/2"
+text = "0/0"
 valign = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Levels/SavedLevels/LevelInfo"]
+[node name="Description" type="RichTextLabel" parent="Levels/SavedLevels/LevelInfo"]
 margin_left = 8.0
 margin_top = 94.0
 margin_right = 452.0
 margin_bottom = 217.0
 custom_fonts/normal_font = SubResource( 33 )
-text = "Well this is my first level, this editor really got me again into level designing lol. Here's the code: https://pastebin.com/JSi5ej4v"
+text = "This level does not have a description."
+
+[node name="CreateLevel" type="Control" parent="Levels/SavedLevels"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 460.0
+margin_bottom = 224.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 230, 112 )
+script = ExtResource( 13 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels/SavedLevels/CreateLevel"]
+margin_left = 9.0
+margin_top = 10.0
+margin_right = 446.0
+margin_bottom = 30.0
+custom_constants/separation = 4
+
+[node name="NewLevel" type="Button" parent="Levels/SavedLevels/CreateLevel/HBoxContainer"]
+margin_right = 90.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 20 )
+focus_mode = 0
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 54 )
+custom_styles/normal = SubResource( 54 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/CreateLevel/HBoxContainer/NewLevel"]
+modulate = Color( 0, 0.0392157, 1, 0.196078 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 43, 8 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/CreateLevel/HBoxContainer/NewLevel"]
+margin_right = 90.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 55 )
+text = "New level"
+align = 1
+valign = 1
+
+[node name="ImportLevel" type="Button" parent="Levels/SavedLevels/CreateLevel/HBoxContainer"]
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 20 )
+focus_mode = 0
+custom_styles/hover = SubResource( 58 )
+custom_styles/pressed = SubResource( 58 )
+custom_styles/normal = SubResource( 58 )
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="Levels/SavedLevels/CreateLevel/HBoxContainer/ImportLevel"]
+modulate = Color( 0, 0.0392157, 1, 0.196078 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 43, 8 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Levels/SavedLevels/CreateLevel/HBoxContainer/ImportLevel"]
+margin_right = 90.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 55 )
+text = "Import code"
+align = 1
+valign = 1
+
+[node name="TextEdit" type="TextEdit" parent="Levels/SavedLevels/CreateLevel"]
+margin_left = 9.0
+margin_top = 30.0
+margin_right = 451.0
+margin_bottom = 217.0
+custom_colors/font_color = Color( 0.572549, 0.572549, 0.572549, 1 )
+custom_fonts/font = SubResource( 74 )
+wrap_enabled = true
 
 [connection signal="pressed" from="Main/Button" to="." method="open_panel_by_path" binds= [ "Levels" ]]
+[connection signal="pressed" from="Main/Button3" to="." method="quit"]
 [connection signal="pressed" from="Levels/SavedLevels/Back" to="Levels/SavedLevels" method="go_back"]
+[connection signal="pressed" from="Levels/SavedLevels/LevelInfo/Buttons/Play" to="Levels/SavedLevels/LevelInfo" method="play_level"]
+[connection signal="pressed" from="Levels/SavedLevels/LevelInfo/Buttons/Edit" to="Levels/SavedLevels/LevelInfo" method="edit_level"]
+[connection signal="pressed" from="Levels/SavedLevels/LevelInfo/Buttons/CopyCode" to="Levels/SavedLevels/LevelInfo" method="copy_code"]
+[connection signal="button_down" from="Levels/SavedLevels/LevelInfo/Buttons/Delete" to="Levels/SavedLevels/LevelInfo/Buttons/Delete" method="button_down"]
+[connection signal="button_up" from="Levels/SavedLevels/LevelInfo/Buttons/Delete" to="Levels/SavedLevels/LevelInfo/Buttons/Delete" method="button_up"]
+[connection signal="time_up" from="Levels/SavedLevels/LevelInfo/Buttons/Delete" to="Levels/SavedLevels/LevelInfo" method="delete_level"]
+[connection signal="pressed" from="Levels/SavedLevels/CreateLevel/HBoxContainer/NewLevel" to="Levels/SavedLevels/CreateLevel" method="new_level"]
+[connection signal="pressed" from="Levels/SavedLevels/CreateLevel/HBoxContainer/ImportLevel" to="Levels/SavedLevels/CreateLevel" method="import_level" binds= [ "" ]]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://level/editor/properties/StringProperty.gd" type="Script" id=2]
+[ext_resource path="res://misc/stupid_lineedit_workaround.gd" type="Script" id=3]
+
+[node name="LineProperty" type="Control"]
+margin_right = 156.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 144.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Property"
+align = 1
+valign = 1
+
+[node name="TextEdit" type="LineEdit" parent="."]
+margin_top = 16.0
+margin_right = 144.0
+margin_bottom = 36.0
+text = "test"
+script = ExtResource( 3 )
+
+[connection signal="focus_exited" from="TextEdit" to="." method="focus_exited"]

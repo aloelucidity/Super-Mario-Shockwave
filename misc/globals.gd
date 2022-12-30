@@ -1,6 +1,8 @@
 extends Node
 
 export var code = ""
+export var level_path = ""
+export var exit_to = "res://level/LevelEditor.tscn"
 onready var control = Control.new()
 
 var muted

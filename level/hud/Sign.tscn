@@ -179,10 +179,12 @@ tracks/5/keys = {
 
 [node name="Sign" type="Control"]
 pause_mode = 2
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 138.5
-margin_top = 64.5
+margin_top = 69.5
 margin_right = 373.5
-margin_bottom = 223.5
+margin_bottom = 228.5
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 117, 79 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -191,6 +193,7 @@ __meta__ = {
 cooldown_time = 0.5
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 117, 79 )
@@ -204,6 +207,7 @@ __meta__ = {
 }
 
 [node name="Hint" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 143.0
 margin_right = 235.0
 margin_bottom = 159.0
@@ -218,9 +222,8 @@ __meta__ = {
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
 margin_left = 5.0
-margin_top = 5.0
 margin_right = 230.0
-margin_bottom = 138.0
+margin_bottom = 133.0
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "This is a sign. Click on it in the editor to change this message."

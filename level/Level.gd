@@ -10,6 +10,7 @@ export var thumbnail_url : String
 export(Array, Dictionary) var area_data
 var area_node
 
+var current_mode : int
 var persistent_data : Dictionary = {
 	"current_area": 0,
 	"coins": 0
@@ -25,11 +26,17 @@ func collect_coin(amount : int = 1):
 
 func stop_music():
 	get_parent().get_node("Globals").stop_music()
-	
+
 func hide_hud():
 	get_parent().get_node("HUD").visible = false
 
 func save_level():
+	var bg_map = preload("res://level/backgrounds/background/IDMap.tres")
+	if thumbnail_url == "" || thumbnail_url.begins_with("res://"):
+		var bg_id = get_area(0).background_id
+		var bg_key = bg_map.ids[bg_id]
+		thumbnail_url = load("res://level/backgrounds/background/" + bg_key + "/filters.tres").thumbnail_texture.resource_path
+	
 	var data = {
 		"game_version": game_version,
 		"level_name": level_name,
@@ -59,6 +66,7 @@ func load_level(data : Dictionary = {}):
 	var area_node = Node.new()
 	area_node.name = str(persistent_data.current_area)
 	area_node.set_script(preload("res://level/LevelArea.gd"))
+	area_node.current_mode = current_mode
 	area_node.load_area(area_data[persistent_data.current_area])
 	add_child(area_node)
 
