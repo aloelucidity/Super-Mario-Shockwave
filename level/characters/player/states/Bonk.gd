@@ -13,11 +13,8 @@ export var bonk_power : Vector2
 var direction : int = 1
 var sprite
 
-func is_wall():
-	return character.test_move(character.get_transform(), Vector2(character.facing_direction * 2, 0))
-
 func _start_check(delta):
-	return character.state == dive_state && is_wall() && !character.grounded
+	return character.state == dive_state && character.is_wall(character.facing_direction) && !character.grounded
 
 func _start(delta):
 	direction = character.facing_direction

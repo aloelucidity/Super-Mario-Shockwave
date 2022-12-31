@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://level/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://level/MouseArea.gd" type="Script" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://music/295950_xKore___Moments__ver_2_mix.mp3" type="AudioStream" id=41]
 [ext_resource path="res://level/editor/windows/AreaSettings.gd" type="Script" id=42]
 [ext_resource path="res://level/editor/windows/SettingsHBox.gd" type="Script" id=43]
+[ext_resource path="res://level/editor/properties/Reorder.tscn" type="PackedScene" id=44]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -499,15 +500,15 @@ margin_bottom = 189.09
 follow_focus = true
 scroll_horizontal_enabled = false
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Control" type="VBoxContainer" parent="CanvasLayer/Properties/PropertyLogic"]
 margin_right = 156.0
+margin_bottom = 28.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 0
+
+[node name="Reorder" parent="CanvasLayer/Properties/PropertyLogic/Control" instance=ExtResource( 44 )]
 
 [node name="LevelCode" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false
@@ -805,10 +806,10 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.937255, 0.498039, 0.498039, 0.0235294 )
 material = SubResource( 15 )
-margin_left = -12.25
-margin_top = -12.25
-margin_right = 515.75
-margin_bottom = 291.75
+margin_left = -15.5
+margin_top = -15.5
+margin_right = 512.5
+margin_bottom = 288.5
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
@@ -822,10 +823,10 @@ speed = 0.25
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer3"]
 self_modulate = Color( 0.498039, 0.513726, 0.937255, 0.0156863 )
 material = SubResource( 15 )
-margin_left = -11.0
-margin_top = -21.0
-margin_right = 261.0
-margin_bottom = 139.0
+margin_left = -2.25
+margin_top = -29.75
+margin_right = 269.75
+margin_bottom = 130.25
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 expand = true

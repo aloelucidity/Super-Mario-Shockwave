@@ -115,6 +115,7 @@ func _general_update(delta):
 	&& character.grounded
 	&& !interactable_detector.get_overlapping_areas().size() > 0
 	&& (character.state == null || !character.state.name in blacklisted_states)
+	&& character.ground_type != 1
 	):
 		attack_timer = 0.2
 	if attack_timer > 0:

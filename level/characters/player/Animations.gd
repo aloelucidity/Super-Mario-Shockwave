@@ -12,6 +12,12 @@ export var lerp_speed : float
 
 # todo: rewrite
 func update(delta):
+	if !is_instance_valid(character.state) && character.ground_type == 1:
+		sprite.animation = "slippery"
+		sprite.speed_scale = 1
+		sprite.flip_h = (character.facing_direction == -1)
+		return
+	
 	if !is_instance_valid(character.state) || character.state.animation == "":
 		if abs(character.velocity.x) > 0 && sprite.animation != "move" && character.grounded:
 			sprite.play("move")

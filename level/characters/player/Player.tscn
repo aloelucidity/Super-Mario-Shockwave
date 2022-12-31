@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=2]
+[gd_scene load_steps=190 format=2]
 
 [ext_resource path="res://level/characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://level/characters/player/mario/run.png" type="Texture" id=2]
@@ -82,6 +82,7 @@
 [ext_resource path="res://level/characters/player/sounds/misc/hitweak.mp3" type="AudioStream" id=80]
 [ext_resource path="res://level/characters/player/mario/jabcombo.png" type="Texture" id=81]
 [ext_resource path="res://level/characters/player/states/Jab.gd" type="Script" id=82]
+[ext_resource path="res://level/characters/player/mario/slippery.png" type="Texture" id=83]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 8 )
@@ -471,6 +472,16 @@ flags = 2
 atlas = ExtResource( 66 )
 region = Rect2( 112, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=120]
+flags = 2
+atlas = ExtResource( 83 )
+region = Rect2( 0, 0, 49, 48 )
+
+[sub_resource type="AtlasTexture" id=121]
+flags = 2
+atlas = ExtResource( 83 )
+region = Rect2( 49, 0, 49, 48 )
+
 [sub_resource type="AtlasTexture" id=72]
 flags = 2
 atlas = ExtResource( 64 )
@@ -622,6 +633,11 @@ animations = [ {
 "loop": true,
 "name": "roll",
 "speed": 24.0
+}, {
+"frames": [ SubResource( 120 ), SubResource( 121 ) ],
+"loop": true,
+"name": "slippery",
+"speed": 18.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
@@ -896,6 +912,7 @@ overshoot_accel = 4.0
 friction = 24.0
 air_friction = 1.15
 walk_speed = 275.0
+ice_speed = 200.0
 
 [node name="Animations" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -1266,8 +1283,8 @@ disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 38 )
-animation = "hammer"
-frame = 5
+animation = "slippery"
+frame = 1
 playing = true
 script = ExtResource( 5 )
 __meta__ = {
@@ -1281,7 +1298,6 @@ raycast_path = NodePath("../RegRaycasts/Ground")
 visible = false
 scale = Vector2( 1.75, 1.75 )
 frames = SubResource( 89 )
-frame = 5
 playing = true
 
 [connection signal="area_entered" from="PlayerCollider" to="PlayerCollider" method="area_entered"]

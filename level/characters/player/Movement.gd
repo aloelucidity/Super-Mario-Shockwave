@@ -8,6 +8,7 @@ export(float) var friction
 export(float) var air_friction
 
 export(float) var walk_speed
+export(float) var ice_speed
 
 onready var character = get_parent()
 var direction : int
@@ -28,6 +29,12 @@ func increment_towards(start, target, increment):
 func handle_movement():
 	if character.state != null && character.state.disable_movement:
 		direction = 0
+		return
+	if character.ground_type == 1:
+		direction = 0
+		if abs(character.velocity.x) < ice_speed:
+			character.velocity.x += character.facing_direction # to stop him from just staying still
+			character.velocity.x = ice_speed * sign(character.velocity.x)
 		return
 	
 	direction = 0
@@ -55,6 +62,7 @@ func handle_movement():
 			)
 
 func handle_friction():
+	if character.ground_type == 1: return
 	if character.grounded:
 		if direction == 0:
 			character.velocity.x = increment_towards(character.velocity.x, 0, friction)

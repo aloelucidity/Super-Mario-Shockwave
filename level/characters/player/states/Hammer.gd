@@ -81,6 +81,9 @@ func _update(delta):
 
 func _stop(_delta):
 	priority = 4
+	hit = true
+	# for some reason if i dont do this it doesnt actually disable
+	yield(get_tree().create_timer(0.15), "timeout")
 	hitbox.disabled = true
 
 func _stop_check(_delta):
@@ -89,7 +92,6 @@ func _stop_check(_delta):
 func attack_connected(_area):
 	effects.hit_effect(zoom_amount, time_scale, lerp_speed, attack_shake_intensity)
 	effects.hit_sound()
-	_stop(0)
 	character.set_state_by_name("Jump", 0)
 
 func _general_update(delta):

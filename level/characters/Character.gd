@@ -18,6 +18,8 @@ var controllable : bool = true
 # collisions
 var grounded : bool
 var ground_type : int
+var wall_type : int
+var standing_on
 
 var last_state
 var state
@@ -51,6 +53,15 @@ func process_collisions(_delta):
 					ground_type = contact_node.ground_type
 				else:
 					ground_type = 0
+	if !grounded:
+		ground_type = 0
+
+func is_wall(direction : int):
+	var collision = move_and_collide(Vector2(direction * 2, 0), true, true, true)
+	var collided = is_instance_valid(collision)
+	if collided && "ground_type" in collision.collider:
+		wall_type = collision.collider.ground_type
+	return collided
 
 func gravity_multiplier():
 	var multiplier = 1

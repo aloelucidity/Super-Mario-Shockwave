@@ -20,10 +20,18 @@ func load_object():
 	loaded = true
 	return self
 
+func get_ground_type():
+	match int(properties.texture_id):
+		8:
+			return 1
+	return 0
+
 func create_terrain():
 	terrain = SS2D_Shape_Closed.new()
 	collision = CollisionPolygon2D.new()
 	body = KinematicBody2D.new()
+	body.set_script(preload("res://level/objects/terrain/body.gd"))
+	body.ground_type = get_ground_type()
 	
 	var texture_map = preload("res://level/objects/terrain/textures/IDMap.tres")
 	var texture_key = texture_map.ids[properties.texture_id]

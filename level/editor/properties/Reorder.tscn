@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://level/editor/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://level/editor/properties/Reorder.gd" type="Script" id=2]
+
+[node name="Reorder" type="Control"]
+margin_right = 156.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 0, 23 )
+script = ExtResource( 2 )
+
+[node name="Back" type="Button" parent="."]
+margin_right = 72.0
+margin_bottom = 22.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "To Back"
+
+[node name="Front" type="Button" parent="."]
+margin_left = 72.0
+margin_right = 144.0
+margin_bottom = 22.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "To Front"
+
+[connection signal="pressed" from="Back" to="." method="to_back"]
+[connection signal="pressed" from="Front" to="." method="to_front"]

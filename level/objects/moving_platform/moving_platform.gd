@@ -100,24 +100,24 @@ func set_property(key : String, new_value):
 		platform.set_property(key, new_value)
 
 func _physics_process(delta):
-	# match statement REFUSED to work for some reason
-	if properties.move_type == 1:
-		path_follow.offset += properties.speed
-	elif properties.move_type == 2:
-		if moving:
+	match int(properties.move_type):
+		1:
 			path_follow.offset += properties.speed
-		if path_follow.unit_offset == 1 && !ready:
-			moving = false
-			platform.modulate.a = lerp(platform.modulate.a, 0, delta * 6)
-			if platform.modulate.a <= 0.05:
-				path_follow.unit_offset = properties.start_offset
-				ready = true
-		if ready || moving:
-			platform.modulate.a = lerp(platform.modulate.a, 1, delta * 6)
-	elif properties.move_type == 3:
-		path_follow.offset += properties.speed * direction
-		if (path_follow.unit_offset == 1 && direction == 1) || (path_follow.unit_offset == 0 && direction == -1):
-			direction = -direction
+		2:
+			if moving:
+				path_follow.offset += properties.speed
+			if path_follow.unit_offset == 1 && !ready:
+				moving = false
+				platform.modulate.a = lerp(platform.modulate.a, 0, delta * 6)
+				if platform.modulate.a <= 0.05:
+					path_follow.unit_offset = properties.start_offset
+					ready = true
+			if ready || moving:
+				platform.modulate.a = lerp(platform.modulate.a, 1, delta * 6)
+		3:
+			path_follow.offset += properties.speed * direction
+			if (path_follow.unit_offset == 1 && direction == 1) || (path_follow.unit_offset == 0 && direction == -1):
+				direction = -direction
 	
 	platform.position = path_follow.position
 	if current_mode == 1:

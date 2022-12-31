@@ -16,9 +16,6 @@ func is_bump(delta):
 	else:
 		return false
 
-func is_wall():
-	return character.test_move(character.get_transform(), Vector2(character.facing_direction * 2, 0))
-
 func _start_check(delta):
 	return jump_checks(delta) && slide_checks()
 
@@ -37,7 +34,7 @@ func _stop_check(_delta):
 	return wall_timer <= 0 || character.grounded
 
 func _general_update(delta):
-	if is_wall():
+	if character.is_wall(character.facing_direction) && character.wall_type != 1:
 		if wall_timer <= 0:
 			direction = character.facing_direction
 		wall_timer = wall_grace
